@@ -36,7 +36,7 @@
         <div class="footer-information">
             <div class="footer-information_inner">
                 <div class="logo">
-                    <img src="https://cdn.pixabay.com/photo/2022/01/18/07/36/cat-6946498__340.jpg" alt="" class="logo-image">
+                    <img src="./public/image/logo.png" alt="" class="logo-image">
                     <p>Polytro.com tự hào là nơi cung cấp dịch vụ thuê trọ tốt nhất cho các bạn sinh viên</p>
                 </div>
                 <div class="about-us">

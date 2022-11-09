@@ -1,1 +1,2 @@
-<h1>Trang quản lí</h1>
+
+<h1>Trang quản trị</h1>
