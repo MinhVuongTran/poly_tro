@@ -1,1 +1,1 @@
-<h1>Trang chủ</h1>
+<?php require "partials/header.php"?>
