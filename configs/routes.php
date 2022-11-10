@@ -1,5 +1,5 @@
 <?php 
     $routes['default_controller'] = 'site';
     $routes['trang-chu'] = '/';
-    $routes['trang-quan-tri'] = '/admin';
+    $routes['quan-ly/tin-dang'] = '/account';
 ?>
