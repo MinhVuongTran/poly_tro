@@ -28,6 +28,7 @@ a {
     margin: 0 auto;
 }
 
+/* Header */
 .header {
   background-color: #fff;
 }
@@ -106,6 +107,7 @@ a {
   font-weight: 600;
 }
 
+/* footer */
 .footer{
     margin-top: 40px;
     font-size: 1.4rem;
@@ -200,6 +202,7 @@ a {
     padding: 40px 0;
 }   
 
+/* Home page */
 .clear {
   margin-bottom: 20px;
 }
@@ -251,12 +254,6 @@ font-weight: 600;
 
 }
 .stt img{
-  width: 40%;
-  height: 60%;
-  float: left;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px #CCC solid;
 }
 .stt a{
   font-size: 20px;
@@ -269,11 +266,11 @@ font-weight: 600;
   text-decoration: underline;
 }
 .boxcontent2{
-  /* border-left: 1px rgb(251, 75, 27) solid;
-  border-right: 1px rgb(251, 75, 27) solid;    */
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0 16px;
   background-color: #fff;
   border-top: 2px rgb(251, 75, 27) solid;
-  min-height: 200px;
   padding: 20px;
 }
 .boxsp{
@@ -296,22 +293,11 @@ font-weight: 600;
 .img img{
   height: 170px;
 }
-/* .menu2 ul b{
-font-size: 1rem;
-font-weight: 600;
-} */
 .menu2 ul{
   padding: 0px 0px;
   
 }
 .menu2 ul li{
-  /* border-radius: 3px;
-  margin-left: 8px;
-  padding: 5px 15px;
-  list-style: none;
-  display: inline;
-  border: 1px rgb(222, 207, 207) solid;
-  background-color: rgb(222, 207, 207); */
   display: inline-block;
   list-style-type: none;
   font-size: 1.4rem;
@@ -331,18 +317,14 @@ font-weight: 600;
 .menu2 ul li a:hover{
   background-color: var(--secondaryColor);
 }
-/* .formtk{
-  line-height: 150%;
-} */
 .menudoc ul{
   margin: 0px;
   list-style-type: none;
   padding: 0px;
 }
 .menudoc ul li{
-  padding: 10px 20px;
+  padding: 5px 20px;
   background-color: #fff;
-  /* border-bottom: 1px rgb(251, 75, 27) solid; */
 }
 .menudoc ul li a{
   color: #666;
@@ -350,17 +332,31 @@ font-weight: 600;
   font-size: 15px;
 }
 .menudoc ul li a:hover{
-  /* background-color: rgb(251, 75, 27); */
   color: rgb(251, 75, 27);
   text-decoration: none;
 }
+.newstt {
+  display: flex;
+  align-items: center;
+}
+
+.newstt-title {
+  margin-left: 14px;
+  line-height: 1;
+  font-size: 1.4rem;
+  color: #000;
+}
+
+.newstt-price {
+  display: block;
+  margin-top: 12px;
+}
+
 .newstt img{
-  width: 15%;
-  height: 37px;
-  float: left;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px #CCC solid;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 .newstt a{
   color: #666;
@@ -371,23 +367,174 @@ font-weight: 600;
   color: #000;
   text-decoration: underline;
 }
-.price{
+.content-title {
+  line-height: 1;
+}
+.content-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-img_link {
+  max-width: 240px;
+  object-fit: cover;
+}
+
+.content-body {
+  display: flex;
+  font-size: 1.6rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+.content-price,
+.newstt-price {
+  color: #16c784;
+  font-weight: 600;
+}
+.content-address{
+}
+.content-area{
+}
+.content-description{
+  color: #666;
+  font-size: 1.4rem;
+}
+.content-user {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+.content-user_avatar{
+}
+.content-user_avatar img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.content-user_name{
+  font-size: 1.6rem;
+  color: #666;
+  margin-left: 12px;
+}
+
+/* Account manage */
+.account-navbar{
+    background-color: var(--primaryColor);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .account-navbar--link{
+    font-weight: 600;
+    font-size: 2rem;
+    display: inline-block;
+
+}
+
+.account-navbar_item--link{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  color: #fff;
+  padding: 0 8px;
+}
+
+.account-navbar_list{
+  margin-left: 32px;
+}
+
+.account-navbar_item{
+  display: inline-block;
+  list-style-type: none;
+  font-size: 1.6rem;
+  transition: all 0.2s ease-in;
+}
+
+.account-navbar_item:hover {
+  background-color: var(--secondaryColor);
+}
+
+.account-content {
+}
+
+.account-sidebar{
+  position: fixed;
+  background-color: #f8f9fa; 
+  font-size: 1.6rem;
+  top: 50px;
+  bottom: 0;
+  padding: 20px;
+  width: 300px;
+  overflow-y: auto;
+  border-right: 1px solid #e6e6e6;
+}
+
+.user-info{
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar{
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar_img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-meta{
+  font-size: 1.4rem;
+  flex: 1;
+  margin-left: 12px;
+}
+
+.user-meta_name{
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.user-meta_phone-number{
+
+}
+
+.account-sidebar_list{
   margin-top: 20px;
-  color: rgb(15, 232, 58);
-  font-size: 18px;
-  font-weight: 600;
+  margin-left: -12px;
+  margin-right: -12px;
 }
-.address{
-  font-size: 15px;
-  margin-top: 10px;
-  font-weight: 600;
+
+.account-sidebar_item{
+  list-style-type: none;
 }
-.dientich{
-  margin-top: 10px;
-  font-weight: 600;
-  font-size: 15px;
+
+.account-sidebar_item--link{
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  color: #000;
 }
-.post{
-  margin-top: 10px;
-  color: rgb(129, 102, 102);
+
+.account-sidebar_item--link:hover {
+  background-color: #f1f1f1;
+}
+.account-sidebar_item--title {
+  display: block;
+  padding-left: 12px;
+}
+.account-main{
+  margin-left: 300px;
+  padding: 20px 0 0 20px;
+  background-color: #fff;
+  height: calc(100vh - 50px);
 }
