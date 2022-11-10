@@ -43,6 +43,7 @@ a {
 }
 
 .logo {
+  margin-right: 20px;
 }
 
 .logo-image {
@@ -253,18 +254,6 @@ font-weight: 600;
   flex-direction: column;
 
 }
-.stt img{
-}
-.stt a{
-  font-size: 20px;
-  color: rgb(240, 12, 12);
-  text-decoration: none;
-  text-align: center;
-}
-.stt a:hover{
-  color: black;
-  text-decoration: underline;
-}
 .boxcontent2{
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -307,10 +296,9 @@ font-weight: 600;
   border-radius: 8px;
   display: flex;
   align-items: center;
-  padding: 0 12px;
-  height: 40px;
+  padding: 4px 12px;
   color: #fff;
-  background: #666;
+ background-color: rgba(242, 113, 37, .85);
   font-weight: 600;
   margin: 0 8px;
 }
@@ -340,11 +328,32 @@ font-weight: 600;
   align-items: center;
 }
 
-.newstt-title {
-  margin-left: 14px;
-  line-height: 1;
+.newstt:hover {
+  background-color: #f1f1f1;
+}
+
+.newstt-body {
+  padding: 0 12px;
+  line-height: 1.5;
   font-size: 1.4rem;
   color: #000;
+}
+
+.newstt-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newstt-title, .content-title {
+  display: inline-block;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .newstt-price {
@@ -368,7 +377,10 @@ font-weight: 600;
   text-decoration: underline;
 }
 .content-title {
-  line-height: 1;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--secondaryColor);
 }
 .content-img {
   display: flex;
@@ -540,23 +552,73 @@ font-weight: 600;
 }
 
 /* SignIn & SignUp */
-
-h1 {
-  font-size: 30px;
-  padding-bottom: 52px;
+.form{
+  width: 500px;
+  margin: 20px auto;
+  padding: 30px 30px 60px 30px;
+  background-color: #fff;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  
 }
-
-.login {
-  width: 710px;
-  height: 600px;
-  border: 1px solid gray;
-  border-radius: 10px;
-  padding-left: 40px;
-  padding-top: 16px;
-  font-size: 20px;
-  margin-left: 380px;
+.form-title {
+  font-size: 3rem;
 }
+.form-signUp{
 
+}
+.form-content{
+
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+}
+.form-group_direction {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.form-label{
+  display: block;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.form-control {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  outline: none;
+  background-color: rgba(242, 113, 37, .35);
+  padding: 0 10px;
+  border-radius: 5px;
+  font-size: 1.6rem;
+}
+.btn{
+
+}
+.btn-submit{
+  width: 100%;
+  height: 45px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--primaryColor);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.forgot-link, .signUp-link{
+  color: var(--primaryColor)
+}
+.forgot-link:hover, .signUp-link:hover{
+  color: var(--secondaryColor)
+}
+/* 
 input {
   width: 615px;
   height: 55px;
@@ -588,11 +650,6 @@ input {
   font-size: 1.5rem;
   padding-top: 10px;
 }
-a{
-  font-size: 18px;
-  text-decoration: none;
-  color:#044EA6;
-}
 .password{
   padding-top: 37px;
 }
@@ -601,4 +658,4 @@ a{
 }
 .dangnhap{
   padding-left: 5px;
-}
+} */

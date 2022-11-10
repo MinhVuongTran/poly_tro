@@ -1,4 +1,4 @@
-      </div>
+    </div>
       <footer class="footer">
         <div class="footer-description">
             <p class="footer-title">Tại sao lại chọn Polytro.com</p>
@@ -35,7 +35,7 @@
         <div class="footer-information">
             <div class="footer-information_inner">
                 <div class="logo">
-                    <img src="./public/image/logo.png" alt="" class="logo-image">
+                    <img src="http://localhost/poly_tro/public/image/logo.png" alt="" class="logo-image">
                     <p>Polytro.com tự hào là nơi cung cấp dịch vụ thuê trọ tốt nhất cho các bạn sinh viên</p>
                 </div>
                 <div class="about-us">
@@ -57,10 +57,10 @@
                 <div class="contact">
                     <p class="footer-title">Liên hệ với chúng tôi</p>
                     <div class="socials">
-                        <a href="">
+                        <a href="https://www.facebook.com/fpt.poly">
                             <i class="fa-brands fa-facebook" style="color: blue"></i>
                         </a>
-                        <a href="">
+                        <a href="https://www.youtube.com/c/FPTPoly">
                             <i class="fa-brands fa-youtube"  style="color: red"></i>
                         </a>
                     </div>
