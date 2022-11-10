@@ -6,8 +6,7 @@
                     <div class="box1 menu2">
                         <h2 style="margin-bottom: 8px">DANH SÁCH BÀI ĐĂNG</h2>
                         <ul>
-                            <b>Sắp xếp:</b>
-                            
+                            <span style="font-size: 1.4rem">Sắp xếp:</span>
                             <li><a href="#">Mặc định</a></li>
                             <li><a href="#">Mới nhất</a></li>
                             <li><a href="#">Nhiều lượt xem nhất</a></li>
@@ -187,8 +186,8 @@
                         <div class="newstt-img">
                             <img src="./public/image/img1.png" alt="">
                         </div>
-                        <div class="newstt-title">
-                            <p href="#">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
+                        <div class="newstt-body">
+                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
                             <span class="newstt-price">5 triệu/tháng</span>
                         </div>
                     </a>
@@ -196,8 +195,8 @@
                         <div class="newstt-img">
                             <img src="./public/image/img1.png" alt="">
                         </div>
-                        <div class="newstt-title">
-                            <p href="#">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
+                        <div class="newstt-body">
+                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
                             <span class="newstt-price">5 triệu/tháng</span>
                         </div>
                     </a>
@@ -205,8 +204,8 @@
                         <div class="newstt-img">
                             <img src="./public/image/img1.png" alt="">
                         </div>
-                        <div class="newstt-title">
-                            <p href="#">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
+                        <div class="newstt-body">
+                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
                             <span class="newstt-price">5 triệu/tháng</span>
                         </div>
                     </a>
@@ -214,8 +213,8 @@
                         <div class="newstt-img">
                             <img src="./public/image/img1.png" alt="">
                         </div>
-                        <div class="newstt-title">
-                            <p href="#">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
+                        <div class="newstt-body">
+                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
                             <span class="newstt-price">5 triệu/tháng</span>
                         </div>
                     </a>
@@ -223,8 +222,8 @@
                         <div class="newstt-img">
                             <img src="./public/image/img1.png" alt="">
                         </div>
-                        <div class="newstt-title">
-                            <p href="#">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
+                        <div class="newstt-body">
+                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
                             <span class="newstt-price">5 triệu/tháng</span>
                         </div>
                     </a>

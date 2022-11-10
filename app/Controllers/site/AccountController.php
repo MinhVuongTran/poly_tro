@@ -5,7 +5,13 @@
         }
 
         public function index() {
-                $this -> view('site.layouts.account.index');
+            if(isset($_GET["signIn"])) {
+                return $this -> view('site.layouts.signIn');
+            }
+            if(isset($_GET["signUp"])) {
+                return $this -> view('site.layouts.signUp');
+            }
+            return $this -> view('site.layouts.accountManage.index');
         }
     }
 ?>
