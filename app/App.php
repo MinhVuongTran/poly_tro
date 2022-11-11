@@ -7,7 +7,6 @@
         {
             $this -> route = new Route();
             global $routes;
-
             if(!empty($routes['default_controller'])) {
                 $this -> controller = $routes['default_controller'];
             }
