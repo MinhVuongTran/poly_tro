@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=css_file()?>" />
+    <link rel="stylesheet" href="http://localhost/poly_tro/public/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
@@ -37,7 +37,7 @@
             <div class="account-sidebar">
                 <div class="user-info">
                     <div class="user-avatar">
-                        <img src="../public/image/mvt.jpg" alt="" class="user-avatar_img">
+                        <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="" class="user-avatar_img">
                     </div>
                     <div class="user-meta">
                         <p class="user-meta_name">
@@ -50,13 +50,13 @@
                 </div>
                 <ul class="account-sidebar_list">
                     <li class="account-sidebar_item">
-                        <a href="" class="account-sidebar_item--link">
+                        <a href="http://localhost/poly_tro/site/account" class="account-sidebar_item--link">
                             <i class="fa-solid fa-file-lines"></i>
                             <span class="account-sidebar_item--title">Quản lý tin đăng</span>
                         </a>
                     </li>
                     <li class="account-sidebar_item">
-                        <a href="" class="account-sidebar_item--link">
+                        <a href="http://localhost/poly_tro/site/account/profile" class="account-sidebar_item--link">
                             <i class="fa-solid fa-circle-user"></i>
                             <span class="account-sidebar_item--title">Sửa thông tin cá nhân</span>
                         </a>
@@ -82,9 +82,4 @@
                 </ul>
             </div>
             <div class="account-main">
-                <h2>main</h2>
-            </div>
-        </main>
-    </div>
-</body>
-</html>
+            
