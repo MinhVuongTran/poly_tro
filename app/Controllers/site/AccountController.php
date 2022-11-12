@@ -13,5 +13,13 @@
             }
             return $this -> view('site.layouts.accountManage.index');
         }
+
+        public function postNew() {
+            return $this -> view('site.layouts.accountManage.postNew');
+        }
+        
+        public function profile() {
+            return $this -> view('site.layouts.accountManage.profile');
+        }
     }
 ?>

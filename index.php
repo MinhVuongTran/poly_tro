@@ -11,6 +11,5 @@
     require './configs/routes.php';
     require './Core/Route.php';
     require './app/App.php';
-
     $app = new App();
 ?>
