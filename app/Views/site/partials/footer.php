@@ -30,7 +30,7 @@
                 <i class="fa-solid fa-star"></i>
             </div>
             <p class="footer-title" style="margin-bottom: 16px">Bạn đang có phòng trọ / căn hộ cho thuê?</p>
-            <a href="" class="action action-btn postNew">Đăng tin ngay</a>
+            <a href="http://localhost/poly_tro/site/account/postNew" class="action action-btn postNew">Đăng tin ngay</a>
         </div>
         <div class="footer-information">
             <div class="footer-information_inner">
