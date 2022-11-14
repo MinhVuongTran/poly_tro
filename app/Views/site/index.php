@@ -1,3 +1,4 @@
+
 <?php view("site.partials.header")?>
     <div class="main-content clear" style="margin-top: 40px">
         <!-- boxtrai -->
@@ -15,100 +16,30 @@
             </div>
             <!-- Bai viet -->
             <div class="boxcontent2 stt">
-                <a href="" class='content-img'>
-                    <img src="http://localhost/poly_tro/public/image/img1.png" alt="" class='content-img_link'>
-                </a>
-                <div>
-                    <a href="#" class="content-title short-title">PHÒNG TRỌ ĐỐI DIỆN KS 5 SAO TÂN SƠN MỚI NHẤT RẤT ĐẸP - GẦN CÔNG VIÊN... </a>
-                    <div class="content-body">
-                        <div class="content-price">3 triệu/tháng</div>
-                        <div class="content-area">30m²</div>
-                        <div class="content-address">Nam Từ Liêm, Hà Nội</div>
-                    </div>
-                    <div class="content-description short-title">
-                        Số nhà 4 - Ngách 208/8 - Phố Lê Quang Đạo - Tổ 1 - Phú Đô - Nam Từ Liêm - Hà Nội : gồm 4 tầng : Có nhiều căn hộ mini - Cách Sân Vận động Mỹ Đình - Hà Nội 500 m, đối diện cây xăng Mỹ Đình, gần chợ rất thuận tiện cho việc mua bán và sinh hoạt
-                    </div>
-                    <div class="content-user">
-                        <div class="content-user_avatar">
-                            <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="">
+                <?php foreach($news as $new) : ?>
+                    <a href="" class='content-img'>
+                        <img src="http://localhost/poly_tro/public/image/img1.png" alt="" class='content-img_link'>
+                    </a>
+                    <div>
+                        <a href="#" class="content-title short-title"><?=$new['title']?></a>
+                        <div class="content-body">
+                            <div class="content-price"><?=price_format($new['price'])?></div>
+                            <div class="content-area"><?=$new['area']?>m²</div>
+                            <div class="content-address"><?=$new['address']?></div>
                         </div>
-                        <p class="content-user_name">
-                            Trần Minh Vương
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="boxcontent2 stt">
-                <a href="" class='content-img'>
-                    <img src="http://localhost/poly_tro/public/image/img1.png" alt="" class='content-img_link'>
-                </a>
-                <div>
-                    <a href="#" class="content-title short-title">PHÒNG TRỌ ĐỐI DIỆN KS 5 SAO TÂN SƠN MỚI NHẤT RẤT ĐẸP - GẦN CÔNG VIÊN... </a>
-                    <div class="content-body">
-                        <div class="content-price">3 triệu/tháng</div>
-                        <div class="content-area">30m²</div>
-                        <div class="content-address">Nam Từ Liêm, Hà Nội</div>
-                    </div>
-                    <div class="content-description short-title">
-                        Số nhà 4 - Ngách 208/8 - Phố Lê Quang Đạo - Tổ 1 - Phú Đô - Nam Từ Liêm - Hà Nội : gồm 4 tầng : Có nhiều căn hộ mini - Cách Sân Vận động Mỹ Đình - Hà Nội 500 m, đối diện cây xăng Mỹ Đình, gần chợ rất thuận tiện cho việc mua bán và sinh hoạt
-                    </div>
-                    <div class="content-user">
-                        <div class="content-user_avatar">
-                            <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="">
+                        <div class="content-description short-title">
+                        <?=$new['description']?>
                         </div>
-                        <p class="content-user_name">
-                            Trần Minh Vương
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="boxcontent2 stt">
-                <a href="" class='content-img'>
-                    <img src="http://localhost/poly_tro/public/image/img1.png" alt="" class='content-img_link'>
-                </a>
-                <div>
-                    <a href="#" class="content-title short-title">PHÒNG TRỌ ĐỐI DIỆN KS 5 SAO TÂN SƠN MỚI NHẤT RẤT ĐẸP - GẦN CÔNG VIÊN... </a>
-                    <div class="content-body">
-                        <div class="content-price">3 triệu/tháng</div>
-                        <div class="content-area">30m²</div>
-                        <div class="content-address">Nam Từ Liêm, Hà Nội</div>
-                    </div>
-                    <div class="content-description short-title">
-                        Số nhà 4 - Ngách 208/8 - Phố Lê Quang Đạo - Tổ 1 - Phú Đô - Nam Từ Liêm - Hà Nội : gồm 4 tầng : Có nhiều căn hộ mini - Cách Sân Vận động Mỹ Đình - Hà Nội 500 m, đối diện cây xăng Mỹ Đình, gần chợ rất thuận tiện cho việc mua bán và sinh hoạt
-                    </div>
-                    <div class="content-user">
-                        <div class="content-user_avatar">
-                            <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="">
+                        <div class="content-user">
+                            <div class="content-user_avatar">
+                                <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="">
+                            </div>
+                            <p class="content-user_name">
+                                Trần Minh Vương
+                            </p>
                         </div>
-                        <p class="content-user_name">
-                            Trần Minh Vương
-                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="boxcontent2 stt">
-                <a href="" class='content-img'>
-                    <img src="http://localhost/poly_tro/public/image/img1.png" alt="" class='content-img_link'>
-                </a>
-                <div>
-                    <a href="#" class="content-title short-title">PHÒNG TRỌ ĐỐI DIỆN KS 5 SAO TÂN SƠN MỚI NHẤT RẤT ĐẸP - GẦN CÔNG VIÊN... </a>
-                    <div class="content-body">
-                        <div class="content-price">3 triệu/tháng</div>
-                        <div class="content-area">30m²</div>
-                        <div class="content-address">Nam Từ Liêm, Hà Nội</div>
-                    </div>
-                    <div class="content-description short-title">
-                        Số nhà 4 - Ngách 208/8 - Phố Lê Quang Đạo - Tổ 1 - Phú Đô - Nam Từ Liêm - Hà Nội : gồm 4 tầng : Có nhiều căn hộ mini - Cách Sân Vận động Mỹ Đình - Hà Nội 500 m, đối diện cây xăng Mỹ Đình, gần chợ rất thuận tiện cho việc mua bán và sinh hoạt
-                    </div>
-                    <div class="content-user">
-                        <div class="content-user_avatar">
-                            <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="">
-                        </div>
-                        <p class="content-user_name">
-                            Trần Minh Vương
-                        </p>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
         <!-- box phai -->
