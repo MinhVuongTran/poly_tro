@@ -14,16 +14,16 @@
                     </div>
             </div>
             <!-- Bai viet -->
+            <?php foreach($news as $new): ?>
             <div class="boxcontent2 stt">
-                <?php foreach($news as $new): ?>
-                        <a href="#" class='content-img'>
+                        <a href="http://localhost/poly_tro/site/new?detail=<?= $new['id']?>" class='content-img'>
                         <img src="../public/image/img1.png" alt="" class='content-img_link'>
                         </a>
                     <div>
-                        <a href="#" class="content-title"><?=$new['title']?></a>
+                        <a href="http://localhost/poly_tro/site/new?detail=<?= $new['id']?>" class="content-title"><?=$new['title']?></a>
                         <div class="content-body">
-                            <div class="content-price"><?=$new['price']?></div>
-                            <div class="content-area"><?=$new['view']?>m²</div>
+                            <div class="content-price"><?=price_format($new['price'])?></div>
+                            <div class="content-area"><?=$new['area']?>m²</div>
                             <div class="content-address"><?=$new['address']?></div>
                         </div>
                         <div class="content-description short-title">
@@ -38,26 +38,13 @@
                             </p>
                         </div>
                     </div>
+                </div>
                 <?php endforeach ?>
-            </div>
         </div>
         <!-- box phai -->
         <div class="boxphai">
             <!-- box p1 -->
-            <div class="clear boxtrai-item">
-                <div class="boxtitle">DANH MỤC CHO THUÊ</div>
-                <div class="boxcontent menudoc">
-                    <?php foreach($categories as $category): ?>
-                        <ul>
-                            <li>
-                                <a href="http://localhost/poly_tro/site/category?id=<?= $category['id']?>">
-                                    > <?= $category['name'] ?>
-                                </a>
-                            </li>
-                        </ul>
-                    <?php endforeach ?>
-                </div> 
-            </div>
+            
             <!-- box p2  -->
             <div class=" clear  boxtrai-item">
                 <div class="boxtitle">XEM THEO GIÁ</div>
@@ -114,51 +101,17 @@
             <div class=" clear boxtrai-item">
                 <div class="boxtitle">TIN MỚI ĐĂNG</div>
                 <div class="  boxcontent">
-                    <a href="" class=" clear10 newstt">
+                    <?php foreach($getNewPost as $item):?>
+                        <a href="" class=" clear10 newstt">
                         <div class="newstt-img">
-                            <img src="./public/image/img1.png" alt="">
+                            <img src="../public/image/img1.png" alt="">
                         </div>
                         <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
+                            <p class="newstt-title"><?= $item['title']?></p>
+                            <span class="newstt-price"><?=price_format($new['price'])?></span>
                         </div>
-                    </a>
-                    <a href="" class=" clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="./public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
-                    <a href="" class=" clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="./public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
-                    <a href="" class=" clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="./public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
-                    <a href="" class=" clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="./public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
+                        </a>
+                    <?php endforeach  ?>
                     
                 </div>
             </div>

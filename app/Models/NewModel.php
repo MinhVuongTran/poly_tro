@@ -18,5 +18,10 @@
         public function createNew($data) {
             return $this -> create(self::TABLE, $data); 
         }
+        public function getNewPost()
+        {
+            $sql = "SELECT * from news  ORDER BY created_at desc limit 0,5";
+            return $data = $this->query_all($sql);
+        }
     }
 ?>

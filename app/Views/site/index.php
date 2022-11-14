@@ -15,13 +15,13 @@
                     </div>
             </div>
             <!-- Bai viet -->
-            <div class="boxcontent2 stt">
-                <?php foreach($news as $new) : ?>
-                    <a href="" class='content-img'>
+            <?php foreach($news as $new) : ?>
+                <div class="boxcontent2 stt">
+                    <a href="http://localhost/poly_tro/site/new?detail=<?= $new['id']?>" class='content-img'>
                         <img src="http://localhost/poly_tro/public/image/img1.png" alt="" class='content-img_link'>
                     </a>
                     <div>
-                        <a href="#" class="content-title short-title"><?=$new['title']?></a>
+                        <a href="http://localhost/poly_tro/site/new?detail=<?= $new['id']?>" class="content-title short-title"><?=$new['title']?></a>
                         <div class="content-body">
                             <div class="content-price"><?=price_format($new['price'])?></div>
                             <div class="content-area"><?=$new['area']?>m²</div>
@@ -39,8 +39,8 @@
                             </p>
                         </div>
                     </div>
+                </div>
                 <?php endforeach ?>
-            </div>
         </div>
         <!-- box phai -->
         <div class="boxphai">

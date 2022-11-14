@@ -16,10 +16,12 @@
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
                 $newModel = $this->newModel -> getAll($id);
+                $getNewPost = $this->newModel->getNewPost();
             }
             return  $this -> view('site.layouts.categories.index',[
                 'categories' => $categories,
                 'news'=>$newModel, 
+                'getNewPost' =>$getNewPost,
             ]);
         }
     }

@@ -350,6 +350,10 @@ a {
   -webkit-line-clamp: 2;
 }
 
+.newstt-title {
+  color: var(--secondaryColor);
+}
+
 .newstt-price {
   display: block;
   margin-top: 12px;
