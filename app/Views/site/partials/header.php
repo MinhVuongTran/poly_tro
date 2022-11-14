@@ -28,19 +28,19 @@
               <a href="http://localhost/poly_tro" class="list-category_item--link">Trang chủ</a>
             </li>
             <li class="list-category_item">
-              <a href="" class="list-category_item--link">Cho thuê phòng trọ</a>
+              <a href="http://localhost/poly_tro/site/category?id=1" class="list-category_item--link">Cho thuê phòng trọ</a>
             </li>
             <li class="list-category_item">
-              <a href="" class="list-category_item--link">Nhà cho thuê</a>
+              <a href="http://localhost/poly_tro/site/category?id=2" class="list-category_item--link">Nhà cho thuê</a>
             </li>
             <li class="list-category_item">
-              <a href="" class="list-category_item--link">Cho thuê căn hộ</a>
+              <a href="http://localhost/poly_tro/site/category?id=3" class="list-category_item--link">Cho thuê căn hộ</a>
             </li>
             <li class="list-category_item">
-              <a href="" class="list-category_item--link">Cho thuê mặt bằng</a>
+              <a href="http://localhost/poly_tro/site/category?id=4" class="list-category_item--link">Cho thuê mặt bằng</a>
             </li>
             <li class="list-category_item">
-              <a href="" class="list-category_item--link">Tìm người ở ghép</a>
+              <a href="http://localhost/poly_tro/site/category?id=5" class="list-category_item--link">Tìm người ở ghép</a>
             </li>
           </ul>
         </nav>
