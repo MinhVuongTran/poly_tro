@@ -6,6 +6,7 @@
     require './app/Models/BaseModel.php';
     require './app/Controllers/BaseController.php';
     require './helpers/view.php';
+    require './helpers/priceFormat.php';
     require './helpers/getUrl.php';
     require './helpers/css.php';
     require './configs/routes.php';

@@ -658,7 +658,7 @@ a {
 }
 
 .thumbnail {
-  height: 150px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
 }
@@ -747,7 +747,7 @@ table tr:nth-child(2n) {
   background-color: white;
 }
 table tr:nth-child(2n+1) { 
-  background-color: rgba(242, 113, 37, 0.4);
+  background-color: rgba(242, 113, 37, 0.3);
 }
 
 /* Responsive table */

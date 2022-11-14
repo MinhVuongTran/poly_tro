@@ -5,26 +5,37 @@
 </div>
 <div class="manage-news_table">
    <table cellspacing="0">
-      <tr>
-         <th>Mã tin</th>
-         <th width="400">Tiêu đề và mô tả</th>
-         <th>Giá</th>
-         <th>Ngày bắt đầu</th>
-         <th>Ngày hết hạn</th>
-         <th>Trạng thái</th>
-      </tr>
+      <thead>
+         <tr>
+            <th>Mã tin</th>
+            <th width="300">Tiêu đề và mô tả</th>
+            <th>Giá</th>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày hết hạn</th>
+            <th>Trạng thái</th>
+         </tr>
+      </thead>
 
-      <tr>
-         <td>1</td>
-         <td>
-             <a href="" class="table-short_title" style="color: var(--secondaryColor)">Cho thuê phòng trọ 45m2 điện nước nhà dân Cầu Diễn 123</a>
-             <p class="table-short_title"><b>Địa chỉ:</b> Đường Hoàng Công Chất, Phường Phú Diễn, Huyện Từ Liêm, Hà Nội</p>
-        </td>
-         <td>5000000</td>
-         <td>01/01/2000</td>
-         <td>01/01/2000</td>
-         <td>Đang duyệt</td>
-      </tr>
+      <tbody>
+         <?php foreach($news as $new) : ?>
+         <tr>
+            <td><?= $new['id'] ?></td>
+            <td>
+                <a href="" class="table-short_title" style="color: var(--secondaryColor)"><?= $new['title'] ?></a>
+                <p class="table-short_title"><b>Địa chỉ:</b> <?= $new['address'] ?></p>
+           </td>
+            <td><?= price_format($new['price']) ?></td>
+            <td><?= $new['updated_at'] ?></td>
+            <td>
+               <?php $newdate = strtotime ( '+7 day' , strtotime($new['updated_at']));
+                     $newdate = date("Y-m-d H:i:s", $newdate);
+                     echo $newdate;
+               ?>
+            </td>
+            <td><?= $new['status'] == 0 ? "Đang duyệt" : "Đã duyệt" ?></td>
+         </tr>
+         <?php endforeach ?>
+      </tbody>
    </table>
 </div>
 <?php view("site.partials.accountManageFooter")?>
