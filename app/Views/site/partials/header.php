@@ -19,7 +19,7 @@
           <div class="action">
             <a href="http://localhost/poly_tro/site/account?signIn" class="action-btn signIn">Đăng nhập</a>
             <a href="http://localhost/poly_tro/site/account?signUp" class="action-btn signUp">Đăng ký</a>
-            <a href="" class="action-btn postNew">Đăng tin mới</a>
+            <a href="http://localhost/poly_tro/site/account/postNew" class="action-btn postNew">Đăng tin mới</a>
           </div>
         </div>
         <nav class="navbar">
