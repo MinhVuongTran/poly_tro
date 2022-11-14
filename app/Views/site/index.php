@@ -1,6 +1,3 @@
-
-
-
 <?php view("site.partials.header")?>
     <div class="main-content clear" style="margin-top: 40px">
         <!-- boxtrai -->
@@ -120,13 +117,11 @@
             <div class="clear boxtrai-item">
                 <div class="boxtitle">DANH MỤC CHO THUÊ</div>
                 <div class="boxcontent menudoc">
-                                        <ul>
-                    <li><a href="#">> Cho thuê phòng trọ</a></li>
-                    <li><a href="#">> Cho thuê nhà nguyên căn</a></li>
-                    <li><a href="#">> Cho thuê căn hộ</a></li>
-                    <li><a href="#">> Cho thuê mặt bằng</a></li>
-                    <li><a href="#">> Tìm người ở ghép</a></li>
-                </ul>
+                    <ul>
+                        <?php foreach($categories as $category): ?>
+                            <li><a href="http://localhost/poly_tro/site/category?id=<?= $category['id']?>">> <?= $category['name'] ?></a></li>
+                        <?php endforeach ?>
+                    </ul>
                 </div> 
             </div>
             <!-- box p2  -->
