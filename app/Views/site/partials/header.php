@@ -17,8 +17,22 @@
             </a>
           </div>
           <div class="action">
-            <a href="http://localhost/poly_tro/site/account?signIn" class="action-btn signIn">Đăng nhập</a>
-            <a href="http://localhost/poly_tro/site/account?signUp" class="action-btn signUp">Đăng ký</a>
+            <?php if(isset($_SESSION["auth"])) : ?>
+              <div class="user-info" style="cursor: pointer">
+                    <div class="user-avatar">
+                        <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="" class="user-avatar_img">
+                    </div>
+                    <div class="user-meta">
+                      <span style="font-size: 1.6rem">Xin chào, </span>
+                        <span class="user-meta_name">
+                             <?=$_SESSION['auth']['fullname']?>
+                        </span>
+                    </div>
+                </div>
+            <?php else : ?>
+              <a href="http://localhost/poly_tro/site/account?signIn" class="action-btn signIn">Đăng nhập</a>
+              <a href="http://localhost/poly_tro/site/account?signUp" class="action-btn signUp">Đăng ký</a>
+            <?php endif?>
             <a href="http://localhost/poly_tro/site/account/postNew" class="action-btn postNew">Đăng tin mới</a>
           </div>
         </div>
