@@ -1,5 +1,5 @@
 <?php view("site.partials.header")?>
-    <form class="form form-signUp" action="" method="post">
+    <form class="form form-signUp" action="http://localhost/poly_tro/site/auth/signUp" method="post">
         <h1 class="form-title">Tạo tài khoản mới</h1>
         <div class="form-content">
             <div class="form-group">
@@ -9,6 +9,10 @@
             <div class="form-group">
                 <label class="form-label">Số điện thoại</label>
                 <input type="text" name="phone_number" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Tạo mật khẩu</label>

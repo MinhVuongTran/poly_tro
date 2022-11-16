@@ -21,6 +21,9 @@
             if(isset($_GET["signUp"])) {
                 return $this -> view('site.layouts.signUp');
             }
+            if(isset($_GET["forgot"])) {
+                return $this -> view('site.layouts.forgot');
+            }
             $news = $this -> newModel -> getAll();
             return $this -> view('site.layouts.accountManage.index', [
                 "news" => $news
