@@ -61,25 +61,22 @@
                 <div class="boxcontent menudoc">
                     <ul>
                         <li>
-                            <a href="#">> Dưới 1tr</a>
+                            <a href="http://localhost/poly_tro?gia_den=1000000">> Dưới 1tr</a>
                         </li>
                         <li>
-                            <a href="#">> Từ 1 - 2 triệu</a>
+                            <a href="http://localhost/poly_tro?gia_tu=1000000&gia_den=2000000">> Từ 1 - 2 triệu</a>
                         </li>
                         <li>
-                            <a href="#">> Từ 2 - 3 triệu</a>
+                            <a href="http://localhost/poly_tro?gia_tu=2000000&gia_den=3000000">> Từ 2 - 3 triệu</a>
                         </li>
                         <li>
-                            <a href="#">> Từ 2 - 3 triệu</a>
+                            <a href="http://localhost/poly_tro?gia_tu=3000000&gia_den=4000000">> Từ 3 - 4 triệu</a>
                         </li>
                         <li>
-                            <a href="#">> Từ 3 - 4 triệu</a>
+                            <a href="http://localhost/poly_tro?gia_tu=4000000&gia_den=5000000">> Từ 4 - 5 triệu</a>
                         </li>
                         <li>
-                            <a href="#">> Từ 4 - 5 triệu</a>
-                        </li>
-                        <li>
-                            <a href="#">> Trên 5 triệu</a>
+                            <a href="http://localhost/poly_tro?gia_tu=5000000">> Trên 5 triệu</a>
                         </li>
                     </ul>
                 </div>
@@ -90,19 +87,19 @@
                 <div class="boxcontent menudoc">
                     <ul>
                         <li>
-                            <a href="#">> Dưới 20m²</a>
+                            <a href="http://localhost/poly_tro?dien_tich_den=20">> Dưới 20m²</a>
                         </li>
                         <li>
-                            <a href="#">> Từ 20 - 30m²</a>
+                            <a href="http://localhost/poly_tro?dien_tich_tu=20&dien_tich_den=30">> Từ 20 - 30m²</a>
                         </li>
                         <li>
-                            <a href="#">> Từ 30 - 40m²</a>
+                            <a href="http://localhost/poly_tro?dien_tich_tu=30&dien_tich_den=40">> Từ 30 - 40m²</a>
                         </li>
                         <li>
-                            <a href="#">> Từ 40 - 50m²</a>
+                            <a href="http://localhost/poly_tro?dien_tich_tu=40&dien_tich_den=50">> Từ 40 - 50m²</a>
                         </li>
                         <li>
-                            <a href="#">> Trên 50m²</a>
+                            <a href="http://localhost/poly_tro?dien_tich_tu=50">> Trên 50m²</a>
                         </li>
                     </ul>
                 </div>
@@ -111,51 +108,17 @@
             <div class=" clear boxtrai-item">
                 <div class="boxtitle">TIN MỚI ĐĂNG</div>
                 <div class="  boxcontent">
-                    <a href="" class=" clear10 newstt">
+                <?php foreach($getNewPost as $item):?>
+                        <a href="" class=" clear10 newstt">
                         <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
+                            <img src="./public/image/img1.png" alt="">
                         </div>
                         <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
+                            <p class="newstt-title"><?= $item['title']?></p>
+                            <span class="newstt-price"><?=price_format($item['price'])?></span>
                         </div>
-                    </a>
-                    <a href="" class=" clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
-                    <a href="" class=" clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
-                    <a href="" class=" clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
-                    <a href="" class=" clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">CĂN HỘ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN HOÀNG VĂN THỤ</p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
+                        </a>
+                    <?php endforeach  ?>
                     
                 </div>
             </div>

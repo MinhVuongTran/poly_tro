@@ -23,5 +23,15 @@
             $sql = "SELECT * from news  ORDER BY created_at desc limit 0,5";
             return $data = $this->query_all($sql);
         }
+        public function getPrice($from="",$to=""){
+                $sql = "SELECT n.*,c.name as category_name ,u.fullname,u.image as avatar from news n inner join categories c on n.category_id = c.id inner join users u on n.user_id = u.id WHERE n.price BETWEEN $from AND $to";  
+            // echo $sql;die;
+            return $data = $this->query_all($sql);
+        }
+        public function getArea($from="",$to=""){
+                $sql = "SELECT n.*,c.name as category_name ,u.fullname,u.image as avatar from news n inner join categories c on n.category_id = c.id inner join users u on n.user_id = u.id WHERE n.area BETWEEN ${from} AND ${to}";  
+
+            return $data = $this->query_all($sql);
+        }
     }
 ?>

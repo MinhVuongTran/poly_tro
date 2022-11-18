@@ -10,7 +10,10 @@
 
         public function index() {
             if(isset($_GET["detail"])) {
-                $this -> view('site.layouts.newDetail');
+                $getNewPost = $this->newModel->getNewPost();
+                $this -> view('site.layouts.newDetail',[
+                    'getNewPost' =>$getNewPost,
+                ]);
             }
         }
 
