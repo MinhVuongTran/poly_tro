@@ -227,42 +227,17 @@
                     <h2 class="boxtitle">
                         Tin mới nhất
                     </h2>
-                    <a href="" class="clear10 newstt">
+                    <?php foreach($getNewPost as $item):?>
+                        <a href="" class=" clear10 newstt">
                         <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
+                            <img src="./public/image/img1.png" alt="">
                         </div>
                         <div class="newstt-body">
-                            <p class="newstt-title">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
-                            <span class="newstt-price">5 triệu/tháng</span>
+                            <p class="newstt-title"><?= $item['title']?></p>
+                            <span class="newstt-price"><?=price_format($item['price'])?></span>
                         </div>
-                    </a>
-                    <a href="" class="clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
-                    <a href="" class="clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
-                    <a href="" class="clear10 newstt">
-                        <div class="newstt-img">
-                            <img src="http://localhost/poly_tro/public/image/img1.png" alt="">
-                        </div>
-                        <div class="newstt-body">
-                            <p class="newstt-title">Phòng cho thuê đẹp, rẻ, PHAM HUNG, khu an ninh… </p>
-                            <span class="newstt-price">5 triệu/tháng</span>
-                        </div>
-                    </a>
+                        </a>
+                    <?php endforeach  ?>
                 </div>
                 <div class="clear boxtrai-item">
                 <h2 class="boxtitle">Cơ sở hà nội</h2>
