@@ -77,12 +77,6 @@ a {
   opacity: 0.95;
 }
 
-.signIn {
-}
-
-.signUp {
-  margin: 0 16px;
-}
 
 .postNew {
   background-color: var(--secondaryColor);
@@ -418,6 +412,7 @@ a {
 .content-description {
   color: #666;
   font-size: 1.4rem;
+  max-width: 500px;
   line-height: 1.5;
 }
 .content-user {
