@@ -12,8 +12,8 @@
     }
 
     public function index() {
-        $categories = $this -> categoryModel -> getAll();
-        $news = $this -> newModel -> getAll();
+            $categories = $this -> categoryModel -> getAll();
+            $news = $this -> newModel -> getAll();
             $this -> view('site.index',[
                 'categories'=>$categories,
                 'news'=>$news, 
@@ -21,5 +21,4 @@
         }
     }
 
-    
 ?>
