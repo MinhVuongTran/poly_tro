@@ -108,7 +108,7 @@
                         </div>
                         <div class="newstt-body">
                             <p class="newstt-title"><?= $item['title']?></p>
-                            <span class="newstt-price"><?=price_format($new['price'])?></span>
+                            <span class="newstt-price"><?=price_format($item['price'])?></span>
                         </div>
                         </a>
                     <?php endforeach  ?>
