@@ -9,7 +9,6 @@
     }
     
     public function index() {
-        
         $this -> view('admin.layouts.auth');
     }
 }

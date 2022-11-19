@@ -11,8 +11,6 @@
     public function signIn() {
         $phone_number = $_POST['phone_number'];
         $password = $_POST['password'];
-        echo $password;
-        echo $phone_number;
         $check = $this -> authModel -> checkAuth($phone_number, $password);
 
         if($check) {
@@ -43,7 +41,11 @@
         echo "Đăng ký thành công";
         header("Refresh: 2; URL=http://localhost/poly_tro/site/account?signIn");
     }
-   
 
+    public function logout() {
+        if(isset($_SESSION["auth"])) {
+            unset($_SESSION["auth"]);
+            header("location: http://localhost/poly_tro");
+        }
+    }
 }
-?>

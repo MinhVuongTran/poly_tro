@@ -1,38 +1,48 @@
-<?php view("site.partials.accountManageHeader")?>
-    <div class="profile-content">
-        <h1 class="profile__title">Cập nhật thông tin cá nhân</h1>
-        <form action="" class="profile-form" method="POST" enctype="multipart/form-data">
+<?php view("site.partials.accountManageHeader") ?>
+<div class="profile-content">
+    <h1 class="profile__title">Cập nhật thông tin cá nhân</h1>
+    <form action="http://localhost/poly_tro/site/account/saveProfile" class="profile-form" method="POST" enctype="multipart/form-data">
+        <div class="form-group2">
+            <label for="" class="form-label">Mã thành viên</label>
+            <input type="text" class="form-control form-control_normal form-control_disabled" disabled value="<?= $user['id'] ?>">
+        </div>
+        <div class="form-group2">
+            <label for="" class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control form-control_normal form-control_disabled" disabled value="<?= $user['phone'] ?>">
+        </div>
+        <div class="form-group2">
+            <label for="" class="form-label">Tên hiển thị</label>
+            <input type="text" name="fullname" class="form-control form-control_normal" value="<?= $user['fullname'] ?>">
+        </div>
+        <div class="form-group2">
+            <label for="" class="form-label">Địa chỉ</label>
+            <input type="text" name="address" class="form-control form-control_normal" value="<?= $user['address'] ?>">
+        </div>
+        <div class="form-group2">
+            <label for="" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control form-control_normal" value="<?= $user['email'] ?>">
+        </div>
+        <div class="form-group2">
+            <label for="" class="form-label">Mật khẩu</label>
+            <a href="" style="font-size: 1.6rem; color: var(--secondaryColor)">Đổi mật khẩu</a>
+        </div>
+        <?php if ($user['role'] == 0) : ?>
             <div class="form-group2">
-                <label for="" class="form-label">Mã thành viên</label>
-                <input type="text" class="form-control form-control_normal form-control_disabled" disabled>
+                <label for="" class="form-label"></label>
+                <a href="" style="font-size: 1.6rem; color: var(--secondaryColor)">Đăng ký quyền đăng tin</a>
             </div>
-            <div class="form-group2">
-                <label for="" class="form-label">Số điện thoại</label>
-                <input type="text" class="form-control form-control_normal form-control_disabled" disabled>
+        <?php endif ?>
+        <div class="form-group2" style="align-items: start">
+            <label for="" class="form-label">Ảnh đại diện</label>
+            <div>
+                <img src="http://localhost/poly_tro<?= $user['image'] ?>" alt="" class="avatar-preview">
+                <output id="images-result">
+                </output>
+                <input type="file" id="files" accept="image/jpeg, image/png, image/jpg" name="image" style="font-size: 1.6rem; margin-bottom: 20px">
             </div>
-            <div class="form-group2">
-                <label for="" class="form-label">Tên hiển thị</label>
-                <input type="text" class="form-control form-control_normal" value="Trần Minh Vương">
-            </div>
-            <div class="form-group2">
-                <label for="" class="form-label">Email</label>
-                <input type="email" class="form-control form-control_normal" value="vuongtmph26824@fpt.edu.vn">
-            </div>
-            <div class="form-group2">
-                <label for="" class="form-label">Mật khẩu</label>
-                <a href="" style="font-size: 1.6rem; color: var(--secondaryColor)">Đổi mật khẩu</a>
-            </div>
-            <div class="form-group2" style="align-items: start">
-                <label for="" class="form-label">Ảnh đại diện</label>
-                <div>
-                    <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="" class="avatar-preview">
-                    <output id="images-result">
-                    </output>
-                    <input type="file" id="files" accept="image/jpeg, image/png, image/jpg"  name="files[]" style="font-size: 1.6rem; margin-bottom: 20px">
-                </div>
-            </div>
-            <button class="btn btn-submit">Lưu và cập nhật</button>
-        </form>
-    </div>    
-    <script src="http://localhost/poly_tro/public/js/showImageUpload.js"></script>
-<?php view("site.partials.accountManageFooter")?>
+        </div>
+        <button class="btn btn-submit">Lưu và cập nhật</button>
+    </form>
+</div>
+<script src="http://localhost/poly_tro/public/js/showImageUpload.js"></script>
+<?php view("site.partials.accountManageFooter") ?>

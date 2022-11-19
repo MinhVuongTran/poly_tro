@@ -1,5 +1,5 @@
     </div>
-      <footer class="footer">
+    <footer class="footer">
         <div class="footer-description">
             <p class="footer-title">Tại sao lại chọn Polytro.com</p>
             <p style="margin: 16px 0">Chúng tôi biết bạn có rất nhiều lựa chọn, nhưng Polytro.com tự hào là trang web tìm phòng trọ cho sinh viên Fpoly. Vì vậy tin của bạn đăng trên website sẽ tiếp cận được với nhiều sinh viên hơn, do đó giao dịch nhanh hơn, tiết kiệm chi phí hơn</p>
@@ -29,8 +29,10 @@
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
             </div>
-            <p class="footer-title" style="margin-bottom: 16px">Bạn đang có phòng trọ / căn hộ cho thuê?</p>
-            <a href="http://localhost/poly_tro/site/account/postNew" class="action action-btn postNew">Đăng tin ngay</a>
+            <?php if (!isset($GLOBALS['userInfo']) || $GLOBALS['userInfo']['role'] == 1) : ?>
+                <p class="footer-title" style="margin-bottom: 16px">Bạn đang có phòng trọ / căn hộ cho thuê?</p>
+                <a href="http://localhost/poly_tro/site/account/postNew" class="action action-btn postNew">Đăng tin ngay</a>
+            <?php endif ?>
         </div>
         <div class="footer-information">
             <div class="footer-information_inner">
@@ -61,7 +63,7 @@
                             <i class="fa-brands fa-facebook" style="color: blue"></i>
                         </a>
                         <a href="https://www.youtube.com/c/FPTPoly">
-                            <i class="fa-brands fa-youtube"  style="color: red"></i>
+                            <i class="fa-brands fa-youtube" style="color: red"></i>
                         </a>
                     </div>
                     <div class="payment">
@@ -89,6 +91,7 @@
             <p class="address">Địa chỉ 3: 137 Nguyễn Thị Thập, phường Hòa Minh, quận Liên Chiểu, Đà Nẵng</p>
             <p class="address">Địa chỉ 4: Tổ dân phố 8, phường Tân An, Buôn Ma Thuột, tỉnh Đắk Lắk</p>
         </div>
-      </footer>
-  </body>
-</html>
+    </footer>
+    </body>
+
+    </html>

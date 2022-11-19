@@ -1,6 +1,3 @@
-
-
-
 * {
   padding: 0;
   margin: 0;
@@ -33,7 +30,7 @@ a {
 
 /* Header */
 .header {
-  background-color: #fff;
+  background-color: #f5f5f5;
 }
 
 .main-header {
@@ -77,6 +74,62 @@ a {
   opacity: 0.95;
 }
 
+.user-action_list::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 20px;
+  top: -16px;
+  left: 0;
+}
+
+.user-action_list {
+  display: none;
+  min-width: 260px;
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  list-style-type: none;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgb(75 75 75 / 30%);
+  padding: 15px 20px;
+  border-radius: 5px;
+  animation: ShowItem linear 0.3s;
+  will-change: opacity, transform;
+  transform-origin: 20% top;
+  z-index: 9;
+}
+
+@keyframes ShowItem {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.user-action_item-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 1.6rem;
+  color: #000;
+  border-bottom: 1px solid #eee;
+}
+
+.user-action_item:last-child .user-action_item-link {
+  border-bottom: none;
+}
+
+.user-action_item-link:hover {
+  color: var(--secondaryColor);
+}
+
+.user-info:hover .user-action_list {
+  display: block;
+}
 
 .postNew {
   background-color: var(--secondaryColor);
@@ -406,14 +459,15 @@ a {
 }
 .content-address {
   font-size: 1.4rem;
+  max-width: 300px;
 }
 .content-area {
 }
 .content-description {
   color: #666;
   font-size: 1.4rem;
-  max-width: 500px;
   line-height: 1.5;
+  max-width: 500px;
 }
 .content-user {
   display: flex;
@@ -495,6 +549,7 @@ a {
 .user-info {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .user-avatar {
@@ -651,7 +706,6 @@ a {
   font-size: 3rem;
   line-height: 1;
   margin-bottom: 20px;
-  
 }
 
 .post-new_form--title {
@@ -669,7 +723,6 @@ a {
   width: 100%;
   object-fit: cover;
 }
-
 
 /* Profile */
 .profile-form {
@@ -731,9 +784,10 @@ table img {
   border-radius: 50%;
 }
 
-table td, table th { 
+table td,
+table th {
   color: #000;
-  padding: 10px; 
+  padding: 10px;
 }
 
 table td {
@@ -745,15 +799,15 @@ table td:nth-child(3) {
   text-align: left;
 }
 
-table th { 
+table th {
   background-color: #fff;
   font-weight: 300;
 }
 
-table tr:nth-child(2n) { 
+table tr:nth-child(2n) {
   background-color: white;
 }
-table tr:nth-child(2n+1) { 
+table tr:nth-child(2n + 1) {
   background-color: rgba(242, 113, 37, 0.3);
 }
 
@@ -866,16 +920,15 @@ td:not(:first-child)::before {
 
 /* New detail */
 .sanpham {
-display: grid;
-grid-template-columns: 2fr 1fr;
-gap: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0 20px;
 }
-.left{
+.left {
   margin-top: 20px;
 }
-.right{
+.right {
   margin-top: 20px;
-
 }
 /* Slideshow container */
 .slideshow-container {
@@ -899,7 +952,7 @@ gap: 0 20px;
   border-radius: 5px;
 }
 /* Next & previous buttons */
- .next {
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -913,7 +966,7 @@ gap: 0 20px;
   border-radius: 0 3px 3px 0;
   user-select: none;
 }
-.prev{
+.prev {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -936,8 +989,9 @@ gap: 0 20px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .dot-wrapper {
@@ -959,7 +1013,8 @@ gap: 0 20px;
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -973,53 +1028,57 @@ gap: 0 20px;
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.slideshow{
-  border: 1px solid #c1BFBF;
+.slideshow {
+  border: 1px solid #c1bfbf;
   text-align: center;
   background-color: #000000;
   height: 350px;
 }
-.thongtin{
-    border: 1px solid #c1BFBF;
-    padding: 20px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    background-color: #fff;
+.thongtin {
+  border: 1px solid #c1bfbf;
+  padding: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: #fff;
 }
-.chude{
+.chude {
   line-height: 1.5;
   color: var(--secondaryColor);
 }
-.diachi{
-    margin-top: 20px;
-    font-size: 1.6rem;
+.diachi {
+  margin-top: 20px;
+  font-size: 1.6rem;
 }
-.diachi h4{
-    margin-top: 5px;
+.diachi h4 {
+  margin-top: 5px;
 }
-.diachi h4 a:hover{
+.diachi h4 a:hover {
   color: red;
 }
-.thongtinlienquan{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-    margin-top: 10px;
+.thongtinlienquan {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin-top: 10px;
 }
-.thongtinlienquan span{
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #16c784;
+.thongtinlienquan span {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #16c784;
 }
-.thongtinmota{
+.thongtinmota {
   font-size: 1.4rem;
   margin-top: 10px;
 }
-.thongtinmota p{
+.thongtinmota p {
   margin-top: 5px;
 }
 .thongtinmota-chitiet {
@@ -1030,7 +1089,7 @@ gap: 0 20px;
   text-overflow: ellipsis;
   line-height: 1.7;
 }
-.dacdiem{
+.dacdiem {
   font-size: 1.4rem;
   margin-top: 10px;
 }
@@ -1038,17 +1097,17 @@ gap: 0 20px;
   font-size: 1.4rem;
   width: 100%;
 }
-.table-dacdiem .name{
+.table-dacdiem .name {
   width: 20%;
 }
-.table-dacdiem td{
+.table-dacdiem td {
   padding: 6px;
 }
-.thongtinlienlac{
+.thongtinlienlac {
   font-size: 1.4rem;
   margin-top: 10px;
 }
-.phanhoi{
+.phanhoi {
   height: 50px;
   max-width: 200px;
   border: 2px solid var(--primaryColor);
@@ -1060,11 +1119,11 @@ gap: 0 20px;
   justify-content: center;
   align-items: center;
 }
-.phanhoi h2{
+.phanhoi h2 {
   color: var(--primaryColor);
   font-size: 1.6rem;
 }
-.taikhoan{
+.taikhoan {
   background-color: var(--primaryColor);
   width: 100%;
   height: 350px;
@@ -1076,17 +1135,18 @@ gap: 0 20px;
   padding: 20px;
   justify-content: space-around;
 }
-.avatar img{
+.avatar img {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
 }
-.avatar{
+.avatar {
   text-align: center;
   font-size: 1.4rem;
 }
-.dienthoai, .yeuthich {
+.dienthoai,
+.yeuthich {
   height: 40px;
   background-color: #16c784;
   font-size: 1.6rem;
@@ -1101,79 +1161,80 @@ gap: 0 20px;
   background-color: #fff;
   color: #000;
 }
-.dienthoai span, .yeuthich span {
+.dienthoai span,
+.yeuthich span {
   margin-left: 10px;
 }
-.sanphamlq{
-width: 100%;
-display: grid;
-grid-template-columns: 40% 60%;
-grid-gap: 10px;
-margin-bottom: 30px;
+.sanphamlq {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 10px;
+  margin-bottom: 30px;
 }
-.splienquan{
-margin-top: 30px;
-padding: 0 16px;
-border: 1px solid #c1BFBF;
-border-radius: 8px;
-font-size: 1.4rem;
-background-color: #fff;
+.splienquan {
+  margin-top: 30px;
+  padding: 0 16px;
+  border: 1px solid #c1bfbf;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  background-color: #fff;
 }
-.chude2{
+.chude2 {
   margin: 20px 0;
 }
-.motasplq a{
-text-decoration: none;
-font-size: 1.8rem;
+.motasplq a {
+  text-decoration: none;
+  font-size: 1.8rem;
 }
-.motasplq a:hover{
-color: red;
+.motasplq a:hover {
+  color: red;
 }
-.giatien{
-display: grid;
-grid-template-columns: 30% 20%  50%;
-margin: 10px 0;
-font-size: 1.4rem;
+.giatien {
+  display: grid;
+  grid-template-columns: 30% 20% 50%;
+  margin: 10px 0;
+  font-size: 1.4rem;
 }
-.price{
-color: rgb(11, 190, 11);
-font-size: 1.6rem;
+.price {
+  color: rgb(11, 190, 11);
+  font-size: 1.6rem;
 }
-.tinmoidang{
-padding: 16px;
-border: 1px solid #c1BFBF;
-margin-top: 20px;
-border-radius: 8px;
+.tinmoidang {
+  padding: 16px;
+  border: 1px solid #c1bfbf;
+  margin-top: 20px;
+  border-radius: 8px;
 }
-.chude4{
-width: 100%;
-height: 30px;
-font-size: 1.4rem;
+.chude4 {
+  width: 100%;
+  height: 30px;
+  font-size: 1.4rem;
 }
-.khuvuc{
-padding: 16px;
-border: 1px solid #c1BFBF;
-margin-top: 20px;
-border-radius: 8px;
-font-size: 1.4rem;
+.khuvuc {
+  padding: 16px;
+  border: 1px solid #c1bfbf;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-size: 1.4rem;
 }
-.khuvuc ul{
-margin: 0px;
-list-style-type: none;
-padding: 0px;
+.khuvuc ul {
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
 }
-.khuvuc ul li{
-padding: 10px 20px;
-background-color: #fff;
+.khuvuc ul li {
+  padding: 10px 20px;
+  background-color: #fff;
 }
-.khuvuc ul li a{
-color: #666;
-text-decoration: none;
-font-size: 15px;
+.khuvuc ul li a {
+  color: #666;
+  text-decoration: none;
+  font-size: 15px;
 }
-.khuvuc ul li a:hover{
-color: rgb(251, 75, 27);
-text-decoration: none;
+.khuvuc ul li a:hover {
+  color: rgb(251, 75, 27);
+  text-decoration: none;
 }
 
 .error-massage {
