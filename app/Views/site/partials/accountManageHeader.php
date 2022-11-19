@@ -1,5 +1,11 @@
+<?php if (!isset($_SESSION['auth'])) {
+    header("location: http://localhost/poly_tro/site/account?signIn");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <nav class="account-navbar">
@@ -37,24 +44,26 @@
             <div class="account-sidebar">
                 <div class="user-info">
                     <div class="user-avatar">
-                        <img src="http://localhost/poly_tro/public/image/mvt.jpg" alt="" class="user-avatar_img">
+                        <img src="http://localhost/poly_tro<?= $GLOBALS['userInfo']['image'] ?>" alt="" class="user-avatar_img">
                     </div>
                     <div class="user-meta">
                         <p class="user-meta_name">
-                            Trần Minh Vương
+                            <?= $GLOBALS['userInfo']['fullname'] ?>
                         </p>
                         <p class="user-meta_phone-number">
-                            0374374470
+                            <?= $GLOBALS['userInfo']['phone'] ?>
                         </p>
                     </div>
                 </div>
                 <ul class="account-sidebar_list">
-                    <li class="account-sidebar_item">
-                        <a href="http://localhost/poly_tro/site/account" class="account-sidebar_item--link">
-                            <i class="fa-solid fa-file-lines"></i>
-                            <span class="account-sidebar_item--title">Quản lý tin đăng</span>
-                        </a>
-                    </li>
+                    <?php if ($GLOBALS['userInfo']['role'] == 1) : ?>
+                        <li class="account-sidebar_item">
+                            <a href="http://localhost/poly_tro/site/account" class="account-sidebar_item--link">
+                                <i class="fa-solid fa-file-lines"></i>
+                                <span class="account-sidebar_item--title">Quản lý tin đăng</span>
+                            </a>
+                        </li>
+                    <?php endif ?>
                     <li class="account-sidebar_item">
                         <a href="http://localhost/poly_tro/site/account/profile" class="account-sidebar_item--link">
                             <i class="fa-solid fa-circle-user"></i>
@@ -74,7 +83,7 @@
                         </a>
                     </li>
                     <li class="account-sidebar_item">
-                        <a href="" class="account-sidebar_item--link">
+                        <a href="http://localhost/poly_tro/site/auth/logout" class="account-sidebar_item--link">
                             <i class="fa-solid fa-right-from-bracket"></i>
                             <span class="account-sidebar_item--title">Thoát</span>
                         </a>
@@ -82,4 +91,3 @@
                 </ul>
             </div>
             <div class="account-main">
-            

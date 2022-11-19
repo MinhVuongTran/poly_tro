@@ -25,9 +25,9 @@
                         <div class="content-body">
                             <div class="content-price"><?=price_format($new['price'])?></div>
                             <div class="content-area"><?=$new['area']?>m²</div>
-                            <div class="content-address"><?=$new['address']?></div>
+                            <div class="content-address table-short_title"><?=$new['address']?></div>
                         </div>
-                        <div class="content-description short-title">
+                        <div class="content-description short-title" style="max-width: 500px">
                         <?=$new['description']?>
                         </div>
                         <div class="content-user">

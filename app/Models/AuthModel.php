@@ -13,6 +13,9 @@
         public function createUser($data) {
             return $this -> create(self::TABLE, $data);
         }
+        public function updateUser($data, $id) {
+            return $this -> update(self::TABLE, $data, $id);
+        }
         public function checkAuth($phone, $password = "", $forgot = false) {
             if($forgot) {
                 $data = $this -> all(self::TABLE);

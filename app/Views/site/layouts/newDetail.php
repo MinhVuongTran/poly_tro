@@ -126,9 +126,9 @@
                             <div class="content-body">
                                 <div class="content-price">3 triệu/tháng</div>
                                 <div class="content-area">30m²</div>
-                                <div class="content-address">Nam Từ Liêm, Hà Nội</div>
+                                <div class="content-address table-short_title">Nam Từ Liêm, Hà Nội</div>
                             </div>
-                            <div class="content-description short-title">
+                            <div class="content-description short-title" style="max-width: 500px">
                                 Số nhà 4 - Ngách 208/8 - Phố Lê Quang Đạo - Tổ 1 - Phú Đô - Nam Từ Liêm - Hà Nội : gồm 4 tầng : Có nhiều căn hộ mini - Cách Sân Vận động Mỹ Đình - Hà Nội 500 m, đối diện cây xăng Mỹ Đình, gần chợ rất thuận tiện cho việc mua bán và sinh hoạt
                             </div>
                             <div class="content-user">
@@ -150,9 +150,9 @@
                             <div class="content-body">
                                 <div class="content-price">3 triệu/tháng</div>
                                 <div class="content-area">30m²</div>
-                                <div class="content-address">Nam Từ Liêm, Hà Nội</div>
+                                <div class="content-address table-short_title">Nam Từ Liêm, Hà Nội</div>
                             </div>
-                            <div class="content-description short-title">
+                            <div class="content-description short-title" style="max-width: 500px">
                                 Số nhà 4 - Ngách 208/8 - Phố Lê Quang Đạo - Tổ 1 - Phú Đô - Nam Từ Liêm - Hà Nội : gồm 4 tầng : Có nhiều căn hộ mini - Cách Sân Vận động Mỹ Đình - Hà Nội 500 m, đối diện cây xăng Mỹ Đình, gần chợ rất thuận tiện cho việc mua bán và sinh hoạt
                             </div>
                             <div class="content-user">

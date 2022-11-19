@@ -1,10 +1,14 @@
 <?php
     class NewModel extends BaseModel {
         const TABLE = 'news';
-        public function getAll($categoryId = "")
+        public function getAll($categoryId = "", $user_id = "")
         {
             if($categoryId == "") {
-                return $data =  $this -> all(self::TABLE);
+                if($user_id == "") {
+                    return $data =  $this -> all(self::TABLE);
+                } else {
+                    $sql = "SELECT n.* from news n inner join users u on n.user_id = u.id WHERE u.id = ${user_id}";
+                }
             } else {
                 $sql = "SELECT n.*,c.name as category_name ,u.fullname,u.image as avatar from news n inner join categories c on n.category_id = c.id inner join users u on n.user_id = u.id WHERE n.category_id = ${categoryId} ORDER BY id asc";
             }

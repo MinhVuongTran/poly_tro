@@ -37,7 +37,7 @@
                 "area" => $area,
                 "number_people" => $number_people,
                 "category_id" => $category_id,
-                "user_id" => "1",
+                "user_id" => $_SESSION["auth"]['id'],
                 "facility_id" => $facility_id,
                 "status" => 0,
                 "created_at" => date("Y-m-d H:i:s"),
@@ -46,6 +46,8 @@
             $this -> newModel -> createNew($data);
             header('location: http://localhost/poly_tro/site/account');
         }
+
+        
     }
     
 ?>
