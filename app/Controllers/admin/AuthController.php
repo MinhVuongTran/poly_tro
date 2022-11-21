@@ -12,4 +12,3 @@
         $this -> view('admin.layouts.auth');
     }
 }
-?>

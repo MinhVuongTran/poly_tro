@@ -1088,6 +1088,9 @@ td:not(:first-child)::before {
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.7;
+  margin: -40px 0;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 .dacdiem {
   font-size: 1.4rem;
@@ -1241,4 +1244,12 @@ td:not(:first-child)::before {
   font-size: 1.4rem;
   color: red;
   margin-bottom: 12px;
+  text-align: center;
+}
+
+.btn-remover {
+  padding: 10px 12px;
+  background-color: #999;
+  border-radius: 5px;
+  color: #fff;
 }

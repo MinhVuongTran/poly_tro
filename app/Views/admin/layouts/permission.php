@@ -1,8 +1,8 @@
 <?php view("admin.partials.header") ?>
 <div class="app-content">
     <div class="app-content-header">
-        <h1 class="app-content-headerText">Quản lý tin
-            đăng</h1>
+        <h1 class="app-content-headerText">Quản lý cấp
+            quyền</h1>
         <button class="mode-switch" title="Switch Theme">
             <svg class="moon" fill="none"
                 stroke="currentColor" stroke-linecap="round"
@@ -101,49 +101,60 @@
     <div class="products-area-wrapper tableView">
         <div class="products-header">
             <div class="product-cell id"
-                style="max-width: 80px">Mã tin</div>
+                style="max-width: 80px">Mã</div>
             <div class="product-cell image"
-                style="min-width: 300px">Tiêu đề</div>
+                style="max-width: 250px">Họ và tên</div>
+            <div class="product-cell sales"
+                style="max-width: 250px">Số điện thoại
+            </div>
             <div class="product-cell address"
-                style="min-width: 300px">Địa chỉ</div>
+                style="max-width: 250px">CCCD</div>
             <div class="product-cell price"
-                style="max-width: 120px">Giá</div>
-            <div class="product-cell ">Thời gian tạo</div>
-            <div class="product-cell sales">Thời gian cập
-                nhật</div>
+                style="min-width: 350px">Địa chỉ</div>
             <div class="product-cell status-cell"
                 style="max-width: 150px">Trạng thái</div>
+            <div class="product-cell status-cell"
+                style="max-width: 120px">Hành động</div>
         </div>
-        <?php foreach ($news as $new) : ?>
-        <a href="http://localhost/poly_tro/admin/new/detail?id=<?= $new['id'] ?>"
-            class=" products-row">
-            <div class="product-cell id"><?= $new['id'] ?>
+        <?php foreach ($permissions as $permission) : ?>
+        <div class=" products-row">
+            <div class="product-cell id">
+                <?= $permission['id'] ?>
             </div>
-            <div class="product-cell image">
-                <img src="http://localhost/poly_tro/<?= handleImage($new['image'])[0] ?>"
-                    alt="product">
+            <div class="product-cell"
+                style="max-width: 250px">
                 <span
-                    class="table-short_title"><?= $new['title'] ?></span>
+                    class="table-short_title"><?= $permission['fullname'] ?></span>
             </div>
-            <div
-                class="product-cell address table-short_title">
+            <div class="product-cell table-short_title"
+                style="max-width: 250px">
                 <span class="table-short_title">
-                    <?= $new['address'] ?>
+                    <?= $permission['phone_number'] ?>
                 </span>
             </div>
-            <div class="product-cell price">
-                <?= price_format($new['price']) ?></div>
-            <div class="product-cell created_at">
-                <?= $new['created_at'] ?></div>
-            <div class="product-cell updated_at">
-                <?= $new['updated_at'] ?></div>
+            <div class="product-cell"
+                style="max-width: 250px">
+                <img src="http://localhost/poly_tro/<?= handleImage($permission['image_cccd'])[0] ?>"
+                    alt="product">
+                <span><?= $permission['cccd'] ?></span>
+            </div>
+            <div class="product-cell "
+                style="min-width: 350px">
+                <?= $permission['address'] ?></div>
             <div class="product-cell status-cell">
                 <span
-                    class="status <?= $new['status'] == 1 ? "active" : "disabled" ?>">
-                    <?= $new['status'] == 1 ? "Đã duyệt" : "Chưa duyệt" ?>
+                    class="status <?= $permission['status'] == 1 ? "active" : "disabled" ?>">
+                    <?= $permission['status'] == 1 ? "Đã duyệt" : "Chưa duyệt" ?>
                 </span>
             </div>
-        </a>
+            <div class="product-cell"
+                style="max-width: 120px">
+                <?php if ($permission['status'] == 0) : ?>
+                <a href="http://localhost/poly_tro/admin/permission/acceptPermission?id=<?= $permission['id'] ?>"
+                    class="admin-action_btn">Duyệt</a>
+                <?php endif ?>
+            </div>
+        </div>
         <?php endforeach ?>
     </div>
 </div>
