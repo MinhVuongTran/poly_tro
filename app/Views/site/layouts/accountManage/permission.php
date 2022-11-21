@@ -1,0 +1,57 @@
+<?php view("site.partials.accountManageHeader") ?>
+<div class="post-new_content">
+    <h1 class="post-new__title">Đăng ký quyền đăng tin
+    </h1>
+    <form
+        action="http://localhost/poly_tro/site/account/savePermission"
+        class="post-new_form" method="POST"
+        enctype="multipart/form-data">
+        <h2 class="post-new_form--title">Thông tin cá nhân
+        </h2>
+        <div class="form-group">
+            <label for="" class="form-label ">Họ và
+                tên</label>
+            <input type="text"
+                class="form-control form-control_normal input-normal"
+                name="fullname">
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label">Số điện
+                thoại</label>
+            <input type="text"
+                class="form-control form-control_normal input-normal"
+                name="phone_number">
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label">Căn cước công
+                dân</label>
+            <input type="text"
+                class="form-control form-control_normal input-normal"
+                name="cccd">
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label">Mặt trước và
+                mặt sau CCCD</label>
+            <input type="file" id="files"
+                multiple="multiple"
+                accept="image/jpeg, image/png, image/jpg"
+                name="images[]"
+                style="font-size: 1.6rem; margin-bottom: 20px">
+            <output id="images-result">
+        </div>
+        <h2 class="post-new_form--title">Thông tin nhà trọ
+        </h2>
+        <div class="form-group">
+            <label for="" class="form-label">Địa chỉ
+                chính xác</label>
+            <input type="text"
+                class="form-control form-control_normal"
+                name="address">
+        </div>
+        <button class="btn btn-submit">Đăng tin</button>
+    </form>
+</div>
+<script
+    src="http://localhost/poly_tro/public/js/showImageUpload.js">
+</script>
+<?php view("site.partials.accountManageFooter") ?>

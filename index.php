@@ -7,6 +7,7 @@
     require './app/Controllers/BaseController.php';
     require './helpers/view.php';
     require './helpers/priceFormat.php';
+    require './helpers/handleImage.php';
     require './helpers/getUrl.php';
     require './helpers/loadUser.php';
     require './helpers/css.php';
@@ -24,4 +25,3 @@
     }
 
     $app = new App();
-?>

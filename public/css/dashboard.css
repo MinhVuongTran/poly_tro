@@ -443,6 +443,7 @@ body {
   height: 32px;
   border-radius: 6px;
   margin-right: 6px;
+  object-fit: cover;
 }
 
 .tableView .products-row .id {
@@ -644,4 +645,15 @@ body {
 
 .gridView .cell-label {
   opacity: 0.6;
+}
+
+.admin-action_btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rebeccapurple;
+  border-radius: 5px;
+  padding: 2px;
+  color: #fff;
 }
