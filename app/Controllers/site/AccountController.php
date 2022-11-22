@@ -4,6 +4,7 @@ class AccountController extends BaseController
 
     private $newModel;
     private $authModel;
+    private $orderModel;
     private $categoryModel;
     private $facilityModel;
     private $permissionModel;
@@ -12,11 +13,13 @@ class AccountController extends BaseController
     {
         $this->model('NewModel');
         $this->model('AuthModel');
+        $this->model('OrderModel');
         $this->model('CategoryModel');
         $this->model('FacilityModel');
         $this->model('PermissionModel');
         $this->newModel = new NewModel;
         $this->authModel = new AuthModel;
+        $this->orderModel = new OrderModel;
         $this->categoryModel = new CategoryModel;
         $this->facilityModel = new FacilityModel;
         $this->permissionModel = new PermissionModel;
@@ -115,6 +118,14 @@ class AccountController extends BaseController
         $user = $this->authModel->getOne($_SESSION["auth"]['id']);
         return $this->view('site.layouts.accountManage.profile', [
             "user" => $user
+        ]);
+    }
+
+    public function order()
+    {
+        $orders = $this->orderModel->getAllDetail($_SESSION["auth"]['id']);
+        return $this->view('site.layouts.accountManage.order', [
+            "orders" => $orders
         ]);
     }
 

@@ -15,6 +15,7 @@ class NewController extends BaseController
         if (isset($_GET["detail"])) {
             $id = $_GET["detail"];
             $new = $this->newModel->getOne($id);
+            $topViews = $this->newModel->getTopView();
             $facilities = $this->newModel->getAll("", "", [$new['facility_id'], $new['id']]);
             $data = [
                 "view" => $new['view'] + 1
@@ -23,6 +24,7 @@ class NewController extends BaseController
             $getNewPost = $this->newModel->getNewPost();
             $this->view('site.layouts.newDetail', [
                 "new" => $new,
+                "topViews" => $topViews,
                 "facilities" => $facilities,
                 "getNewPost" => $getNewPost,
             ]);

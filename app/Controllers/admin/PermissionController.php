@@ -36,5 +36,27 @@ class PermissionController extends BaseController
             $this->authModel->updateUser($data2, $user_id);
             header("location: http://localhost/poly_tro/admin/permission");
         }
+        if (isset($_GET["user_id"])) {
+            $id = $_GET["user_id"];
+            $user_id = $this->authModel->getOne($id)['id'];
+            $data = [
+                'role' => 1
+            ];
+            $this->authModel->updateUser($data, $user_id);
+            header("location: http://localhost/poly_tro/admin/auth");
+        }
+    }
+
+    public function denialPermission()
+    {
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+            $user_id = $this->authModel->getOne($id)['id'];
+            $data = [
+                'role' => 0
+            ];
+            $this->authModel->updateUser($data, $user_id);
+            header("location: http://localhost/poly_tro/admin/auth");
+        }
     }
 }

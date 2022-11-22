@@ -11,8 +11,8 @@
                 <th>Mã tin</th>
                 <th width="300">Tiêu đề và mô tả</th>
                 <th>Giá</th>
-                <th>Ngày bắt đầu</th>
-                <th>Ngày hết hạn</th>
+                <th>Ngày tạo</th>
+                <!-- <th>Ngày hết hạn</th> -->
                 <th>Trạng thái</th>
                 <th></th>
             </tr>
@@ -32,12 +32,12 @@
                 </td>
                 <td><?= price_format($new['price']) ?></td>
                 <td><?= $new['updated_at'] ?></td>
-                <td>
+                <!-- <td>
                     <?php $newdate = strtotime('+7 day', strtotime($new['updated_at']));
-                        $newdate = date("Y-m-d H:i:s", $newdate);
-                        echo $newdate;
-                        ?>
-                </td>
+                    $newdate = date("Y-m-d H:i:s", $newdate);
+                    echo $newdate;
+                    ?>
+                </td> -->
                 <td><?= $new['status'] == 0 ? "Đang duyệt" : "Đã duyệt" ?>
                 </td>
                 <td><a href="http://localhost/poly_tro/site/account/deleteNew?id=<?= $new['id'] ?>"
