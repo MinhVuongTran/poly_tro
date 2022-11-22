@@ -163,63 +163,30 @@
                 <i class="fa-regular fa-heart"></i>
                 <span>Yêu thích</span>
             </a>
+            <a href="http://localhost/poly_tro/site/order?id=<?= $new['id'] ?>"
+                class="yeuthich">
+                <span>Đăng ký thuê</span>
+            </a>
         </div>
         <div class="clear boxtrai-item">
             <h2 class="boxtitle">
                 Tin nổi bật
             </h2>
+            <?php foreach ($topViews as $topView) : ?>
             <a href="" class="clear10 newstt">
                 <div class="newstt-img">
-                    <img src="http://localhost/poly_tro/public/image/img1.png"
+                    <img src="http://localhost/poly_tro/<?= handleImage($topView['image'])[0] ?>"
                         alt="">
                 </div>
                 <div class="newstt-body">
-                    <p class="newstt-title">Phòng cho thuê
-                        đẹp, rẻ, PHAM HUNG, khu an ninh…
+                    <p class="newstt-title">
+                        <?= $topView['title'] ?>
                     </p>
-                    <span class="newstt-price">5
-                        triệu/tháng</span>
+                    <span
+                        class="newstt-price"><?= price_format($topView['price']) ?></span>
                 </div>
             </a>
-            <a href="" class="clear10 newstt">
-                <div class="newstt-img">
-                    <img src="http://localhost/poly_tro/public/image/img1.png"
-                        alt="">
-                </div>
-                <div class="newstt-body">
-                    <p class="newstt-title">Phòng cho thuê
-                        đẹp, rẻ, PHAM HUNG, khu an ninh…
-                    </p>
-                    <span class="newstt-price">5
-                        triệu/tháng</span>
-                </div>
-            </a>
-            <a href="" class="clear10 newstt">
-                <div class="newstt-img">
-                    <img src="http://localhost/poly_tro/public/image/img1.png"
-                        alt="">
-                </div>
-                <div class="newstt-body">
-                    <p class="newstt-title">Phòng cho thuê
-                        đẹp, rẻ, PHAM HUNG, khu an ninh…
-                    </p>
-                    <span class="newstt-price">5
-                        triệu/tháng</span>
-                </div>
-            </a>
-            <a href="" class="clear10 newstt">
-                <div class="newstt-img">
-                    <img src="http://localhost/poly_tro/public/image/img1.png"
-                        alt="">
-                </div>
-                <div class="newstt-body">
-                    <p class="newstt-title">Phòng cho thuê
-                        đẹp, rẻ, PHAM HUNG, khu an ninh…
-                    </p>
-                    <span class="newstt-price">5
-                        triệu/tháng</span>
-                </div>
-            </a>
+            <?php endforeach ?>
         </div>
         <div class="clear boxtrai-item">
             <h2 class="boxtitle">
@@ -228,7 +195,7 @@
             <?php foreach ($getNewPost as $item) : ?>
             <a href="" class=" clear10 newstt">
                 <div class="newstt-img">
-                    <img src="./public/image/img1.png"
+                    <img src="http://localhost/poly_tro/<?= handleImage($item['image'])[0] ?>"
                         alt="">
                 </div>
                 <div class="newstt-body">
@@ -239,23 +206,6 @@
                 </div>
             </a>
             <?php endforeach  ?>
-        </div>
-        <div class="clear boxtrai-item">
-            <h2 class="boxtitle">Cơ sở hà nội</h2>
-            <div class="boxcontent menudoc">
-                <ul>
-                    <li><a href="#">&gt; Cho thuê phòng
-                            trọ</a></li>
-                    <li><a href="#">&gt; Cho thuê nhà nguyên
-                            căn</a></li>
-                    <li><a href="#">&gt; Cho thuê căn hộ</a>
-                    </li>
-                    <li><a href="#">&gt; Cho thuê mặt
-                            bằng</a></li>
-                    <li><a href="#">&gt; Tìm người ở
-                            ghép</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>

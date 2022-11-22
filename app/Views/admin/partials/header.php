@@ -52,7 +52,8 @@
                     </a>
                 </li>
                 <li class="sidebar-list-item">
-                    <a href="#">
+                    <a
+                        href="http://localhost/poly_tro/admin/order">
                         <span>Đơn hàng</span>
                     </a>
                 </li>

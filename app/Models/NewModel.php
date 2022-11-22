@@ -12,7 +12,7 @@ class NewModel extends BaseModel
                     if ($all) {
                         $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id ";
                     } else {
-                        $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.status != 0";
+                        $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.status != 0 order by n.id";
                     }
                 }
             } else {
@@ -21,7 +21,6 @@ class NewModel extends BaseModel
         } else {
             $sql = "SELECT n.*,c.name as category_name ,u.fullname,u.image as avatar from news n inner join categories c on n.category_id = c.id inner join users u on n.user_id = u.id WHERE n.category_id = ${categoryId} and n.status != 0 ORDER BY id asc limit 0,5";
         }
-
         return $data = $this->query_all($sql);
     }
     public function getOne($id)
@@ -29,6 +28,27 @@ class NewModel extends BaseModel
         $sql = "SELECT n.*, u.fullname, u.phone, u.image as avatar from news n inner join users u on n.user_id = u.id where n.id = $id";
         return $data = $this->query_one($sql);
     }
+
+    public function getLatest($cate_id = "")
+    {
+        if ($cate_id == "") {
+            $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.status != 0 order by n.created_at desc";
+        } else {
+            $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.status != 0 and n.category_id = ${cate_id} order by n.created_at desc";
+        }
+        return $data = $this->query_all($sql);
+    }
+
+    public function getTopView($cate_id = "")
+    {
+        if ($cate_id == "") {
+            $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.status != 0 order by n.view desc";
+        } else {
+            $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.status != 0 and n.category_id = ${cate_id} order by n.view desc";
+        }
+        return $data = $this->query_all($sql);
+    }
+
 
     public function createNew($data)
     {
@@ -44,19 +64,23 @@ class NewModel extends BaseModel
     }
     public function getNewPost()
     {
-        $sql = "SELECT * from news  ORDER BY created_at desc limit 0,5";
+        $sql = "SELECT * from news where `status` != 0 ORDER BY created_at desc limit 0,5";
         return $data = $this->query_all($sql);
     }
     public function getPrice($from = "", $to = "")
     {
-        $sql = "SELECT n.*,c.name as category_name ,u.fullname,u.image as avatar from news n inner join categories c on n.category_id = c.id inner join users u on n.user_id = u.id WHERE n.price BETWEEN $from AND $to";
-        // echo $sql;die;
+        $sql = "SELECT n.*,c.name as category_name ,u.fullname,u.image as avatar from news n inner join categories c on n.category_id = c.id inner join users u on n.user_id = u.id WHERE n.`status` != 0 and n.price BETWEEN $from AND $to";
         return $data = $this->query_all($sql);
     }
     public function getArea($from = "", $to = "")
     {
-        $sql = "SELECT n.*,c.name as category_name ,u.fullname,u.image as avatar from news n inner join categories c on n.category_id = c.id inner join users u on n.user_id = u.id WHERE n.area BETWEEN ${from} AND ${to}";
+        $sql = "SELECT n.*,c.name as category_name ,u.fullname,u.image as avatar from news n inner join categories c on n.category_id = c.id inner join users u on n.user_id = u.id WHERE n.`status` != 0 and n.area BETWEEN ${from} AND ${to}";
 
+        return $data = $this->query_all($sql);
+    }
+    public function getFacilities($id)
+    {
+        $sql = "SELECT n.*,u.fullname,u.image as avatar from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.`status` != 0 and f.id = ${id}";
         return $data = $this->query_all($sql);
     }
 }

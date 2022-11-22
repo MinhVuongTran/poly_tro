@@ -9,9 +9,14 @@
                 <ul>
                     <span style="font-size: 1.4rem">Sắp
                         xếp:</span>
-                    <li><a href="#">Mặc định</a></li>
-                    <li><a href="#">Mới nhất</a></li>
-                    <li><a href="#">Nhiều lượt xem
+                    <li><a href="http://localhost/poly_tro">Mặc
+                            định</a></li>
+                    <li><a
+                            href="http://localhost/poly_tro?orderBy=latest">Mới
+                            nhất</a></li>
+                    <li><a
+                            href="http://localhost/poly_tro?orderBy=topView">Nhiều
+                            lượt xem
                             nhất</a></li>
                 </ul>
             </div>
@@ -58,13 +63,13 @@
     <div class="boxphai">
         <!-- box p1 -->
         <div class="clear boxtrai-item">
-            <div class="boxtitle">DANH MỤC CHO THUÊ</div>
+            <div class="boxtitle">Xem theo cơ sở</div>
             <div class="boxcontent menudoc">
                 <ul>
-                    <?php foreach ($categories as $category) : ?>
+                    <?php foreach ($facilities as $facility) : ?>
                     <li><a
-                            href="http://localhost/poly_tro/site/category?id=<?= $category['id'] ?>">>
-                            <?= $category['name'] ?></a>
+                            href="http://localhost/poly_tro/site?facility_id=<?= $facility['id'] ?>">>
+                            <?= $facility['name'] ?></a>
                     </li>
                     <?php endforeach ?>
                 </ul>
@@ -149,7 +154,7 @@
                 <a href="http://localhost/poly_tro/site/new?detail=<?= $item['id'] ?>"
                     class=" clear10 newstt">
                     <div class="newstt-img">
-                        <img src="./public/image/img1.png"
+                        <img src="http://localhost/poly_tro/<?= handleImage($item['image'])[0] ?>"
                             alt="">
                     </div>
                     <div class="newstt-body">

@@ -1,8 +1,8 @@
 <?php view("admin.partials.header") ?>
 <div class="app-content">
     <div class="app-content-header">
-        <h1 class="app-content-headerText">Quản lý người
-            dùng</h1>
+        <h1 class="app-content-headerText">Quản lý thuê
+            phòng</h1>
         <button class="mode-switch" title="Switch Theme">
             <svg class="moon" fill="none"
                 stroke="currentColor" stroke-linecap="round"
@@ -100,65 +100,37 @@
     </div>
     <div class="products-area-wrapper tableView">
         <div class="products-header">
+            <div class="product-cell id">Mã</div>
+            <div class="product-cell image">Họ và tên
+            </div>
+            <div class="product-cell sales">Số điện thoại
+            </div>
+            <div class="product-cell address">CCCD</div>
+            <div class="product-cell price">Mã sinh viên
+            </div>
+        </div>
+        <?php foreach ($orders as $order) : ?>
+        <a href="http://localhost/poly_tro/admin/order/detail?id=<?= $order['id'] ?>"
+            class=" products-row">
             <div class="product-cell id"
-                style="max-width: 80px">Mã</div>
-            <div class="product-cell image"
-                style="max-width: 250px">Tên hiển thị
+                style="max-width: none;">
+                <?= $order['id'] ?>
             </div>
-            <div class="product-cell address"
-                style="max-width: 200px">Địa chỉ</div>
-            <div class="product-cell price"
-                style="max-width: 120px">Số điện thoại
-            </div>
-            <div class="product-cell"
-                style="min-width: 280px">Email</div>
-            <div class="product-cell status-cell"
-                style="max-width: 150px">Vai trò</div>
-            <div class="product-cell status-cell"
-                style="max-width: 250px">Hành động</div>
-        </div>
-        <?php foreach ($users as $user) : ?>
-        <div class=" products-row">
-            <div class="product-cell id"><?= $user['id'] ?>
-            </div>
-            <div class="product-cell image"
-                style="max-width: 250px; min-width: 0px !important;">
-                <img src="http://localhost/poly_tro/<?= handleImage($user['image'])[0] ?>"
-                    alt="product">
+            <div class="product-cell">
                 <span
-                    class="table-short_title"><?= $user['fullname'] ?></span>
+                    class="table-short_title"><?= $order['fullname'] ?></span>
             </div>
-            <div class="product-cell address table-short_title"
-                style="max-width: 200px;
-                min-width: 0 !important;">
+            <div class="product-cell table-short_title">
                 <span class="table-short_title">
-                    <?= $user['address'] ?>
+                    <?= $order['phone_number'] ?>
                 </span>
             </div>
-            <div class="product-cell price">
-                <?= $user['phone'] ?></div>
-            <div class="product-cell created_at"
-                style="min-width:280px">
-                <?= $user['email'] ?></div>
-            <div class="product-cell status-cell">
-                <span
-                    class="status <?= $user['role'] == 1 ? "active" : "disabled" ?>">
-                    <?= $user['role'] == 1 ? "Chủ phòng trọ" : "Khách" ?>
-                </span>
+            <div class="product-cell">
+                <span><?= $order['cccd'] ?></span>
             </div>
-            <div class="product-cell"
-                style=" display: flex; gap: 0 40px;">
-                <?php if ($user['role'] == 0) : ?>
-                <a href="http://localhost/poly_tro/admin/permission/acceptPermission?user_id=<?= $user['id'] ?>"
-                    class="admin-action_btn">Cấp quyền</a>
-                <?php else :  ?>
-                <a href="http://localhost/poly_tro/admin/permission/denialPermission?id=<?= $user['id'] ?>"
-                    class="admin-action_btn">Xóa quyền</a>
-                <?php endif ?>
-                <a href="http://localhost/poly_tro/admin/auth/deleteUser?id=<?= $user['id'] ?>"
-                    class="admin-action_btn">Xóa</a>
-            </div>
-        </div>
+            <div class="product-cell ">
+                <?= $order['student_id'] ?></div>
+        </a>
         <?php endforeach ?>
     </div>
 </div>

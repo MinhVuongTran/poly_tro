@@ -620,6 +620,7 @@ body {
   color: var(--app-content-main-color);
   font-size: 1.4rem;
   margin-bottom: 8px;
+  max-width: none !important;
 }
 .gridView .product-cell:not(.image) {
   display: flex;
@@ -648,7 +649,7 @@ body {
 }
 
 .admin-action_btn {
-  width: 100%;
+  min-width: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
