@@ -11,7 +11,7 @@ class OrderModel extends BaseModel
 
     public function getAllDetail($user_id)
     {
-        $sql = "SELECT n.*,oi.id as order_item_id, oi.new_id, oi.order_id, oi.status as order_status, oi.created_at as order_created_at from news n inner join orders_item oi on n.id = oi.new_id inner join orders o on oi.order_id = o.id where o.user_id = $user_id";
+        $sql = "SELECT n.title, n.description, n.price, n.image, n.address, n.category_id, oi.id as order_item_id, oi.new_id, oi.order_id, oi.status, oi.created_at as order_created_at from news n inner join orders_item oi on n.id = oi.new_id inner join orders o on oi.order_id = o.id where o.user_id = $user_id";
         return $this->query_all($sql);
     }
 

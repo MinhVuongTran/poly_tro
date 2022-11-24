@@ -24,4 +24,5 @@ if (isset($_SESSION["admin"])) {
     $loadUser = new loadUser;
     $GLOBALS['adminInfo'] = $loadUser->loadAdmin($_SESSION["admin"]['id']);
 }
+
 $app = new App();

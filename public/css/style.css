@@ -6,7 +6,7 @@
 
 :root {
   --screenLaptop: 1200px;
-  --primaryColor: #f27125;
+  --primaryColor: #f27126;
   --secondaryColor: #f73859;
 }
 
@@ -20,7 +20,7 @@ html {
   line-height: 2;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .container {
@@ -136,7 +136,11 @@ a {
 }
 
 .navbar {
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
   margin-top: 16px;
+  max-width: 1200px;
   background-color: var(--primaryColor);
 }
 
@@ -1252,4 +1256,37 @@ td:not(:first-child)::before {
   background-color: #999;
   border-radius: 5px;
   color: #fff;
+}
+
+/* pagination */
+.pagination {
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.page-item {
+  display: inline-block;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #000;
+}
+
+.page-link:hover {
+  background-color: rgb(242, 113, 38, 0.8);
+}
+
+.page-item_disabled:hover {
+  background-color: unset;
+  cursor: not-allowed;
 }

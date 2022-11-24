@@ -19,8 +19,10 @@ class NewController extends BaseController
     public function index()
     {
         $news = $this->newModel->getAll("", "", [], true);
+        $categories = $this->categoryModel->getAll();
         $this->view('admin.layouts.new', [
-            "news" => $news
+            "news" => $news,
+            "categories" => $categories,
         ]);
     }
 
@@ -47,5 +49,19 @@ class NewController extends BaseController
         ];
         $this->newModel->updateNew($data, $id);
         header('location: http://localhost/poly_tro/admin/new');
+    }
+
+    public function filter()
+    {
+        $status = $_GET["status"];
+        $category = $_GET["category"];
+        $data = $this->newModel->getAll("", "", [], true);
+        $news = $this->newModel->filterStatusAndCategory($data, $status, $category);
+        $categories = $this->categoryModel->getAll();
+
+        $this->view('admin.layouts.new', [
+            'news' => $news,
+            "categories" => $categories
+        ]);
     }
 }

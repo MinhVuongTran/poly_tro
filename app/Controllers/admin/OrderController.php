@@ -3,11 +3,14 @@ class OrderController extends BaseController
 {
 
     private $orderModel;
+    private $categoryModel;
 
     public function __construct()
     {
         $this->model('OrderModel');
+        $this->model('CategoryModel');
         $this->orderModel = new OrderModel;
+        $this->categoryModel = new CategoryModel;
     }
 
     public function index()
@@ -23,8 +26,10 @@ class OrderController extends BaseController
         $id = $_GET["id"];
         $order = $this->orderModel->getOne($id);
         $orders_item = $this->orderModel->getAllDetail($order['user_id']);
+        $categories = $this->categoryModel->getAll();
         $this->view('admin.layouts.orderDetail', [
-            'orders_item' => $orders_item
+            'orders_item' => $orders_item,
+            'categories' => $categories
         ]);
     }
 
@@ -36,5 +41,24 @@ class OrderController extends BaseController
         ];
         $this->orderModel->updateOrderItem($data, $id);
         header("location: http://localhost/poly_tro/admin/order");
+    }
+
+    public function filter()
+    {
+        $id = $_GET["id"];
+        $status = $_GET["status"];
+        $category = $_GET["category"];
+        $order = $this->orderModel->getOne($id);
+        $data = $this->orderModel->getAllDetail($order['user_id']);
+        // echo "<pre>";
+        // print_r($data);
+        // die;
+        $orders_item = $this->orderModel->filterStatusAndCategory($data, $status, $category);
+        $categories = $this->categoryModel->getAll();
+
+        $this->view('admin.layouts.orderDetail', [
+            'orders_item' => $orders_item,
+            "categories" => $categories
+        ]);
     }
 }

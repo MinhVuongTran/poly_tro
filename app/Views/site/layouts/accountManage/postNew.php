@@ -9,7 +9,7 @@
         </h2>
         <div class="form-group">
             <label for="" class="form-label">Cơ sở</label>
-            <select name="facility" id=""
+            <select name="facility" id="" required
                 class="form-control form-control_normal input-normal">
                 <option value="">--- Chọn cơ sở ---
                 </option>
@@ -24,14 +24,14 @@
                 chính xác</label>
             <input type="text"
                 class="form-control form-control_normal"
-                name="address">
+                name="address" required>
         </div>
         <h2 class="post-new_form--title">Thông tin mô tả
         </h2>
         <div class="form-group">
             <label for="" class="form-label">Loại chuyên
                 mục</label>
-            <select name="category" id=""
+            <select name="category" id="" required
                 class="form-control form-control_normal input-normal">
                 <option value="">--- Chọn loại chuyên mục
                     ---</option>
@@ -46,7 +46,7 @@
                 đề</label>
             <input type="text"
                 class="form-control form-control_normal"
-                name="title">
+                name="title" required>
         </div>
         <div class="form-group">
             <label for="" class="form-label">Nội dung mô
@@ -79,7 +79,7 @@
                 <input type="text"
                     class="form-control form-control_normal"
                     style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;"
-                    name="price">
+                    name="price" required>
                 <div class="input-group_append">
                     <span
                         class="input-group_text">Đồng</span>
@@ -92,7 +92,8 @@
             <div class="input-group input-normal">
                 <input name="area" type="number"
                     class="form-control form-control_normal"
-                    style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;">
+                    style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;"
+                    required>
                 <div class="input-group_append">
                     <span
                         class="input-group_text">m<sup>2</sup></span>
@@ -105,7 +106,8 @@
             <div class="input-group input-normal">
                 <input name="number_people" type="number"
                     class="form-control form-control_normal "
-                    style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;">
+                    style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;"
+                    required>
                 <div class="input-group_append">
                     <span
                         class="input-group_text">người</span>
@@ -119,7 +121,8 @@
                 multiple="multiple"
                 accept="image/jpeg, image/png, image/jpg"
                 name="images[]"
-                style="font-size: 1.6rem; margin-bottom: 20px">
+                style="font-size: 1.6rem; margin-bottom: 20px"
+                required>
             <output id="images-result">
         </div>
         <button class="btn btn-submit">Đăng tin</button>

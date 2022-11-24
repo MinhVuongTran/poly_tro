@@ -71,10 +71,16 @@ class SiteController extends BaseController
         $categories = $this->categoryModel->getAll();
         $facilities = $this->facilityModel->getAll();
         $getNewPost = $this->newModel->getNewPost();
+
+        $data = $this->newModel->pagination("news", $news, 7);
+        $newsPagination = $data[0];
+        $numOfPage = $data[1];
+
         $this->view('site.index', [
             'categories' => $categories,
             'facilities' => $facilities,
-            'news' => $news,
+            'newsPagination' => $newsPagination,
+            'numOfPage' => $numOfPage,
             'getNewPost' => $getNewPost,
         ]);
     }
