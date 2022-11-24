@@ -33,30 +33,28 @@
                         <polygon
                             points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                     </svg></button>
-                <div class="filter-menu ">
-                    <label>Category</label>
-                    <select>
-                        <option>All Categories</option>
-                        <option>Furniture</option>
-                        <option>Decoration</option>
-                        <option>Kitchen</option>
-                        <option>Bathroom</option>
-                    </select>
-                    <label>Status</label>
-                    <select>
-                        <option>All Status</option>
-                        <option>Active</option>
-                        <option>Disabled</option>
+                <form
+                    action="http://localhost/poly_tro/admin/permission/filter"
+                    class="filter-menu ">
+                    <label>Trạng thái</label>
+                    <select name="status">
+                        <option value="">Tất cả
+                        </option>
+                        <option value="active">Đã duyệt
+                        </option>
+                        <option value="disable">Chưa duyệt
+                        </option>
                     </select>
                     <div class="filter-menu-buttons">
                         <button class="filter-button reset">
                             Reset
                         </button>
-                        <button class="filter-button apply">
+                        <button class="filter-button apply"
+                            type="submit">
                             Apply
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
             <button class="action-button list active"
                 title="List View">

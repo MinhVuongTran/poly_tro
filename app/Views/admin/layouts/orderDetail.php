@@ -33,30 +33,40 @@
                         <polygon
                             points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                     </svg></button>
-                <div class="filter-menu ">
-                    <label>Category</label>
-                    <select>
-                        <option>All Categories</option>
-                        <option>Furniture</option>
-                        <option>Decoration</option>
-                        <option>Kitchen</option>
-                        <option>Bathroom</option>
+                <form
+                    action="http://localhost/poly_tro/admin/order/filter"
+                    class="filter-menu ">
+                    <input type="hidden" name="id"
+                        value="<?= $_GET["id"] ?>">
+                    <label>Danh mục</label>
+                    <select name="category"
+                        class="category">
+                        <option value="">Tất cả</option>
+                        <?php foreach ($categories as $category) : ?>
+                        <option
+                            value="<?= $category['id'] ?>">
+                            <?= $category['name'] ?>
+                        </option>
+                        <?php endforeach ?>
                     </select>
-                    <label>Status</label>
-                    <select>
-                        <option>All Status</option>
-                        <option>Active</option>
-                        <option>Disabled</option>
+                    <label>Trạng thái</label>
+                    <select name="status" class="status">
+                        <option value="">Tất cả</option>
+                        <option value="active">Đã duyệt
+                        </option>
+                        <option value="disable">Chưa duyệt
+                        </option>
                     </select>
                     <div class="filter-menu-buttons">
                         <button class="filter-button reset">
                             Reset
                         </button>
-                        <button class="filter-button apply">
+                        <button class="filter-button apply"
+                            type="submit">
                             Apply
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
             <button class="action-button list active"
                 title="List View">
@@ -122,7 +132,7 @@
             </div>
             <div class="product-cell image">
                 <img src="http://localhost/poly_tro/<?= handleImage($order_item['image'])[0] ?>"
-                    alt="product">
+                    alt="">
                 <span
                     class="table-short_title"><?= $order_item['title'] ?></span>
             </div>
@@ -139,13 +149,13 @@
                 <?= $order_item['order_created_at'] ?></div>
             <div class="product-cell status-cell">
                 <span
-                    class="status <?= $order_item['order_status'] == 1 ? "active" : "disabled" ?>">
-                    <?= $order_item['order_status'] == 1 ? "Đã duyệt" : "Chưa duyệt" ?>
+                    class="status <?= $order_item['status'] == 1 ? "active" : "disabled" ?>">
+                    <?= $order_item['status'] == 1 ? "Đã duyệt" : "Chưa duyệt" ?>
                 </span>
             </div>
             <div class="product-cell"
                 style="max-width: 120px">
-                <?php if ($order_item['order_status'] == 0) : ?>
+                <?php if ($order_item['status'] == 0) : ?>
                 <a href="http://localhost/poly_tro/admin/order/accept?id=<?= $order_item['order_item_id'] ?>"
                     class="admin-action_btn">Duyệt</a>
                 <?php endif ?>
@@ -154,4 +164,27 @@
         <?php endforeach ?>
     </div>
 </div>
+<script>
+const filterForm = document.querySelector('.filter-menu');
+const resetBtn = document.querySelector('.reset');
+const category = document.querySelector(
+    '.category');
+const status = document.querySelector(
+    '.status');
+const url = new URLSearchParams(window.location.search)
+const id = url.get("id");
+
+filterForm.addEventListener("submit", (e) => {
+    if (category.value == "" && status.value ==
+        "") {
+        e.preventDefault();
+        window.location =
+            `http://localhost/poly_tro/admin/order/detail?id=${id}`;
+    }
+})
+resetBtn.onclick = (e) => {
+    filterForm.reset();
+    e.preventDefault();
+}
+</script>
 <?php view("admin.partials.footer") ?>

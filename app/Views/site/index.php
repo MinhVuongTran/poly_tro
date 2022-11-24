@@ -22,7 +22,7 @@
             </div>
         </div>
         <!-- Bai viet -->
-        <?php foreach ($news as $new) : ?>
+        <?php foreach ($newsPagination as $new) : ?>
         <div class="boxcontent2 stt">
             <a href="http://localhost/poly_tro/site/new?detail=<?= $new['id'] ?>"
                 class='content-img'>
@@ -58,6 +58,36 @@
             </div>
         </div>
         <?php endforeach ?>
+        <!-- Pagination -->
+        <?php if (isset($numOfPage)) : ?>
+        <nav aria-label="Page navigation example ">
+            <ul class="pagination">
+                <li class="page-item ">
+                    <a class="page-link <?= !isset($_GET["page"]) || $_GET["page"] == 1 ? "page-item_disabled" : "" ?>"
+                        href="?page=<?= isset($_GET["page"]) ? $_GET["page"] - 1 : "" ?>"
+                        aria-label="Previous">
+                        <span
+                            aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <?php for ($i = 1; $i <= $numOfPage; $i++) : ?>
+                <li class="page-item"><a class="page-link"
+                        href="?page=<?= $i ?>"><?= $i ?></a>
+                </li>
+                <?php endfor ?>
+                <li class="page-item ">
+                    <a class="page-link <?= isset($_GET["page"]) && ($_GET["page"] + 1) > $numOfPage || $numOfPage == 1 ? "page-item_disabled" : "" ?>"
+                        <?php if (!isset($_GET["page"]) || $_GET["page"] == 1) : ?>
+                        href="?page=2" <?php else : ?>
+                        href="?page=<?= $_GET["page"] + 1 ?>"
+                        <?php endif ?> aria-label="Next">
+                        <span
+                            aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <?php endif ?>
     </div>
     <!-- box phai -->
     <div class="boxphai">
@@ -170,4 +200,7 @@
         </div>
     </div>
 </div>
+<script
+    src="http://localhost/poly_tro/public/js/pagination.js">
+</script>
 <?php view("site.partials.footer") ?>

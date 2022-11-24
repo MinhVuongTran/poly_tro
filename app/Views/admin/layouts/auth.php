@@ -16,12 +16,12 @@
         </button>
     </div>
     <div class="app-content-actions">
-        <input class="search-bar" placeholder="Search..."
-            type="text">
+        <input class="search-bar"
+            placeholder="Tìm kiếm..." type="text">
         <div class="app-content-actions-wrapper">
             <div class="filter-button-wrapper">
                 <button
-                    class="action-button filter jsFilter"><span>Filter</span><svg
+                    class="action-button filter jsFilter"><span>Lọc</span><svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16" height="16"
                         viewBox="0 0 24 24" fill="none"
@@ -33,30 +33,29 @@
                         <polygon
                             points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                     </svg></button>
-                <div class="filter-menu ">
-                    <label>Category</label>
-                    <select>
-                        <option>All Categories</option>
-                        <option>Furniture</option>
-                        <option>Decoration</option>
-                        <option>Kitchen</option>
-                        <option>Bathroom</option>
-                    </select>
-                    <label>Status</label>
-                    <select>
-                        <option>All Status</option>
-                        <option>Active</option>
-                        <option>Disabled</option>
+                <form
+                    action="http://localhost/poly_tro/admin/auth/filter"
+                    class="filter-menu ">
+                    <label>Trạng thái</label>
+                    <select name="role">
+                        <option value="">Tất cả
+                        </option>
+                        <option value="active">Chủ phòng
+                            trọ
+                        </option>
+                        <option value="disable">Khách
+                        </option>
                     </select>
                     <div class="filter-menu-buttons">
                         <button class="filter-button reset">
                             Reset
                         </button>
-                        <button class="filter-button apply">
+                        <button class="filter-button apply"
+                            type="submit">
                             Apply
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
             <button class="action-button list active"
                 title="List View">
@@ -124,7 +123,7 @@
             <div class="product-cell image"
                 style="max-width: 250px; min-width: 0px !important;">
                 <img src="http://localhost/poly_tro/<?= handleImage($user['image'])[0] ?>"
-                    alt="product">
+                    alt="">
                 <span
                     class="table-short_title"><?= $user['fullname'] ?></span>
             </div>
@@ -155,8 +154,6 @@
                 <a href="http://localhost/poly_tro/admin/permission/denialPermission?id=<?= $user['id'] ?>"
                     class="admin-action_btn">Xóa quyền</a>
                 <?php endif ?>
-                <a href="http://localhost/poly_tro/admin/auth/deleteUser?id=<?= $user['id'] ?>"
-                    class="admin-action_btn">Xóa</a>
             </div>
         </div>
         <?php endforeach ?>

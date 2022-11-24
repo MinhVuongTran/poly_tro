@@ -8,11 +8,6 @@
         content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet"
         href="http://localhost/poly_tro/public/css/style.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
@@ -54,6 +49,11 @@
                                 tin tài khoản</a>
                         </li>
                         <li class="user-action_item"><a
+                                href="http://localhost/poly_tro/site/account/order"
+                                class="user-action_item-link">Thông
+                                tin đơn hàng</a>
+                        </li>
+                        <li class="user-action_item"><a
                                 href="http://localhost/poly_tro/site/favourite"
                                 class="user-action_item-link">Danh
                                 sách yêu thích</a>
@@ -81,39 +81,40 @@
                 <?php endif ?>
             </div>
         </div>
-        <nav class="navbar">
-            <ul class="list-category">
-                <li class="list-category_item">
-                    <a href="http://localhost/poly_tro"
-                        class="list-category_item--link">Trang
-                        chủ</a>
-                </li>
-                <li class="list-category_item">
-                    <a href="http://localhost/poly_tro/site/category?id=1"
-                        class="list-category_item--link">Cho
-                        thuê phòng trọ</a>
-                </li>
-                <li class="list-category_item">
-                    <a href="http://localhost/poly_tro/site/category?id=2"
-                        class="list-category_item--link">Nhà
-                        cho thuê</a>
-                </li>
-                <li class="list-category_item">
-                    <a href="http://localhost/poly_tro/site/category?id=3"
-                        class="list-category_item--link">Cho
-                        thuê căn hộ</a>
-                </li>
-                <li class="list-category_item">
-                    <a href="http://localhost/poly_tro/site/category?id=4"
-                        class="list-category_item--link">Cho
-                        thuê mặt bằng</a>
-                </li>
-                <li class="list-category_item">
-                    <a href="http://localhost/poly_tro/site/category?id=5"
-                        class="list-category_item--link">Tìm
-                        người ở ghép</a>
-                </li>
-            </ul>
-        </nav>
+
     </header>
+    <nav class="navbar">
+        <ul class="list-category">
+            <li class="list-category_item">
+                <a href="http://localhost/poly_tro"
+                    class="list-category_item--link">Trang
+                    chủ</a>
+            </li>
+            <li class="list-category_item">
+                <a href="http://localhost/poly_tro/site/category?id=1"
+                    class="list-category_item--link">Cho
+                    thuê phòng trọ</a>
+            </li>
+            <li class="list-category_item">
+                <a href="http://localhost/poly_tro/site/category?id=2"
+                    class="list-category_item--link">Nhà
+                    cho thuê</a>
+            </li>
+            <li class="list-category_item">
+                <a href="http://localhost/poly_tro/site/category?id=3"
+                    class="list-category_item--link">Cho
+                    thuê căn hộ</a>
+            </li>
+            <li class="list-category_item">
+                <a href="http://localhost/poly_tro/site/category?id=4"
+                    class="list-category_item--link">Cho
+                    thuê mặt bằng</a>
+            </li>
+            <li class="list-category_item">
+                <a href="http://localhost/poly_tro/site/category?id=5"
+                    class="list-category_item--link">Tìm
+                    người ở ghép</a>
+            </li>
+        </ul>
+    </nav>
     <div class="container">

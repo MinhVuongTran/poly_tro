@@ -39,12 +39,16 @@ class NewModel extends BaseModel
         return $data = $this->query_all($sql);
     }
 
-    public function getTopView($cate_id = "")
+    public function getTopView($cate_id = "", $limit = "")
     {
         if ($cate_id == "") {
             $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.status != 0 order by n.view desc";
         } else {
             $sql = "SELECT n.*, u.fullname, u.image as avatar, f.name as facility_name from news n inner join users u on n.user_id = u.id inner join facilities f on n.facility_id = f.id where n.status != 0 and n.category_id = ${cate_id} order by n.view desc";
+        }
+
+        if ($limit != "") {
+            $sql .= " limit $limit";
         }
         return $data = $this->query_all($sql);
     }

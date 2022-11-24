@@ -59,4 +59,16 @@ class PermissionController extends BaseController
             header("location: http://localhost/poly_tro/admin/auth");
         }
     }
+
+    public function filter()
+    {
+        if (isset($_GET["status"])) {
+            $status = $_GET["status"];
+            $data = $this->permissionModel->getAll();
+            $permissions = $this->permissionModel->filterOnlyStatus($data, $status);
+            $this->view('admin.layouts.permission', [
+                "permissions" => $permissions
+            ]);
+        }
+    }
 }

@@ -25,4 +25,16 @@ class AuthController extends BaseController
             header("location: http://localhost/poly_tro/admin/auth");
         }
     }
+
+    public function filter()
+    {
+        if (isset($_GET["role"])) {
+            $role = $_GET["role"];
+            $data = $this->authModel->getAll();
+            $users = $this->authModel->filterOnlyRole($data, $role);
+            $this->view('admin.layouts.auth', [
+                'users' => $users
+            ]);
+        }
+    }
 }

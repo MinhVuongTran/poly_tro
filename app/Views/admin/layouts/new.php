@@ -21,7 +21,7 @@
         <div class="app-content-actions-wrapper">
             <div class="filter-button-wrapper">
                 <button
-                    class="action-button filter jsFilter"><span>Filter</span><svg
+                    class="action-button filter jsFilter"><span>Lọc</span><svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16" height="16"
                         viewBox="0 0 24 24" fill="none"
@@ -33,30 +33,38 @@
                         <polygon
                             points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                     </svg></button>
-                <div class="filter-menu ">
-                    <label>Category</label>
-                    <select>
-                        <option>All Categories</option>
-                        <option>Furniture</option>
-                        <option>Decoration</option>
-                        <option>Kitchen</option>
-                        <option>Bathroom</option>
+                <form
+                    action="http://localhost/poly_tro/admin/new/filter"
+                    class="filter-menu ">
+                    <label>Danh mục</label>
+                    <select name="category"
+                        class="category">
+                        <option value="">Tất cả</option>
+                        <?php foreach ($categories as $category) : ?>
+                        <option
+                            value="<?= $category['id'] ?>">
+                            <?= $category['name'] ?>
+                        </option>
+                        <?php endforeach ?>
                     </select>
-                    <label>Status</label>
-                    <select>
-                        <option>All Status</option>
-                        <option>Active</option>
-                        <option>Disabled</option>
+                    <label>Trạng thái</label>
+                    <select name="status" class="status">
+                        <option value="">Tất cả</option>
+                        <option value="active">Đã duyệt
+                        </option>
+                        <option value="disable">Chưa duyệt
+                        </option>
                     </select>
                     <div class="filter-menu-buttons">
                         <button class="filter-button reset">
                             Reset
                         </button>
-                        <button class="filter-button apply">
+                        <button class="filter-button apply"
+                            type="submit">
                             Apply
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
             <button class="action-button list active"
                 title="List View">
@@ -121,7 +129,7 @@
             </div>
             <div class="product-cell image">
                 <img src="http://localhost/poly_tro/<?= handleImage($new['image'])[0] ?>"
-                    alt="product">
+                    alt="">
                 <span
                     class="table-short_title"><?= $new['title'] ?></span>
             </div>
@@ -147,4 +155,25 @@
         <?php endforeach ?>
     </div>
 </div>
+<script>
+const filterForm = document.querySelector('.filter-menu');
+const resetBtn = document.querySelector('.reset');
+const category = document.querySelector(
+    '.category');
+const status = document.querySelector(
+    '.status');
+
+filterForm.addEventListener("submit", (e) => {
+    if (category.value == "" && status.value ==
+        "") {
+        e.preventDefault();
+        window.location =
+            "http://localhost/poly_tro/admin/new";
+    }
+})
+resetBtn.onclick = (e) => {
+    filterForm.reset();
+    e.preventDefault();
+}
+</script>
 <?php view("admin.partials.footer") ?>
