@@ -72,4 +72,18 @@ class AuthController extends BaseController
             header("location: http://localhost/poly_tro");
         }
     }
+
+    public function forgot()
+    {
+        $phone_number = $_POST["phone_number"];
+        $check = $this->authModel->checkAuth($phone_number, "", true);
+        if ($check) {
+            $phone = $this->authModel->getAuth($phone_number)['password'];
+            $this->view("site.layouts.forgot", [
+                "phone" => $phone
+            ]);
+        } else {
+            header("location: http://localhost/poly_tro/site/account?forgot&error");
+        }
+    }
 }

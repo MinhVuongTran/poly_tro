@@ -79,7 +79,8 @@ class SiteController extends BaseController
         $this->view('site.index', [
             'categories' => $categories,
             'facilities' => $facilities,
-            'newsPagination' => $newsPagination,
+            // 'newsPagination' => $newsPagination,
+            'news' => $news,
             'numOfPage' => $numOfPage,
             'getNewPost' => $getNewPost,
         ]);

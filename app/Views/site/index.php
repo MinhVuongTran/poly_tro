@@ -22,72 +22,11 @@
             </div>
         </div>
         <!-- Bai viet -->
-        <?php foreach ($newsPagination as $new) : ?>
-        <div class="boxcontent2 stt">
-            <a href="http://localhost/poly_tro/site/new?detail=<?= $new['id'] ?>"
-                class='content-img'>
-                <img src="http://localhost/poly_tro/<?= handleImage($new['image'])[0] ?>"
-                    alt="" class='content-img_link'>
-            </a>
-            <div>
-                <a href="http://localhost/poly_tro/site/new?detail=<?= $new['id'] ?>"
-                    class="content-title short-title"><?= $new['title'] ?></a>
-                <div class="content-body">
-                    <div class="content-price">
-                        <?= price_format($new['price']) ?>
-                    </div>
-                    <div class="content-area">
-                        <?= $new['area'] ?>m²</div>
-                    <div
-                        class="content-address table-short_title">
-                        <?= $new['address'] ?></div>
-                </div>
-                <div class="content-description short-title"
-                    style="max-width: 500px">
-                    <?= $new['description'] ?>
-                </div>
-                <div class="content-user">
-                    <div class="content-user_avatar">
-                        <img src="http://localhost/poly_tro<?= $new['avatar'] ?>"
-                            alt="">
-                    </div>
-                    <p class="content-user_name">
-                        <?= $new['fullname'] ?>
-                    </p>
-                </div>
-            </div>
+        <div class="news-content">
         </div>
-        <?php endforeach ?>
         <!-- Pagination -->
-        <?php if (isset($numOfPage)) : ?>
-        <nav aria-label="Page navigation example ">
-            <ul class="pagination">
-                <li class="page-item ">
-                    <a class="page-link <?= !isset($_GET["page"]) || $_GET["page"] == 1 ? "page-item_disabled" : "" ?>"
-                        href="?page=<?= isset($_GET["page"]) ? $_GET["page"] - 1 : "" ?>"
-                        aria-label="Previous">
-                        <span
-                            aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <?php for ($i = 1; $i <= $numOfPage; $i++) : ?>
-                <li class="page-item"><a class="page-link"
-                        href="?page=<?= $i ?>"><?= $i ?></a>
-                </li>
-                <?php endfor ?>
-                <li class="page-item ">
-                    <a class="page-link <?= isset($_GET["page"]) && ($_GET["page"] + 1) > $numOfPage || $numOfPage == 1 ? "page-item_disabled" : "" ?>"
-                        <?php if (!isset($_GET["page"]) || $_GET["page"] == 1) : ?>
-                        href="?page=2" <?php else : ?>
-                        href="?page=<?= $_GET["page"] + 1 ?>"
-                        <?php endif ?> aria-label="Next">
-                        <span
-                            aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <?php endif ?>
+        <div class="btn-group_page">
+        </div>
     </div>
     <!-- box phai -->
     <div class="boxphai">
@@ -200,7 +139,98 @@
         </div>
     </div>
 </div>
-<script
-    src="http://localhost/poly_tro/public/js/pagination.js">
+<script>
+const data = <?= json_encode($news) ?>;
+const newsContent = document.querySelector('.news-content');
+const btnGroupPage = document.querySelector(
+    '.btn-group_page');
+
+data.forEach(e => {
+    for (let i in e) {
+        if (!isNaN(Number(i))) {
+            delete e[i];
+        }
+    }
+})
+
+let temp = 0;
+let numberData = 7;
+
+function getFirstImage(link) {
+    return image = link.slice(0, link.indexOf(","));
+}
+
+function render(temp) {
+    let target = temp > 0 ? temp * numberData : numberData;
+    const newData = data.slice(target - numberData, target);
+
+
+    newsContent.innerHTML =
+        newData.map(e => {
+            const getImage = getFirstImage(e
+                .image);
+            return `
+            <div class="boxcontent2 stt">
+                <a href="http://localhost/poly_tro/site/new?detail=${e.id}"
+                    class='content-img'>
+                    <img src="http://localhost/poly_tro/${getImage}"
+                        alt="" class='content-img_link'>
+                </a>
+                <div>
+                    <a href="http://localhost/poly_tro/site/new?detail=${e.id}"
+                        class="content-title short-title">${e.title}</a>
+                    <div class="content-body">
+                        <div class="content-price">
+                            
+                        </div>
+                        <div class="content-area">
+                        ${e.area}m²</div>
+                        <div
+                            class="content-address table-short_title">
+                            ${e.address}</div>
+                    </div>
+                    <div class="content-description short-title"
+                        style="max-width: 500px">
+                        ${e.description}
+                    </div>
+                    <div class="content-user">
+                        <div class="content-user_avatar">
+                            <img src="http://localhost/poly_tro${e.avatar}"
+                                alt="">
+                        </div>
+                        <p class="content-user_name">
+                        ${e.fullname}
+                        </p>
+                    </div>
+                </div>
+            </div>`
+        }).join("");
+
+}
+
+document.body.onload = () => {
+    render(temp)
+}
+
+if (Math.ceil(data.length / numberData) > 1) {
+
+    for (let i = 1; i <= Math.ceil(data.length /
+            numberData); i++) {
+        btnGroupPage.innerHTML +=
+            `<button class="btn-page">${i}</button>`
+    }
+}
+
+const btnPage = document.querySelectorAll(".btn-page");
+
+for (let i = 0; i < btnPage.length; i++) {
+    btnPage[i].onclick = () => {
+        render(Number(btnPage[i].innerText))
+        window.scrollTo({
+            top: 0,
+            behavior: `smooth`
+        })
+    }
+}
 </script>
 <?php view("site.partials.footer") ?>
