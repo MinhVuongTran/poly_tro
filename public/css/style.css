@@ -140,6 +140,7 @@ a {
   position: sticky;
   top: 0;
   margin-top: 16px;
+  z-index: 1;
   max-width: 1200px;
   background-color: var(--primaryColor);
 }
@@ -1289,4 +1290,30 @@ td:not(:first-child)::before {
 .page-item_disabled:hover {
   background-color: unset;
   cursor: not-allowed;
+}
+
+.news-content {
+  min-height: 1800px;
+}
+
+.btn-group_page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.btn-page {
+  font-size: 1.4rem;
+  height: 40px;
+  padding: 0 14px;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-page:hover {
+  cursor: pointer;
+  background-color: rgb(242, 113, 38, 0.8);
 }
