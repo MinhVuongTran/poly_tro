@@ -23,6 +23,13 @@ class NewModel extends BaseModel
         }
         return $data = $this->query_all($sql);
     }
+
+    public function getAllByFacility($facility_id)
+    {
+        $sql = "SELECT * from news where facility_id = ${facility_id}";
+        return $this->query_all($sql);
+    }
+
     public function getOne($id)
     {
         $sql = "SELECT n.*, u.fullname, u.phone, u.image as avatar from news n inner join users u on n.user_id = u.id where n.id = $id";

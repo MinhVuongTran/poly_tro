@@ -31,7 +31,7 @@
                 <td><?= price_format($order['price']) ?>
                 </td>
                 <td><?= $order['order_created_at'] ?></td>
-                <td><?= $order['order_status'] == 0 ? "Đang duyệt" : "Đã duyệt" ?>
+                <td><?= $order['status'] == 0 ? "Đang duyệt" : "Đã duyệt" ?>
                 </td>
                 <td><a href="http://localhost/poly_tro/site/order/deleteOrder?id=<?= $order['order_item_id'] ?>"
                         class="btn-remover">Xóa</a>

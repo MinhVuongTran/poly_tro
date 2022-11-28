@@ -18,7 +18,7 @@ class NewController extends BaseController
 
     public function index()
     {
-        $news = $this->newModel->getAll("", "", [], true);
+        $news = $this->newModel->getAllByFacility($_SESSION["admin"]['facility_id']);
         $categories = $this->categoryModel->getAll();
         $this->view('admin.layouts.new', [
             "news" => $news,

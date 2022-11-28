@@ -15,7 +15,7 @@ class OrderController extends BaseController
 
     public function index()
     {
-        $orders = $this->orderModel->getAll();
+        $orders = $this->orderModel->getAll($_SESSION["admin"]['facility_id']);
         $this->view('admin.layouts.order', [
             'orders' => $orders
         ]);

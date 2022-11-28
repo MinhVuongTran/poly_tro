@@ -14,6 +14,16 @@
                 disabled value="<?= $user['id'] ?>">
         </div>
         <div class="form-group2">
+            <label for="" class="form-label">Cơ sở</label>
+            <?php foreach ($facilities as $facility) : ?>
+            <?php if ($facility['id'] == $user['facility_id']) : ?>
+            <input type="text"
+                class="form-control form-control_normal form-control_disabled"
+                disabled value="<?= $facility['name'] ?>">
+            <?php endif ?>
+            <?php endforeach ?>
+        </div>
+        <div class="form-group2">
             <label for="" class="form-label">Số điện
                 thoại</label>
             <input type="text"

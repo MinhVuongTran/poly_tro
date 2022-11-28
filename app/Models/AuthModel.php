@@ -8,6 +8,12 @@ class AuthModel extends BaseModel
         return $this->all(self::TABLE, $select);
     }
 
+    public function getAllByFacility($facility_id)
+    {
+        $sql = "SELECT * from users where facility_id = ${facility_id}";
+        return $this->query_all($sql);
+    }
+
     public function getOne($id)
     {
         return $this->one(self::TABLE, $id);
@@ -17,14 +23,17 @@ class AuthModel extends BaseModel
     {
         return $this->create(self::TABLE, $data);
     }
+
     public function updateUser($data, $id)
     {
         return $this->update(self::TABLE, $data, $id);
     }
+
     public function deleteUser($id)
     {
         return $this->delete(self::TABLE, $id);
     }
+
     public function checkAuth($phone, $password = "", $forgot = false)
     {
         if ($forgot) {

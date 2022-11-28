@@ -3,9 +3,10 @@ class PermissionModel extends BaseModel
 {
     const TABLE = 'permissions';
 
-    public function getAll($select = ['*'])
+    public function getAll($facility_id)
     {
-        return $this->all(self::TABLE, $select);
+        $sql = "SELECT * from permissions p inner join users u on p.user_id = u.id where u.facility_id = $facility_id";
+        return $this->query_all($sql);
     }
 
     public function getOne($id)
