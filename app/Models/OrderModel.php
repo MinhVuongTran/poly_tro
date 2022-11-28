@@ -4,9 +4,14 @@ class OrderModel extends BaseModel
     const TABLE1 = 'orders';
     const TABLE2 = "orders_item";
 
-    public function getAll($select = ['*'])
+    public function getAll($facility_id = "")
     {
-        return $this->all(self::TABLE1, $select);
+        if ($facility_id != "") {
+            $sql = "SELECT o.* from orders o inner join users u on o.user_id = u.id where u.facility_id = $facility_id";
+        } else {
+            return $this->all(self::TABLE1);
+        }
+        return $this->query_all($sql);
     }
 
     public function getAllDetail($user_id)

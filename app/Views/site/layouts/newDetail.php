@@ -33,11 +33,15 @@
                 <?= $new['title'] ?></h1>
             <div class="diachi">
                 <h4>Địa chỉ: <?= $new['address'] ?></h4>
+                <p><b>Ngày đăng:</b>
+                    <?= $new['created_at'] ?>
+                </p>
                 <div class="thongtinlienquan">
                     <span><?= price_format($new['price']) ?>/tháng</span>
                     <p>Diện tích:
                         <?= $new['area'] ?>m<sup>2</sup></p>
                     <p>Mã: #<?= $new['id'] ?></p>
+                    <p>lượt xem: <?= $new['view'] ?></p>
                 </div>
             </div>
             <div class="thongtinmota">
@@ -172,40 +176,13 @@
             <h2 class="boxtitle">
                 Tin nổi bật
             </h2>
-            <?php foreach ($topViews as $topView) : ?>
-            <a href="" class="clear10 newstt">
-                <div class="newstt-img">
-                    <img src="http://localhost/poly_tro/<?= handleImage($topView['image'])[0] ?>"
-                        alt="">
-                </div>
-                <div class="newstt-body">
-                    <p class="newstt-title">
-                        <?= $topView['title'] ?>
-                    </p>
-                    <span
-                        class="newstt-price"><?= price_format($topView['price']) ?></span>
-                </div>
-            </a>
-            <?php endforeach ?>
+            <div class="top-view boxcontent"></div>
         </div>
         <div class="clear boxtrai-item">
             <h2 class="boxtitle">
                 Tin mới nhất
             </h2>
-            <?php foreach ($getNewPost as $item) : ?>
-            <a href="" class=" clear10 newstt">
-                <div class="newstt-img">
-                    <img src="http://localhost/poly_tro/<?= handleImage($item['image'])[0] ?>"
-                        alt="">
-                </div>
-                <div class="newstt-body">
-                    <p class="newstt-title">
-                        <?= $item['title'] ?></p>
-                    <span
-                        class="newstt-price"><?= price_format($item['price']) ?></span>
-                </div>
-            </a>
-            <?php endforeach  ?>
+            <div class="new-latest boxcontent"></div>
         </div>
     </div>
 </div>
@@ -244,5 +221,108 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "flex";
     dots[slideIndex - 1].className += " active";
 }
+</script>
+
+<script>
+const newLatest = <?= json_encode($getNewPost) ?>;
+const topViews = <?= json_encode($topViews) ?>;
+const latest = document.querySelector('.new-latest');
+const view = document.querySelector('.top-view');
+
+function getFirstImage(link) {
+    return image = link.slice(0, link.indexOf(","));
+}
+
+function formatPrice(a) {
+    let str = `${a}`;
+    return str.split("").reverse().reduce((prev,
+        next,
+        index) => {
+        return ((index % 3) ? next : (next + '.')) +
+            prev
+    })
+}
+
+const get_day_of_time = (d1, d2) => {
+    let ms1 = d1.getTime();
+    let ms2 = d2.getTime();
+    return Math.ceil((ms2 - ms1) / (24 *
+        60 * 60 * 1000));
+};
+
+latest.innerHTML = newLatest.map(ele => {
+    const getImage = getFirstImage(ele
+        .image);
+    const price = formatPrice(ele.price);
+
+    let start = new Date(ele.created_at)
+    let end = new Date()
+
+    let time = get_day_of_time(start, end);
+    let day = Math.floor(time / 30);
+    if (Math.floor(time / 30) > 0) {
+        time =
+            `${day} tháng ${time - (day * 30)} ngày trước`;
+    } else {
+        time =
+            `${time} ngày trước`;
+    }
+    return `
+            <a href="http://localhost/poly_tro/site/new?detail=${ele.id}"
+                class=" clear10 newstt">
+                <div class="newstt-img">
+                    <img src="http://localhost/poly_tro/${getImage}"
+                        alt="">
+                </div>
+                <div class="newstt-body">
+                    <p class="newstt-title">
+                    ${ele.title}</p>
+                    <div style="display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                margin-top: 8px;">
+                        <span class="newstt-price">${price}đ</span>
+                        <span>${time}</span>
+                    </div>
+                </div>
+            </a>`
+}).join("")
+
+view.innerHTML = topViews.map(ele => {
+    const getImage = getFirstImage(ele
+        .image);
+    const price = formatPrice(ele.price);
+
+    let start = new Date(ele.created_at)
+    let end = new Date()
+
+    let time = get_day_of_time(start, end);
+    let day = Math.floor(time / 30);
+    if (Math.floor(time / 30) > 0) {
+        time =
+            `${day} tháng ${time - (day * 30)} ngày trước`;
+    } else {
+        time =
+            `${time} ngày trước`;
+    }
+    return `
+                <a href="" class="clear10 newstt">
+                    <div class="newstt-img">
+                        <img src="http://localhost/poly_tro/${getImage}" alt="">
+                    </div>
+                    <div class="newstt-body">
+                        <p class="newstt-title">
+                        ${ele.title}
+                        </p>
+                        <div style="display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    margin-top: 8px;">
+                            <span class="newstt-price">${price}đ</span>
+                            <span>${ele.view} lượt xem</span>
+                        </div>
+                    </div>
+                </a>`
+}).join("")
 </script>
 <?php view("site.partials.footer") ?>

@@ -12,7 +12,7 @@ class AuthController extends BaseController
 
     public function index()
     {
-        $users = $this->authModel->getAll();
+        $users = $this->authModel->getAllByFacility($_SESSION["admin"]['facility_id']);
         $this->view('admin.layouts.auth', [
             'users' => $users
         ]);

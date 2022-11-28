@@ -31,7 +31,10 @@ class AccountController extends BaseController
             return $this->view('site.layouts.signIn');
         }
         if (isset($_GET["signUp"])) {
-            return $this->view('site.layouts.signUp');
+            $facilities = $this->facilityModel->getAll();
+            return $this->view('site.layouts.signUp', [
+                "facilities" => $facilities
+            ]);
         }
         if (isset($_GET["forgot"])) {
             return $this->view('site.layouts.forgot');
@@ -115,9 +118,11 @@ class AccountController extends BaseController
 
     public function profile()
     {
+        $facilities = $this->facilityModel->getAll();
         $user = $this->authModel->getOne($_SESSION["auth"]['id']);
         return $this->view('site.layouts.accountManage.profile', [
-            "user" => $user
+            "user" => $user,
+            "facilities" => $facilities
         ]);
     }
 

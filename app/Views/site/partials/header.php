@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="http://localhost/poly_tro/public/css/style.css">
+    <link rel="stylesheet" href="http://localhost/poly_tro/public/css/index.css">
     <title>Document</title>
 </head>
 
@@ -85,10 +85,6 @@
             <li class="list-category_item">
                 <a href="http://localhost/poly_tro/site/category?id=4" class="list-category_item--link">Cho
                     thuê mặt bằng</a>
-            </li>
-            <li class="list-category_item">
-                <a href="http://localhost/poly_tro/site/category?id=5" class="list-category_item--link">Tìm
-                    người ở ghép</a>
             </li>
         </ul>
     </nav>

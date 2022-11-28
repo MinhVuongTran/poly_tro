@@ -415,7 +415,6 @@ a {
 
 .newstt-price {
   display: block;
-  margin-top: 12px;
 }
 
 .newstt img {
@@ -447,6 +446,7 @@ a {
 
 .content-img_link {
   max-width: 240px;
+  max-height: 170px;
   object-fit: cover;
 }
 
@@ -477,6 +477,7 @@ a {
 .content-user {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-top: 12px;
 }
 .content-user_avatar {
@@ -1293,7 +1294,7 @@ td:not(:first-child)::before {
 }
 
 .news-content {
-  min-height: 1800px;
+  min-height: 1530px;
 }
 
 .btn-group_page {
@@ -1316,4 +1317,9 @@ td:not(:first-child)::before {
 .btn-page:hover {
   cursor: pointer;
   background-color: rgb(242, 113, 38, 0.8);
+}
+
+.timestamp,
+.view {
+  font-size: 1.6rem;
 }

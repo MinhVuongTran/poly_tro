@@ -29,9 +29,21 @@
             <?php endif ?>
         </div>
         <div class="form-group">
-            <label class="form-label">Tạo mật khẩu</label>
+            <label class="form-label">Mật khẩu</label>
             <input type="password" name="password"
                 class="form-control" required>
+        </div>
+        <div class="form-group">
+            <select name="facility_id" id="" style="width: 100%;
+    padding: 10px 8px;
+    border-radius: 5px;" required>
+                <option value="">--Chọn cơ sở--
+                </option>
+                <?php foreach ($facilities as $facility) : ?>
+                <option value="<?= $facility['id'] ?>">
+                    <?= $facility['name'] ?></option>
+                <?php endforeach ?>
+            </select>
         </div>
         <button type="submit" class="btn btn-submit">
             Đăng ký

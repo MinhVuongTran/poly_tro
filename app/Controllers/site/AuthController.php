@@ -32,6 +32,7 @@ class AuthController extends BaseController
         $phone_number = $_POST['phone_number'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $facility_id = $_POST["facility_id"];
 
         $checkEmail = $this->authModel->checkExist('users', 'email', $email);
         $checkPhone = $this->authModel->checkExist('users', 'phone', $phone_number);
@@ -57,6 +58,7 @@ class AuthController extends BaseController
             "password" => $password,
             "email" => $email,
             "status" => 1,
+            "facility_id" => $facility_id,
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
         ];

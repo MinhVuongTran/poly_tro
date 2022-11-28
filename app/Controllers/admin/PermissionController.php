@@ -15,7 +15,7 @@ class PermissionController extends BaseController
 
     public function index()
     {
-        $permissions = $this->permissionModel->getAll();
+        $permissions = $this->permissionModel->getAll($_SESSION["admin"]['facility_id']);
         $this->view('admin.layouts.permission', [
             "permissions" => $permissions
         ]);
@@ -64,7 +64,7 @@ class PermissionController extends BaseController
     {
         if (isset($_GET["status"])) {
             $status = $_GET["status"];
-            $data = $this->permissionModel->getAll();
+            $data = $this->permissionModel->getAll($_SESSION["admin"]['facility_id']);
             $permissions = $this->permissionModel->filterOnlyStatus($data, $status);
             $this->view('admin.layouts.permission', [
                 "permissions" => $permissions
