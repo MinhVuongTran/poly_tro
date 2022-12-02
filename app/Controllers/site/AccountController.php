@@ -41,8 +41,10 @@ class AccountController extends BaseController
         }
         $news = $this->newModel->getAll("", $_SESSION["auth"]['id']);
         if ($_SESSION["auth"]['role'] == 1) {
+            $orders = $this->orderModel->getOrderItem();
             return $this->view('site.layouts.accountManage.index', [
-                "news" => $news
+                "news" => $news,
+                "orders" => $orders,
             ]);
         } else {
             $user = $this->authModel->getOne($_SESSION["auth"]['id']);

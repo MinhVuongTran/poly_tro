@@ -10,13 +10,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/poly_tro/public/css/index.css" />
+    <link rel="stylesheet" href="http://localhost/poly_tro/public/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="wrapper">
         <nav class="account-navbar">
             <a href="http://localhost/poly_tro" class="account-navbar_item--link account-navbar--link">Polytro.com</a>
             <ul class="account-navbar_list">
@@ -83,6 +83,13 @@
                             <i class="fa-solid fa-clock-rotate-left"></i>
                             <span class="account-sidebar_item--title">Lịch
                                 sử thuê phòng</span>
+                        </a>
+                    </li>
+                    <li class="account-sidebar_item">
+                        <a href="http://localhost/poly_tro/site/favourite" class="account-sidebar_item--link">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <span class="account-sidebar_item--title">Danh
+                                sách yêu thích</span>
                         </a>
                     </li>
                     <li class="account-sidebar_item">

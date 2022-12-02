@@ -120,6 +120,8 @@
             <div class="product-cell price"
                 style="max-width: 120px">Giá</div>
             <div class="product-cell ">Thời gian tạo</div>
+            <div class="product-cell ">Hết hạn
+            </div>
             <div class="product-cell status-cell"
                 style="max-width: 150px">Trạng thái</div>
             <div class="product-cell status-cell"
@@ -146,7 +148,11 @@
                 <?= price_format($order_item['price']) ?>
             </div>
             <div class="product-cell created_at">
-                <?= $order_item['order_created_at'] ?></div>
+                <?= date("d-m-Y", strtotime($order_item['order_created_at'])) ?>
+            </div>
+            <div class="product-cell created_at">
+                <?= date("d-m-Y", strtotime($order_item['expired_at'])) ?>
+            </div>
             <div class="product-cell status-cell">
                 <span
                     class="status <?= $order_item['status'] == 1 ? "active" : "disabled" ?>">

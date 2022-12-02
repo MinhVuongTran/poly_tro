@@ -2,8 +2,8 @@
 <div class="sanpham">
     <div class="left">
         <div class="slideshow">
-            <!-- Slideshow container -->
-            <div class="slideshow-container">
+            <!-- Slideshow wrapper -->
+            <div class="slideshow-wrapper">
 
                 <!-- Full-width images with number and caption text -->
                 <?php foreach (handleImage($new['image']) as $image) : ?>
@@ -163,14 +163,38 @@
                 <i class="fa-solid fa-phone"></i>
                 <span><?= $new['phone'] ?></span>
             </div>
-            <a href="" class="yeuthich">
+            <a href="http://localhost/poly_tro/site/favourite/saveFavourites?id=<?= $new['id'] ?>"
+                class="yeuthich">
                 <i class="fa-regular fa-heart"></i>
                 <span>Yêu thích</span>
             </a>
-            <a href="http://localhost/poly_tro/site/order?id=<?= $new['id'] ?>"
-                class="yeuthich">
-                <span>Đăng ký thuê</span>
-            </a>
+
+            <!-- Button trigger modal -->
+            <button type="button"
+                class="btn btn-order yeuthich" style=" height: 40px;
+                        border: none;
+                        cursor: pointer;">
+                Đăng ký thuê
+            </button>
+
+            <!-- Modal -->
+            <div class="model-container">
+                <form
+                    action="http://localhost/poly_tro/site/order?id=<?= $new['id'] ?>"
+                    method="POST" class="form-model">
+                    <div class="form-group">
+                        <input type="number" name="month"
+                            id="" class="form-control"
+                            placeholder="Nhập số tháng">
+                    </div>
+                    <p class="error-massage"
+                        style="font-size: 1.6rem;"> </p>
+                    <button type="submit"
+                        class="btn btn-submit">Đăng
+                        ký</button>
+                </form>
+                <div class="overlay"></div>
+            </div>
         </div>
         <div class="clear boxtrai-item">
             <h2 class="boxtitle">
@@ -224,6 +248,7 @@ function showSlides(n) {
 </script>
 
 <script>
+const newItem = <?= json_encode($new) ?>;
 const newLatest = <?= json_encode($getNewPost) ?>;
 const topViews = <?= json_encode($topViews) ?>;
 const latest = document.querySelector('.new-latest');
@@ -324,5 +349,57 @@ view.innerHTML = topViews.map(ele => {
                     </div>
                 </a>`
 }).join("")
+
+
+// model
+const modelContainer = document.querySelector(
+    ".model-container");
+const btnOrder = document.querySelector(".btn-order");
+const overlay = document.querySelector(".overlay");
+const navbar = document.querySelector(".navigation-bar");
+const body = document.querySelector("body");
+
+btnOrder.onclick = () => {
+    modelContainer.style.display = "block";
+    navbar.style = "z-index: 0"
+    body.style = "overflow: hidden"
+}
+
+overlay.onclick = () => {
+    modelContainer.style.display = "none";
+    navbar.style = "z-index: 1"
+    body.style = "overflow: none"
+
+}
+
+const btnSubmit = document.querySelector(".btn-submit");
+const formModel = document.querySelector(".form-model");
+const errorMassage = document.querySelector(
+    ".error-massage");
+
+const checkOrder = <?= $check ?>;
+const inputElement = formModel.querySelector(
+    'input[name="month"]');
+
+formModel.addEventListener("submit", (e) => {
+    console.log(Number(inputElement.value));
+    if (Number(inputElement.value) < 0) {
+        e.preventDefault();
+        errorMassage.innerText =
+            "Vui lòng nhập số lớn hơn 0";
+    } else if (checkOrder === 1) {
+        e.preventDefault();
+        errorMassage.innerText =
+            "Đơn đăng ký đã tồn tại";
+    } else {
+        e.submit();
+    }
+
+})
+
+inputElement.oninput = () => {
+    errorMassage.innerText = "";
+}
 </script>
+
 <?php view("site.partials.footer") ?>
