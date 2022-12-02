@@ -25,6 +25,12 @@ class OrderModel extends BaseModel
         return $this->all(self::TABLE2);
     }
 
+    public function getTheNumberOfApprovedOrderItem($new_id)
+    {
+        $sql = "SELECT * from orders_item WHERE new_id = ${new_id}";
+        return $this->query_all($sql);
+    }
+
     public function getOne($id)
     {
         return $this->one(self::TABLE1, $id);
