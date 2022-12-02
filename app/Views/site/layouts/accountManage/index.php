@@ -9,12 +9,12 @@
         <thead>
             <tr>
                 <th>Mã tin</th>
-                <th width="300">Tiêu đề và mô tả</th>
+                <th width="300">Thông tin</th>
                 <th>Giá</th>
                 <th>Ngày tạo</th>
-                <!-- <th>Ngày hết hạn</th> -->
+                <th>Số đơn</th>
+                <th>Đã duyệt</th>
                 <th>Trạng thái</th>
-                <th></th>
             </tr>
         </thead>
 
@@ -31,13 +31,21 @@
                     </p>
                 </td>
                 <td><?= price_format($new['price']) ?></td>
-                <td><?= $new['updated_at'] ?></td>
-                <!-- <td>
-                    <?php $newdate = strtotime('+7 day', strtotime($new['updated_at']));
-                    $newdate = date("Y-m-d H:i:s", $newdate);
-                    echo $newdate;
+                <td><?= date("d-m-Y", strtotime($new['updated_at'])) ?>
+                </td>
+                <?php $sum = 0;
+                    $status = 0;
+                    foreach ($orders as $order) {
+                        if ($order['new_id'] === $new['id']) {
+                            $sum++;
+                            if ($order['status'] == 1) {
+                                $status++;
+                            }
+                        }
+                    }
                     ?>
-                </td> -->
+                <td><?= $sum ?></td>
+                <td><?= $status ?></td>
                 <td><?= $new['status'] == 0 ? "Đang duyệt" : "Đã duyệt" ?>
                 </td>
                 <td><a href="http://localhost/poly_tro/site/account/deleteNew?id=<?= $new['id'] ?>"

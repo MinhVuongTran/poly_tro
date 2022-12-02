@@ -9,7 +9,8 @@
                 <th>Mã</th>
                 <th width="300">Tiêu đề và mô tả</th>
                 <th>Giá</th>
-                <th>Ngày tạo</th>
+                <th>Ngày thuê</th>
+                <th>Ngày hết hạn</th>
                 <th>Trạng thái</th>
                 <th></th>
             </tr>
@@ -30,7 +31,10 @@
                 </td>
                 <td><?= price_format($order['price']) ?>
                 </td>
-                <td><?= $order['order_created_at'] ?></td>
+                <td><?= date("d-m-Y", strtotime($order['order_created_at'])) ?>
+                </td>
+                <td><?= date("d-m-Y", strtotime($order['expired_at'])) ?>
+                </td>
                 <td><?= $order['status'] == 0 ? "Đang duyệt" : "Đã duyệt" ?>
                 </td>
                 <td><a href="http://localhost/poly_tro/site/order/deleteOrder?id=<?= $order['order_item_id'] ?>"

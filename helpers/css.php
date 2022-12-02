@@ -1,5 +1,5 @@
 <?php
-$css_file = 'http://localhost/poly_tro/public/css/index.css';
+$css_file = 'http://localhost/poly_tro/public/css/main.css';
 
 function css_file()
 {

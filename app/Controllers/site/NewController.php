@@ -3,11 +3,14 @@ class NewController extends BaseController
 {
 
     private $newModel;
+    private $orderModel;
 
     public function __construct()
     {
         $this->model('NewModel');
         $this->newModel = new NewModel;
+        $this->model('OrderModel');
+        $this->orderModel = new OrderModel;
     }
 
     public function index()
@@ -22,11 +25,24 @@ class NewController extends BaseController
             ];
             $this->newModel->updateNew($data, $id);
             $getNewPost = $this->newModel->getNewPost();
+            $ordersDetail = $this->orderModel->getAllDetail($_SESSION["auth"]['id']);
+            $check = 0;
+            foreach ($ordersDetail as $item) {
+                if ($item['new_id'] == $id) {
+                    if ((strtotime(date("Y-m-d H:i:s")) - strtotime($item['expired_at']) < 0)) {
+                        $check = 1;
+                        break;
+                    }
+                }
+            }
+
             $this->view('site.layouts.newDetail', [
                 "new" => $new,
                 "topViews" => $topViews,
                 "facilities" => $facilities,
                 "getNewPost" => $getNewPost,
+                "ordersDetail" => $ordersDetail,
+                "check" => $check
             ]);
         }
     }
