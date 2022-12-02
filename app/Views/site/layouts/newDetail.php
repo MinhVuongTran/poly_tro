@@ -185,7 +185,8 @@
                     <div class="form-group">
                         <input type="number" name="month"
                             id="" class="form-control"
-                            placeholder="Nhập số tháng">
+                            placeholder="Nhập số tháng"
+                            required>
                     </div>
                     <p class="error-massage"
                         style="font-size: 1.6rem;"> </p>
@@ -251,6 +252,7 @@ function showSlides(n) {
 const newItem = <?= json_encode($new) ?>;
 const newLatest = <?= json_encode($getNewPost) ?>;
 const topViews = <?= json_encode($topViews) ?>;
+
 const latest = document.querySelector('.new-latest');
 const view = document.querySelector('.top-view');
 
@@ -376,8 +378,9 @@ const btnSubmit = document.querySelector(".btn-submit");
 const formModel = document.querySelector(".form-model");
 const errorMassage = document.querySelector(
     ".error-massage");
-
+<?php if (isset($check)) : ?>
 const checkOrder = <?= $check ?>;
+<?php endif ?>
 const inputElement = formModel.querySelector(
     'input[name="month"]');
 
@@ -399,6 +402,14 @@ formModel.addEventListener("submit", (e) => {
 
 inputElement.oninput = () => {
     errorMassage.innerText = "";
+}
+
+const checkNumberOrder = <?= $checkNumberOrder ?>;
+
+if (checkNumberOrder === 1) {
+    btnOrder.innerText = "Đã đủ người thuê";
+    btnOrder.style.cursor = "not-allowed";
+    btnOrder.setAttribute("disabled", "disabled");
 }
 </script>
 

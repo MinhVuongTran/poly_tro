@@ -25,25 +25,50 @@ class NewController extends BaseController
             ];
             $this->newModel->updateNew($data, $id);
             $getNewPost = $this->newModel->getNewPost();
-            $ordersDetail = $this->orderModel->getAllDetail($_SESSION["auth"]['id']);
-            $check = 0;
-            foreach ($ordersDetail as $item) {
-                if ($item['new_id'] == $id) {
-                    if ((strtotime(date("Y-m-d H:i:s")) - strtotime($item['expired_at']) < 0)) {
-                        $check = 1;
-                        break;
+
+            $checkNumberOrder = 0;
+            $getTheNumberOrderItem = $this->orderModel->getTheNumberOfApprovedOrderItem($id);
+            if ($getTheNumberOrderItem != false) {
+                $check = 0;
+                foreach ($getTheNumberOrderItem as $item) {
+                    if ($item['status'] == 1 && (strtotime(date("Y-m-d H:i:s")) - strtotime($item['expired_at']) < 0)) {
+                        $check++;
                     }
+                }
+                if (($check >= $new['number_people'])) {
+                    $checkNumberOrder =  1;
                 }
             }
 
-            $this->view('site.layouts.newDetail', [
-                "new" => $new,
-                "topViews" => $topViews,
-                "facilities" => $facilities,
-                "getNewPost" => $getNewPost,
-                "ordersDetail" => $ordersDetail,
-                "check" => $check
-            ]);
+            if (isset($_SESSION["auth"])) {
+                $ordersDetail = $this->orderModel->getAllDetail($_SESSION["auth"]['id']);
+                $check = 0;
+                foreach ($ordersDetail as $item) {
+                    if ($item['new_id'] == $id) {
+                        if ((strtotime(date("Y-m-d H:i:s")) - strtotime($item['expired_at']) < 0)) {
+                            $check = 1;
+                            break;
+                        }
+                    }
+                }
+                $this->view('site.layouts.newDetail', [
+                    "new" => $new,
+                    "topViews" => $topViews,
+                    "facilities" => $facilities,
+                    "getNewPost" => $getNewPost,
+                    "ordersDetail" => $ordersDetail,
+                    "check" => $check,
+                    "checkNumberOrder" => $checkNumberOrder,
+                ]);
+            } else {
+                $this->view('site.layouts.newDetail', [
+                    "new" => $new,
+                    "topViews" => $topViews,
+                    "facilities" => $facilities,
+                    "getNewPost" => $getNewPost,
+                    "checkNumberOrder" => $checkNumberOrder,
+                ]);
+            }
         }
     }
 
