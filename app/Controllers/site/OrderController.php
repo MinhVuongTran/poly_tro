@@ -14,6 +14,7 @@ class OrderController extends BaseController
     {
         $new_id = $_GET["id"];
         $month = $_POST["month"];
+        $start_month = $_POST["start_month"];
         $user_id = $_SESSION["auth"]['id'];
         $orders = $this->orderModel->getAll();
         $check = false;
@@ -27,13 +28,13 @@ class OrderController extends BaseController
         }
 
         if ($check) {
-            $order_id = $item['order_id'];
+            $order_id = $item['id'];
             $data = [
                 "new_id" => $new_id,
                 "order_id" => $order_id,
                 "status" => 0,
-                "created_at" => date("Y-m-d H:i:s"),
-                "expired_at" => date("Y-m-d H:i:s", strtotime("+${month} month", strtotime(date("Y-m-d H:i:s"))))
+                "created_at" => date("Y-m-d", strtotime($start_month)),
+                "expired_at" => date("Y-m-d", strtotime("+${month} month", strtotime($start_month)))
             ];
             $this->orderModel->createOrderItem($data);
             header("location: http://localhost/poly_tro/site/account/order");
