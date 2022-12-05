@@ -1,8 +1,6 @@
 <?php view("site.partials.accountManageHeader") ?>
 <div class="manage-news_title">
     <p>Quản lý danh sách yêu thích</p>
-    <a href="http://localhost/poly_tro/site/account/postNew"
-        class="action-btn postNew">Đăng tin mới</a>
 </div>
 <div class="manage-news_table">
     <table cellspacing="0">
