@@ -183,15 +183,20 @@
                     action="http://localhost/poly_tro/site/order?id=<?= $new['id'] ?>"
                     method="POST" class="form-model">
                     <div class="form-group">
+                        <label for="start_month"
+                            class="content-title">Ngày bắt
+                            đầu</label>
                         <input type="date"
-                            name="start_month" id=""
-                            class="form-control"
-                            placeholder="Nhập số tháng"
-                            required>
+                            name="start_month"
+                            id="start_month"
+                            class="form-control" required>
                     </div>
+                    <label for="month"
+                        class="content-title">Số tháng
+                        thuê</label>
                     <div class="form-group">
                         <input type="number" name="month"
-                            id="" class="form-control"
+                            id="month" class="form-control"
                             placeholder="Nhập số tháng"
                             required>
                     </div>
