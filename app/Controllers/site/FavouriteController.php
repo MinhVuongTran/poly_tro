@@ -1,4 +1,7 @@
 <?php
+
+use FFI\CData;
+
 class FavouriteController extends BaseController
 {
     private $newModel;
@@ -35,28 +38,25 @@ class FavouriteController extends BaseController
             $user_id = $_SESSION["auth"]['id'];
             $data = ["user_id" => $user_id];
 
-            $all = $this->favouriteModel->getAll();
-            $item = null;
-            foreach ($all as $one) {
-                if ($one['user_id'] == $user_id) {
-                    $item = $one;
-                    break;
-                } else {
-                    $this->favouriteModel->createFavourite($data);
-                }
+            $favouriteByIdUser = $this->favouriteModel->getFavouriteByIdUser($user_id);
+
+            if ($favouriteByIdUser == false) {
+                $this->favouriteModel->createFavourite($data);
             }
 
             $allItem = $this->favouriteModel->getAllItem();
+            $favouriteByIdUser = $this->favouriteModel->getFavouriteByIdUser($user_id);
+
             $check = false;
             foreach ($allItem as $oneItem) {
-                if (($oneItem['new_id'] == $_GET["id"])) {
+                if (($oneItem['new_id'] == $_GET["id"]) && $favouriteByIdUser['id'] == $oneItem['favourite_id']) {
                     $check = true;
                 }
             }
             if (!$check || count($allItem) == 0) {
                 $data2 = [
                     'new_id' => $_GET["id"],
-                    'favourite_id' => $item['id'],
+                    'favourite_id' => $favouriteByIdUser['id'],
                     "created_at" => date("Y-m-d H:i:s")
                 ];
                 $this->favouriteModel->createFavouriteItem($data2);
