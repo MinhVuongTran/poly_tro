@@ -21,6 +21,12 @@ class FavouriteModel extends BaseModel
         return $this->all(self::TABLE2, $select);
     }
 
+    public function getFavouriteByIdUser($user_id)
+    {
+        $sql = "SELECT * from favourites where user_id = ${user_id}";
+        return $this->query_one($sql);
+    }
+
     public function getOne($id)
     {
         return $this->one(self::TABLE1, $id);
