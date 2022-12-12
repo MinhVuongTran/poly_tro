@@ -58,21 +58,6 @@ class OrderController extends BaseController
             "phone_number" => $phone_number
         ];
         $this->orderModel->createOrder($data);
-        $orders = $this->orderModel->getAll();
-        $item = null;
-        foreach ($orders as $order) {
-            if ($order['user_id'] == $user_id) {
-                $item = $order;
-                break;
-            }
-        }
-        $data2 = [
-            "new_id" => $new_id,
-            "order_id" => $item['id'],
-            "status" => 0,
-            "created_at" => date("Y-m-d H:i:s")
-        ];
-        $this->orderModel->createOrderItem($data2);
         header("location: http://localhost/poly_tro/site/account/order");
     }
 

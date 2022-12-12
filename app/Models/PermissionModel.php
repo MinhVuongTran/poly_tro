@@ -5,7 +5,7 @@ class PermissionModel extends BaseModel
 
     public function getAll($facility_id)
     {
-        $sql = "SELECT * from permissions p inner join users u on p.user_id = u.id where u.facility_id = $facility_id";
+        $sql = "SELECT p.* from permissions p inner join users u on p.user_id = u.id where u.facility_id = $facility_id";
         return $this->query_all($sql);
     }
 
