@@ -129,16 +129,24 @@
                 Polytro.com</p>
             <p>Email: fpolytro@gmail.com</p>
             <p class="address">Địa chỉ 1: Tòa nhà FPT
-                Polytechnic, đường Trịnh Văn Bô, Phương
-                Canh, Nam Từ Liêm, Hà Nội</p>
+                Polytechnic, phố Trịnh Văn Bô, phường Phương
+                Canh, quận Nam Từ Liêm, TP Hà Nội</p>
             <p class="address">Địa chỉ 2: 271 Lê Thánh
-                Tông, phường Máy Chai, quận Ngô Quyền, Thành
-                phố Hải Phòng, Hải Phòng</p>
+                Tông, phường Máy Chai, quận Ngô Quyền, TP
+                Hải Phòng</p>
             <p class="address">Địa chỉ 3: 137 Nguyễn Thị
-                Thập, phường Hòa Minh, quận Liên Chiểu, Đà
-                Nẵng</p>
-            <p class="address">Địa chỉ 4: Tổ dân phố 8,
-                phường Tân An, Buôn Ma Thuột, tỉnh Đắk Lắk
+                Thập, phường Hòa Minh, quận Liên Chiểu, TP
+                Đà Nẵng</p>
+            <p class="address">Địa chỉ 4: 778/B1 Nguyễn
+                Kiệm, phường 4, quận Phú Nhuận, TP Hồ Chí
+                Minh
+            </p>
+            <p class="address">Địa chỉ 5: Tổ dân phố 8,
+                phường Tân An, TP Buôn Ma Thuột, Đắk Lắk
+            </p>
+            <p class="address">Địa chỉ 6: 288 Nguyễn Văn
+                Linh, phường An Khánh, quận Ninh Kiều, TP
+                Cần Thơ
             </p>
         </div>
     </footer>

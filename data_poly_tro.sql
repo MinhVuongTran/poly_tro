@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2022 lúc 12:43 PM
+-- Thời gian đã tạo: Th12 12, 2022 lúc 03:40 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -39,9 +39,12 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `facility_id`) VALUES
-(1, 'thanhminh', 'thanhminh2003\r\n', 1),
-(2, 'minhvuong2003', 'minhvuong2003', 2),
-(3, 'minhvuongtran', '123456', 1);
+(1, 'hanoiadmin', 'admin', 1),
+(2, 'haiphongadmin', 'admin', 2),
+(3, 'danangadmin', 'admin', 3),
+(4, 'tphcmadmin', 'admin', 5),
+(5, 'taynguyenadmin', 'admin', 4),
+(6, 'canthoadmin', 'admin', 6);
 
 -- --------------------------------------------------------
 
@@ -59,10 +62,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Phòng trọ'),
-(2, 'Nhà trọ'),
-(3, 'Căn hộ'),
-(4, 'Mặt bằng');
+(1, 'Phòng trọ'),
+(2, 'Nhà trọ'),
+(3, 'Căn hộ'),
+(4, 'Mặt bằng');
 
 -- --------------------------------------------------------
 
@@ -80,15 +83,12 @@ CREATE TABLE `facilities` (
 --
 
 INSERT INTO `facilities` (`id`, `name`) VALUES
-(1, 'Hà Nội'),
-(2, 'Thành Phố Hồ Chí Minh'),
-(3, 'Đà Nẵng'),
+(1, 'Hà Nội'),
+(2, 'Hải Phòng'),
+(3, 'Đà Nẵng'),
 (4, 'Tây Nguyên'),
-(5, 'Cần Thơ'),
-(6, 'Đồng Nai'),
-(7, 'Bắc Giang'),
-(8, 'Huế'),
-(9, 'Hải Phòng');
+(5, 'Thành phố Hồ Chí Minh'),
+(6, 'Cần Thơ');
 
 -- --------------------------------------------------------
 
@@ -100,6 +100,14 @@ CREATE TABLE `favourites` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `favourites`
+--
+
+INSERT INTO `favourites` (`id`, `user_id`) VALUES
+(1, 1),
+(2, 5);
 
 -- --------------------------------------------------------
 
@@ -113,6 +121,14 @@ CREATE TABLE `favourite_item` (
   `favourite_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `favourite_item`
+--
+
+INSERT INTO `favourite_item` (`id`, `new_id`, `favourite_id`, `created_at`) VALUES
+(1, 1, 1, '2022-12-11 21:20:31'),
+(2, 2, 2, '2022-12-11 22:51:51');
 
 -- --------------------------------------------------------
 
@@ -143,15 +159,16 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `title`, `description`, `address`, `image`, `price`, `area`, `number_people`, `view`, `status`, `category_id`, `user_id`, `facility_id`, `created_at`, `updated_at`) VALUES
-(3, 'Cho thuê phòng trọ rộng rãi trong chung cư mini tại Ngõ 256, Nguyễn Lân, Trường Chinh, HN', 'Phòng rộng ở được 3 - 4 người\r\n\r\nPhòng rộng khép kín đầy đủ tiện nghi có hai giường tầng rộng bàn, điêu hòa nóng lạnh. \r\n\r\nGiao thông thuận loi ko tắc đường, ngập lụt. \r\n\r\nSinh hoạt giờ giấc tự do. Không chung chủ\r\n\r\nGần đường ô tô có chỗ để ô tô. Giao thông thuận lợi cạnh đường lớn Nguyễn Lân gần chợ, trường đai học lớn Bách Khoa, xây dựng, kinh tế, y, ngân hàng ....\r\n\r\nCó chỗ để xe\r\n\r\nNhà cạnh đường lớn giao thông thuận lơi, ko bị tắc đường như Trường Chinh, Lê trọng tấn......\r\n\r\nĐc: số nhà 06 ngõ 256 Phố Nguyễn Lân đường Trường Chinh Hà Nội.\r\n\r\nĐt liên lạc 0912966199', 'Quận Thanh Xuân, Hà Nội', 'public/uploads/img1.jpg,public/uploads/img2.jpg,public/uploads/img3.jpeg', 3000000, 25, 3, 37, 1, 1, 1, 1, '2022-11-22 11:26:34', '2022-11-24 22:22:27'),
-(4, 'Cho thuê phòng trọ dạng chung cư mini máy lạnh Q.8 gần Đại lộ Đông Tây, Q.5, Q.6', 'Cho thuê phòng trọ dạng chung cư mini P.16, Q.8, gần đại lộ Đông Tây, q5, q6. Phòng thoáng mát, yên tĩnh, có bếp, nhà vệ sinh riêng, cáp quang, wifi miễn phí, có gác đúc, đặt biệt có máy lạnh.\r\n\r\nCó camera quan sát tất cả các tầng và nhà xe.\r\n\r\nDiện tích sử dụng từ 18-22 m2.Giá từ 1.800.000 đến 2.000.000 đồng.\r\n\r\nĐịa chỉ: 154/21-154/23 Hoàng Ngân (Đường 41, Phú Định cũ), P.16, Q.8, gần giao lộ Võ Văn Kiệt (đại lộ Đông Tây) và đường An Dương Vương.', '154/21-154/23 Đường Hoàng Ngân P.16, Quận 8', 'public/uploads/img25.jpg,public/uploads/img26.jpg,public/uploads/MVT.png', 1800000, 18, 2, 26, 1, 2, 1, 2, '2022-11-22 11:29:04', '2022-11-24 22:23:16'),
-(5, 'Phòng, Căn hộ mini mới 100% gần cầu Hoà Xuân giá cả hợp lý', 'Còn 1 phòng thoáng mát đầy đủ tiện ích. Có gác lẩng, Có bảo vệ, chổ để xe, máy giặt, sân phơi, điều hoà, nước nóng ... wifi miễn phí, điện 3000 đ/chữ, nước 50k/ người lớn, cửa ra vào bằng khoá vân tay, camera annin ....gần trục đường Nguyễn Phước Lan, Hoà Xuân ( Mai Chí Thọ & Thanh Lương 27) .Giá cả hợp lý 2tr6/ phòng / tháng ở được 2-3 người.', 'Phường Hòa Xuân, Quận Cẩm Lệ, Đà Nẵng', 'public/uploads/275302539_2113947498767461_1799123868468649042_n.jpg,public/uploads/astronaut_ring_neon_156673_3840x2160.jpg,public/uploads/bannerpng.png,public/uploads/cat.jpg,public/uploads/FPT_logo.png', 3500000, 35, 4, 26, 1, 3, 2, 3, '2022-11-22 11:33:43', '2022-11-26 16:49:24'),
-(6, 'Cho thuê phòng cao cấp, đầy đủ tiện nghi, như căn hộ, ngay trung tâm Quận 10', 'ho thuê phòng đẹp trung tâm Quận 10 tiện nghi:\r\n\r\n- Địa chỉ 1: 7A/19/19 Thành Thái, P.14, Q.10.\r\n\r\n- Địa chỉ 2: 128 Thành Thái, P.12, Q. 10\r\n\r\nCho thuê phòng trọ nằm cạnh siêu thị Sài Gòn, ngân hàng, gần ngay ngã tư 3/2- Thành Thái - Nguyễn Tri Phương. Gần đại học Kinh Tế TP HCM, Bách Khoa TP HCM, Y Dược. Giao thông thuận tiện, gần chợ trạm xe bus.\r\n\r\nMặt tiền nhà đẹp, hẻm trước nhà 8m xe hơi quay đầu được\r\n\r\nVị trí trung tâm thành phố giáp ngay Quận 1, Quận 3, Tân Bình, Phú Nhuận. Cho bạn thuận tiện trong công việc.\r\n\r\nNhà có thang máy, chỗ để xe rộng rãi.\r\n\r\nPhòng rộng từ 32m2 - 45m2, được trang bị đủ tiện nghi như: (Máy lạnh, tivi, giường nệm, tủ lạnh... ) thiết bị cao cấp mới mua đem lại sự tiện nghi và thoải mái trong căn phòng của bạn, ban chỉ việc xách quần áo đến và ở.\r\n\r\nGiá thuê chỉ từ 4.5 triệu - 7 triệu/tháng. \r\n\r\nChúng tôi cam kết tuyệt đối với bạn rằng! Hình chụp như thế nào thì phòng của bạn như thế đó. Thậm chí có thể đẹp hơn trong thực tế nếu bạn tới xem trực tiếp.', '128 Đường Thành Thái, Phường 14, Quận 10, Hồ Chí Minh', 'public/uploads/logo_book.png,public/uploads/mo-hinh-mvc-2-6122e73042b1e282de2261bc3475dde5-edd43.png,public/uploads/MVT.png', 4500000, 42, 4, 1, 1, 1, 2, 2, '2022-11-22 11:38:11', '2022-11-26 16:49:49'),
-(7, 'Penthouse 60m2 KDC An Phú Hưng cạnh Lotte Q7', 'Phòng penthouse decor đẹp không tỳ vết, full nội thất: giường, tủ, bàn làm việc, tủ quần áo siêu rộng, máy lạnh, máy giặt, máy nước nóng, kệ bếp, wc khép kín...\r\n\r\n+ Có ban công view đẹp, có sân trước và sau, khu vực nấu ăn riêng, có khu vực trồng rau, trồng cây.\r\n\r\n+ Cho nuôi thú cưng\r\n\r\n--------\r\n\r\n+ Vị trí: 17 đường số 30, P Tân Phong, Q7, khu vực dậ trí cao, xe hơi vào tận nhà. Cạnh công viên, BHX, Cafe Cộng, cách Lotter chỉ 500m, Đh Tôn Đức Thắng 0,7km, Đh Nguyễn Tất Thành 1km, Đh Marketing 2km. Qua Q1, Q4, Q5... chỉ 5phút.', '17 Đường số 30, Phường Tân Phong, Quận 7, Hồ Chí Minh', 'public/uploads/bogia.jpg,public/uploads/i7.jpg,public/uploads/i8.jpg,public/uploads/i9.jpg', 6800000, 60, 5, 2, 1, 3, 2, 2, '2022-11-22 11:40:33', '2022-11-26 16:51:21'),
-(8, 'Penthouse 60m2 KDC An Phú Hưng cạnh Lotte Q7', 'Phòng penthouse decor đẹp không tỳ vết, full nội thất: giường, tủ, bàn làm việc, tủ quần áo siêu rộng, máy lạnh, máy giặt, máy nước nóng, kệ bếp, wc khép kín...\r\n\r\n+ Có ban công view đẹp, có sân trước và sau, khu vực nấu ăn riêng, có khu vực trồng rau, trồng cây.\r\n\r\n+ Cho nuôi thú cưng\r\n\r\n--------\r\n\r\n+ Vị trí: 17 đường số 30, P Tân Phong, Q7, khu vực dậ trí cao, xe hơi vào tận nhà. Cạnh công viên, BHX, Cafe Cộng, cách Lotter chỉ 500m, Đh Tôn Đức Thắng 0,7km, Đh Nguyễn Tất Thành 1km, Đh Marketing 2km. Qua Q1, Q4, Q5... chỉ 5phút.', '17 Đường số 30, Phường Tân Phong, Quận 7, Hồ Chí Minh', 'public/uploads/4ea0470c2ff4711fa95286cc44786eea.jfif,public/uploads/7f41cd23bcc630227814529f30527477.jfif,public/uploads/12-cong-thuc-dien-quan-short-ong-rong-vao-mua-thu-cho-chi-em-style-sanh-dieu-081734.jpg,public/uploads/728be845ab309807076e0cc2d3668af0.jfif', 6800000, 60, 5, 1, 1, 3, 2, 2, '2022-10-02 11:40:33', '2022-11-26 16:50:30'),
-(9, 'Cho thuê phòng cao cấp, đầy đủ tiện nghi, như căn hộ, ngay trung tâm Quận 10', 'ho thuê phòng đẹp trung tâm Quận 10 tiện nghi:\r\n\r\n- Địa chỉ 1: 7A/19/19 Thành Thái, P.14, Q.10.\r\n\r\n- Địa chỉ 2: 128 Thành Thái, P.12, Q. 10\r\n\r\nCho thuê phòng trọ nằm cạnh siêu thị Sài Gòn, ngân hàng, gần ngay ngã tư 3/2- Thành Thái - Nguyễn Tri Phương. Gần đại học Kinh Tế TP HCM, Bách Khoa TP HCM, Y Dược. Giao thông thuận tiện, gần chợ trạm xe bus.\r\n\r\nMặt tiền nhà đẹp, hẻm trước nhà 8m xe hơi quay đầu được\r\n\r\nVị trí trung tâm thành phố giáp ngay Quận 1, Quận 3, Tân Bình, Phú Nhuận. Cho bạn thuận tiện trong công việc.\r\n\r\nNhà có thang máy, chỗ để xe rộng rãi.\r\n\r\nPhòng rộng từ 32m2 - 45m2, được trang bị đủ tiện nghi như: (Máy lạnh, tivi, giường nệm, tủ lạnh... ) thiết bị cao cấp mới mua đem lại sự tiện nghi và thoải mái trong căn phòng của bạn, ban chỉ việc xách quần áo đến và ở.\r\n\r\nGiá thuê chỉ từ 4.5 triệu - 7 triệu/tháng. \r\n\r\nChúng tôi cam kết tuyệt đối với bạn rằng! Hình chụp như thế nào thì phòng của bạn như thế đó. Thậm chí có thể đẹp hơn trong thực tế nếu bạn tới xem trực tiếp.', '128 Đường Thành Thái, Phường 14, Quận 10, Hồ Chí Minh', 'public/uploads/i1.png,public/uploads/i2.png,public/uploads/i3.jpg', 4500000, 42, 4, 3, 1, 1, 2, 2, '2022-11-12 11:38:11', '2022-11-26 16:50:49'),
-(10, 'Chính chủ cho nữ thuê phòng trọ khép kín đầy đủ tiện nghi an ninh tốt ở đường Trịnh Văn Bô, 2.8tr', 'Chính chủ cho nữ thuê phòng tại đường Trịnh Văn Bô gần các trường Đại Học Công Nghệ Đông Á (100m), Cao Đẳng FPT (200m) , Trung cấp giao thông vận tải (500m) , Đại Học Công Nghiệp (700m)... khu dân trí cao an ninh cực tốt (có camera an ninh chung của khu)\r\n\r\nPhòng mới xây đầy đủ tiện nghi: bình nóng lạnh, điều hòa, giường, kệ tivi , đèn ngủ, bàn trang điểm kèm gương đèn, máy giặt sấy quần áo (dùng chung), tủ quần áo, bàn tủ bếp chậu rửa bát khép kín trong phòng.\r\n\r\n- Phòng mới xây sạch sẽ thoáng mát, yên tĩnh, có cửa sổ , Vệ sinh khép kín .Tầng 1 để xe miễn phí có camera an ninh, không chung chủ, giờ giấc thoải mái.\r\n\r\n- Điện 3,5k, nước 60k /1người , Internet 100k/phòng,Vệ sinh 50k/ng, máy giặt sấy 120k/phòng\r\n\r\nGiá phòng : 2,8tr/tháng\r\n\r\nCó thể chuyển đến ở luôn\r\n\r\n- Liên hệ : 0942898688 /0977968688', 'Phường Phương Canh, Quận Nam Từ Liêm, Hà Nội', 'public/uploads/275302539_2113947498767461_1799123868468649042_n.jpg,public/uploads/astronaut_ring_neon_156673_3840x2160.jpg,public/uploads/cat.jpg,public/uploads/,public/uploads/logo-01.png,public/uploads/Summer-Sun.png', 2800000, 20, 2, 6, 1, 4, 3, 1, '2022-11-23 15:41:50', '2022-11-26 20:47:34'),
-(11, 'CHO THUÊ PHÒNG TRỌ MỚI XÂY CHÍNH CHỦ, GIẢM GIÁ, QUẬN TÂN PHÚ - GẦN BÊN TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THỰC PHẨM', 'PHÒNG TRỌ 24 SƠN KỲ TÂN PHÚ, GẦN ĐH CÔNG NGHỆ THỰC PHẨM\r\n\r\n- Cách trường Đại Học Công nghệ Thực Phẩm 700m, cách AeOnMall Tân Phú 500m, Gần eTown, PanDoRa Trường Chinh,.... thuận tiện đi lại các quận.\r\n\r\n- Phòng có CỬA SỔ, nhiều phòng có BAN CÔNG, đảm bảo ánh sáng ban ngày rất thoáng mát. (Xem hình thật)\r\n\r\n- Toilet trong phòng đầy đủ các thiết bị vệ sinh, có kệ BẾP nấu ăn, có GÁC LỮNG các phòng được ốp gạch cao sạch sẽ.\r\n\r\n- Trong nhà có Thang máy đi lại, Có Camera an ninh quan sát, có PCCC tự động\r\n\r\n- Internet cáp quang mạnh, nhanh. Có cáp Tivi\r\n\r\n- Bỏ xe dưới tầng trệt có bảo vệ trong coi. Khóa vân tay giờ giấc tự do.\r\n\r\n- Bảo vệ trong coi 24/24 (không chung chủ) giúp Bạn có cảm giác an toàn, được bảo vệ.\r\n\r\n___________________________\r\n\r\n- Địa chỉ: 24 Sơn Kỳ, phường Sơn Kỳ, quận Tân Phú, Tp. Hồ Chí Minh.\r\n\r\n- Diện tích phòng: Từ 20 m2 – 25 m2.\r\n\r\n- Giá Rẻ: 2,8tr – 3tr/tháng.', 'Phường Phương Canh, Quận Nam Từ Liêm, Hà Nội', 'public/uploads/cat.jpg,public/uploads/code.png,public/uploads/FPT_logo.png,public/uploads/img1.jfif,public/uploads/img2.jpg', 3000000, 30, 3, 3, 1, 3, 8, 1, '2022-11-26 20:53:18', '2022-11-26 20:53:18');
+(1, 'Cho thuê phòng chung cư mini mới tinh, xinh xinh giá chỉ 3 triệu/tháng tại Cầu Diễn', '- Phòng chỉ từ 3tr tại Cầu Diễn, Phường Cầu Diễn, Quận Nam Từ Liêm, Hà Nội\r\n\r\n- phòng full đồ, nhà để xe rộng, oto đỗ tận cổng\r\n\r\n- Khu vực đông dân cư, gần trường CĐ FPT và ĐH CN, ....', 'Cầu Diễn, Phường Cầu Diễn, Quận Nam Từ Liêm, Hà Nội', 'public/uploads/248378057-564532017948726-1389508839070626226-n_1640752393.jpg,public/uploads/252082187-1483799698686763-4619252714499696641-n_1640752385.jpg,public/uploads/253168924-1294380544328793-1696597558498524072-n_1640752386.jpg,public/uploads/255918383-4380454842064852-7421865885360586156-n_1640752385.jpg,public/uploads/267135983-2765927537039204-25469431303965056-n_1640752407.jpg', 3000000, 25, 3, 6, 1, 1, 1, 1, '2022-12-09 20:53:31', '2022-12-09 20:53:31'),
+(2, 'Cho thuê phòng trọ chính chủ tại Mỹ Đình, Hà Nội', '- Phòng trọ đã có đầy đủ giường tủ, điều hòa, bình nóng lạnh\r\n\r\n- Nhà đất thổ cư, ở chung với gia chủ\r\n\r\n- Ưu tiên người đi làm, sinh viên ăn ở sạch sẽ, ngăn nắp, gọn gàng', 'ngõ 9 Lê Đức Thọ, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Hà Nội', 'public/uploads/z3698271959113-f178d31895bfa8a1c04570c69f869523_1662385647.jpg,public/uploads/z3698271993796-db935b252ab02f8a7233584bebe99b36_1662385648.jpg,public/uploads/z3698272057168-3a6da9b3ef738304404c67a95b914e9a_1662385649.jpg', 2500000, 15, 1, 8, 1, 1, 1, 1, '2022-12-11 15:06:25', '2022-12-11 15:06:25'),
+(3, 'Phòng trọ tiện nghi, giá rẻ ở Nguyễn Kiệm, Phường 4, Quận Phú Nhuận', 'Địa chỉ: 744/2 NGUYỄN KIỆM, PHƯỜNG 4, Q. PHÚ NHUẬN, TP. HCM\r\n\r\nFull nội thất: (Nội thất y hình), ngoài ra còn có đủ tiện nghi cho việc sinh hoạt như Tivi, Tủ lạnh, Máy lạnh, Nước nóng, Tủ quần áo, Tủ bếp, Giường (chăn, nệm, gối), Bàn ăn, Lò vi sóng, Bếp hồng ngoại, Nồi cơm điện, Bình siêu tốc, Nồi + Chảo + Chén bát (để nấu ăn), Máy giặt (chung).... Đầy đủ tất cả tiện nghi, chỉ cần đến là ở được ngay.\r\n\r\nCó thang máy, rất tiện cho việc lên xuống, đi lại.\r\n\r\nTrước phòng có khu vực tập GYM, có sân chơi cho em bé vô cùng thoáng, đẹp. (Sử dụng Miễn phí)\r\n\r\nCó nhà xe, camera 24/7, cửa cổng vân tay , môi trường cực kì an ninh, thân thiện, yên tĩnh và giờ giấc tự do.\r\n\r\nXem nhà ngay và liền.', 'Đường Nguyễn Kiệm, Phường 4, Quận Phú Nhuận, Hồ Chí Minh', 'public/uploads/img-1663736767234-1663749574231_1666754384.jpg,public/uploads/img-1663736769103-1663749574916_1666754244.jpg,public/uploads/img-1663736769481-1663749575053_1666754355.jpg,public/uploads/img-1663736770534-1663749575445_1666754274.jpg', 5500000, 25, 3, 0, 1, 1, 2, 5, '2022-12-11 15:11:58', '2022-12-11 15:11:58'),
+(4, 'Cho thuê tầng 1 trong nhà nguyên căn tại Tân An, Buôn Ma Thuột, Đắk Lắk', 'Nhà còn dư 1 tầng trên lầu, 1 phòng ngủ và 1 phòng khách có bàn ghế để học bài, có lan can nhìn ra phía trường Chuyên Nguyễn Du, ưu tiên học sinh học tại trường Chuyên Nguyễn Du học xa nhà.', '4/41 Nguyễn Xuân Nguyên, Xã Tân An, Thành Phố Buôn Ma Thuột, Đắk Lắk', 'public/uploads/8dabb9fb-6308-4e23-8ead-1a93fc0d9b31_1664504291.jpg,public/uploads/949ff893-7ebc-4da4-b7f4-b741f56de4df_1664504291.jpg,public/uploads/38511bdb-8327-4073-9a80-dd953e6ee13e_1664504296.jpg,public/uploads/da75faa4-4039-48e4-9cfb-1c6123f58f89_1664504296.jpg,public/uploads/', 2000000, 40, 4, 0, 1, 2, 3, 4, '2022-12-11 15:16:25', '2022-12-11 15:46:41'),
+(5, 'Cho Thuê Nhà Trọ Học Sinh , Sinh Viên', '- Cho thuê trọ sinh viên ( Sinh viên nam / 1 người / sinh viên ĐH Y Dược Cần Thơ , ĐH Cần Thơ )\r\n\r\n- Cho thuê trọ sinh viên ( Sinh viên nam / 1 người / sinh viên ĐH Y Dược Cần Thơ , ĐH Cần Thơ )', 'Nguyễn Văn Cừ, Phường An Khánh, Quận Ninh Kiều, Cần Thơ', 'public/uploads/9fef6ee7-8826-4e5d-8d2f-e0919be6a545_1655026355.jpg,public/uploads/bf615036-c46f-454d-85b3-3c7976d1f4c5_1655026355.jpg,public/uploads/ecaeb2b2-b597-4ec6-b8a9-55d138870263_1655026355.jpg', 1300000, 12, 1, 0, 1, 1, 4, 6, '2022-12-11 15:33:49', '2022-12-11 15:33:49'),
+(6, 'Cần cho thuê nhà mặt tiền đường Nguyễn Văn Cừ đoạn Hồng Phát.', 'Cần cho thuê nhà mặt tiền đường Nguyễn Văn Cừ đoạn Hồng Phát.\r\n\r\n- Diện tích: 4,5x24m\r\n\r\n- Nhà tiền chế mới xây sạch sẻ rộng rãi\r\n\r\n- Thích hợp kinh doanh mua bán, đẹp dân cư đông.', 'Nguyễn Văn Cừ, Phường An Bình, Quận Ninh Kiều, Cần Thơ', 'public/uploads/z3940353420349-0b11ca3f2f2549bf314e15463d3999ac_1670388522.jpg,public/uploads/z3940353430060-824e742c70397117d9dea9d7f68b2bc6_1670388522.jpg,public/uploads/z3940353430347-d588f4271ce30e48e3987a6489dd04d5_1670388522.jpg', 17000000, 108, 8, 0, 1, 2, 4, 6, '2022-12-11 15:35:45', '2022-12-11 15:35:45'),
+(7, 'Chính chủ cho thuê gấp nhà 4 tầng tại Phương Canh - Nam Từ Liêm - Hà Nội', 'CHÍNH CHỦ CHO THUÊ GẤP NHÀ 4 TẦNG TẠI PHƯƠNG CANH - NAM TỪ LIÊM - HÀ NỘI\r\n\r\n- Địa chỉ : tại số 4/21/80 Đường Xuân Phương, Phương Canh , Nam Từ Liêm, Hà Nội (Cách ngã tư Nhổn 500m, gần chung cư Hateco Xuân Phương).\r\n\r\n- Diện tích sử dụng : 160m2 - Giá thuê : 10 tr/tháng ( đặt cọc 1 tháng )\r\n\r\n- Nhà 4 tầng thiết kế hiện đại bao gồm:\r\n\r\n+ Tầng 1: Phòng khách + Bếp + nhà vệ sinh\r\n\r\n+ Tầng 2 & tầng 3: Mỗi tầng 2 phòng ngủ + 01 nhà vệ sinh. + Tầng 4: Phòng thờ + sân phơi\r\n\r\n- Nội thất gồm tủ bếp, tủ rượu, kệ tivi, bình nóng lạnh, điều hòa, giường tủ…\r\n\r\n- Vị trí thuận tiện, ô tô đỗ cổng cách nhà 5m\r\n\r\n- Ưu tiên hộ gia đình thuê\r\n\r\n- Nhà thuộc khu trung tâm , giao thông thuận tiện dân cư đông đúc, dân trí cao , an ninh tốt , không gian sạch sẽ thoáng mát', '4/21/80 Xuân Phương, Phường Phương Canh, Quận Nam Từ Liêm, Hà Nội', 'public/uploads/e43703fc66ca9c94c5db_1665557649.jpg,public/uploads/e570d44eb1784b261269_1665557648.jpg,public/uploads/bbb3b642d374292a7065_1665557648.jpg,public/uploads/453300f265c49f9ac6d5_1665557648.jpg,public/uploads/6886c7c8a2fe58a001ef_1665557647.jpg,public/uploads/14e568e10dd7f789aec6_1665557647.jpg', 10000000, 40, 5, 2, 1, 2, 1, 1, '2022-12-11 15:38:39', '2022-12-11 15:38:39'),
+(8, 'CHO THUÊ NHÀ NGUYÊN CĂN PHÚ NHUẬN - VÀO Ở NGAY - GẦN TRUNG TÂM', 'NHÀ CHO THUÊ - PHÚ NHUẬN\r\n\r\n#NhaChoThue #GanTrungTam #TimNhaChoThue #NhaThueQuanPhuNhuan #vaoongay #giahoply\r\n\r\nMình đang cần tìm người cho Thuê nhà Nguyên căn Phú Nhuận “vào ở ngay” \"Giá rẻ\" với các bạn SV ở ghép/ Gia đình nhỏ/ Nhân viên Văn phòng.\r\n\r\nVỊ TRÍ: Nhà nằm ở khu “trung tâm thành phố” - thông ra Nguyễn Kiệm và Thích Quảng Đức\r\n\r\n+ Hướng nhà: Đông - mát mẻ\r\n\r\n+ 5p chạy ra Siêu thị CoopMart Nguyễn Kiệm - CV Cây Xanh hoặc Bách Hoá Xanh ở Thích Quảng Đức\r\n\r\n+ 5p chạy ra khu thiên đường ăn uống - Phan Xích Long\r\n\r\n+ Gần chợ nhỏ/ trường học khu dân cư đông đúc\r\n\r\n+ 10-15p tới trung tâm q1\r\n\r\n+ Vị trí trong hẻm 3m khu dân cư yên tĩnh (thích hợp cho 2 vc có 1-2 con nhỏ/ hoặc nv văn phòng)\r\n\r\n+ Đi bộ 7p ra đường chính Nguyễn Kiệm/ Thích Quảng Đức để bắt đón xe bus tiện lợi.\r\n\r\nDIỆN TÍCH VÀ TIỆN ÍCH??:\r\n\r\n+ Diện tích sử dụng 51m2. Ngang 3.2m* Dài 6m\r\n\r\n+ Nhà đúc 3 tấm hoàn chỉnh\r\n\r\n+ Có 1 phòng khách, 1 bếp, 2 phòng ngủ và 3 toilet ở mỗi tầng\r\n\r\n+ Giao nhà thô vừa mới sửa chữa 100% new\r\n\r\n+ Có sẵn 2 máy lạnh + toilet trệt có máy nc nóng\r\n\r\nGIÁ THUÊ\r\n\r\n+ SV từ trên 5ng giá 9tr/ tháng\r\n\r\n+ Gia đình/ Nhân viên văn phòng từ 4 ng trở xuống giá thương lượng 8.5tr/ tháng\r\n\r\n+ Cọc 9tr ban đầu', '622/6/16A Đường Nguyễn Kiệm, Phường 4, Quận Phú Nhuận, Hồ Chí Minh', 'public/uploads/hem_1616736196.jpg,public/uploads/ban-cong-tang-2_1616736193.jpg,public/uploads/mat-trc-lau-2_1616736200.jpg,public/uploads/tang-2-full_1616736203.jpg,public/uploads/loi-len-tang-2_1616736198.jpg,public/uploads/cau-thang-len-lau-2_1616736193.jpg,public/uploads/tang-1_1616736203.jpg,public/uploads/tang-1-full_1616736202.jpg,public/uploads/lau-1_1616736198.jpg,public/uploads/toilet-tang-tret_1616736205.jpg,public/uploads/bep_1616736192.jpg,public/uploads/cau-thang_1616736196.jpg,public/uploads/tang-tret_1616736204.jpg,public/uploads/phong-khach_1616736201.jpg,public/uploads/mat-trc-nha_1616736200.jpg', 9000000, 50, 6, 2, 1, 2, 2, 5, '2022-12-11 15:42:02', '2022-12-11 15:42:02'),
+(9, 'Cho thuê nhà căn hộ mini hẻm Bà Triệu giá 4tr/tháng. Nhà mới, sạch đẹp', 'CHÍNH CHỦ CHO THUÊ\r\n\r\nCòn 1 căn trong 3 căn liền kề\r\n\r\nCho thuê nhà nguyên căn 25/8 bà triệu mới xây ngay trung tâm tp bmt\r\n\r\nNhà 1 tầng 1 phòng cắt thành 2 phòng, 2 wc\r\n\r\n4tr/1 tháng - cọc 3 triệu . 3 tháng 1 lần', '25/8 Phố Bà Triệu, Phường Tự An, Thành Phố Buôn Ma Thuột, Đắk Lắk', 'public/uploads/fbfdbf54-a1f3-491d-b819-a62398f05b3a_1593491566.jpg,public/uploads/d4047e31-2bed-4afb-8f1e-4e77a36091ac_1593491565.jpg,public/uploads/4ad11365-e425-4771-9759-1d38e4bd51db_1593491564.jpg,public/uploads/6a4a696a-89c5-467f-8246-cb276a0c0220_1593491563.jpg,public/uploads/d51be51d-5460-4b96-be65-c728fd1af7a7_1593491562.jpg,public/uploads/9e79bed1-56ff-4d93-9836-992262aa57f2_1593491562.jpg,public/uploads/945e9240-112b-4928-aec9-0e68cafa4ed1_1593491562.jpg,public/uploads/dac96089-3d9a-4254-95e4-81195c06446e_1593491561.jpg,public/uploads/014dfb13-af2d-4bfc-8adc-88d9c8387703_1593491561.jpg,public/uploads/a81a4b51-befe-4216-bb4a-ac37964893e2_1593491560.jpg,public/uploads/be5e13d4-27a1-4210-b584-34c57103d105_1593491560.jpg,public/uploads/bf1c71ee-e150-4e6e-bf08-b2517bcbb52d_1593491560.jpg', 4000000, 40, 5, 0, 1, 2, 3, 4, '2022-12-11 15:45:40', '2022-12-11 15:45:40'),
+(10, 'Cho thuê căn hộ chung cư Golden Field, 80m2, 2PN, full nội thất', 'Cho thuê căn hộ chung cư Golden Field.\r\n\r\nĐịa chỉ: 24 Nguyễn Cơ Thạch - Mỹ Đình 2 - Nam Từ Liêm - Hà Nội.\r\n\r\nCăn hộ rộng 80m2. 2 pn, 2 vs, 1 pk, 1 bếp.\r\n\r\nCăn hộ cho thuê full nội thất.\r\n\r\nTủ kệ bếp, nóng lạnh, điều hòa, rèm,dàn phơi, giường tủ, bàn ghế, ti vi, tủ lạnh, máy giặt...\r\n\r\nKhách thuê chỉ cần xách vali về ở.\r\n\r\nCăn hộ cho thuê lâu dài.\r\n\r\nGiá cho thuê 12.5 tr/th.', '24 Đường Nguyễn Cơ Thạch, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Hà Nội', 'public/uploads/298425018-5364442677002574-5854300223232059696-n_1666164467.jpg,public/uploads/298290640-5364443743669134-7062672597065316926-n_1666164466.jpg,public/uploads/298215312-5364443443669164-473789205948617944-n_1666164465.jpg,public/uploads/298100326-5364442733669235-2277782187727558655-n_1666164464.jpg', 12500000, 80, 6, 0, 1, 3, 1, 1, '2022-12-11 15:49:24', '2022-12-11 15:49:24');
 
 -- --------------------------------------------------------
 
@@ -173,10 +190,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `fullname`, `cccd`, `student_id`, `phone_number`) VALUES
-(1, 3, 'Trần Minh Vương ', '035203004330', 'PH26824', '0374374470'),
-(2, 1, 'Đoàn Thanh Minh', '032612934132', 'PH12345', '0987654321'),
-(3, 7, 'Minh Vuong Tran', '03123421342', 'PH54321', '0123456789'),
-(6, 8, 'Trần Minh Vương ', '0258147369', 'PH10987', '0973246615');
+(1, 5, 'Nguyễn Văn A', '014725836921', 'PH92132', '0123456789');
 
 -- --------------------------------------------------------
 
@@ -198,14 +212,8 @@ CREATE TABLE `orders_item` (
 --
 
 INSERT INTO `orders_item` (`id`, `new_id`, `order_id`, `status`, `expired_at`, `created_at`) VALUES
-(1, 3, 1, 1, '0000-00-00 00:00:00', '2022-11-22 11:46:23'),
-(2, 4, 1, 0, '0000-00-00 00:00:00', '2022-11-24 22:06:08'),
-(3, 3, 2, 0, '0000-00-00 00:00:00', '2022-11-24 22:11:16'),
-(5, 3, 3, 1, '0000-00-00 00:00:00', '2022-11-24 22:13:23'),
-(6, 10, 3, 0, '0000-00-00 00:00:00', '2022-11-24 22:13:50'),
-(7, 3, 1, 0, '0000-00-00 00:00:00', '2022-11-26 20:48:32'),
-(8, 3, 6, 0, '0000-00-00 00:00:00', '2022-11-26 20:55:06'),
-(9, 5, 6, 1, '0000-00-00 00:00:00', '2022-11-26 20:55:45');
+(2, 1, 1, 0, '2023-03-02 00:00:00', '2022-12-02 00:00:00'),
+(3, 2, 1, 1, '2023-04-01 00:00:00', '2023-01-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -229,9 +237,10 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `user_id`, `fullname`, `cccd`, `image_cccd`, `address`, `phone_number`, `status`) VALUES
-(1, 3, 'Trần Minh Vương', '035203004330', 'public/uploads/275302539_2113947498767461_1799123868468649042_n.jpg,public/uploads/astronaut_ring_neon_156673_3840x2160.jpg', 'Mỹ Đình 2, Nam Từ Liêm, Hà Nội', '0374374470', 1),
-(2, 7, 'Minh Vuong Tran', '03123421342', 'public/uploads/asm_1.PNG,public/uploads/astronaut_ring_neon_156673_3840x2160.jpg', 'ha nam', '0123456789', 0),
-(4, 8, 'Trần Minh Vương ', '0123456789', 'public/uploads/275302539_2113947498767461_1799123868468649042_n.jpg,public/uploads/astronaut_ring_neon_156673_3840x2160.jpg', 'Hà Nội', '0374374470', 1);
+(1, 1, 'Trần Minh Vương ', '035203004330', 'public/uploads/z3513363462486_0a2b83ef11da15a85c3d80ae44a7d453.jpg', 'Thôn 4 Ngô Khê, Bình Nghĩa, Bình Lục, Hà Nam', '0374374470', 1),
+(2, 2, 'Đoàn Thanh Minh', '032612934132', 'public/uploads/cat.jpg', 'Hà Nội', '0384484320', 1),
+(3, 3, 'Nguyễn Trí Dũng', '03123421342', 'public/uploads/275302539_2113947498767461_1799123868468649042_n.jpg', 'Tây Nguyên', '0973246615', 1),
+(4, 4, 'Phan Huy Hiệp', '032165498725', 'public/uploads/bannerpng.png,public/uploads/FPT_logo.png', 'Hải Dương', '0987654321', 1);
 
 -- --------------------------------------------------------
 
@@ -260,11 +269,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `username`, `password`, `email`, `address`, `phone`, `image`, `status`, `role`, `facility_id`, `created_at`, `updated_at`) VALUES
-(1, 'Đoàn Thanh Minh', '', 'thanhminh2003', 'minhdtph26770@gmail.com', '', '0399611702', '/public/uploads/Summer-Sun.png', 1, 1, 1, '2022-11-22 11:02:21', '2022-11-24 22:22:44'),
-(2, 'Trần Minh Vương', '', 'tranminhvuong', 'tranvuong@gmail.com', '', '0123456789', '/public/uploads/logo-01.png', 1, 1, 2, '2022-11-22 11:30:26', '2022-11-26 16:59:18'),
-(3, 'Trần Minh Vương', '', 'minhvuong2003', 'vuongtmph26824@fpt.edu.vn', 'Bình Nghĩa, Bình Lục, Hà Nam', '0374374470', '/public/uploads/mvt.jpg', 1, 1, 3, '2022-11-23 08:14:30', '2022-11-23 08:15:00'),
-(7, 'Minh Vuong Tran', '', 'minhvuong2003', 'minhvuongtran2003@gmail.com', '', '0973246615', '', 1, 0, 1, '2022-11-24 22:12:33', '2022-11-24 22:12:33'),
-(8, 'Trần Minh Vương ', '', '123456', 'duongptph27532@fpt.edu.vn', '', '0384484320', '', 1, 1, 1, '2022-11-26 20:50:17', '2022-11-26 20:50:17');
+(1, 'Trần Minh Vương ', '', '123456', 'vuongtmph26824@fpt.edu.vn', 'Đơn nguyên 3, Ký túc xá Mỹ Đình 2, phường Mỹ Đình 2, quận Nam Từ Liêm, Hà Nội', '0374374470', '/public/uploads/astronaut_ring_neon_156673_3840x2160.jpg', 1, 1, 1, '2022-12-09 20:42:42', '2022-12-11 21:53:41'),
+(2, 'Đoàn Thanh Minh', '', '123456', 'thanhminh2003@gmail.com', '', '0384484320', '/public/uploads/astronaut_ring_neon_156673_3840x2160.jpg', 1, 1, 5, '2022-12-11 15:07:27', '2022-12-11 15:09:18'),
+(3, 'Nguyễn Trí Dũng', '', '123456', 'tridung2003@gmail.com', '', '0973246615', '/public/uploads/275302539_2113947498767461_1799123868468649042_n.jpg', 1, 1, 4, '2022-12-11 15:12:56', '2022-12-11 15:13:43'),
+(4, 'Phan Huy Hiệp', '', '123456', 'huyhiep2003@gmail.com', '', '0987654321', '/public/uploads/cat.jpg', 1, 1, 6, '2022-12-11 15:29:56', '2022-12-11 15:30:18'),
+(5, 'Nguyễn Văn A', '', '123456', 'casisitinh123@gmail.com', '', '0123456789', '', 1, 0, 1, '2022-12-11 22:45:57', '2022-12-11 22:45:57');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -274,7 +283,8 @@ INSERT INTO `users` (`id`, `fullname`, `username`, `password`, `email`, `address
 -- Chỉ mục cho bảng `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `admin_fk0` (`facility_id`);
 
 --
 -- Chỉ mục cho bảng `categories`
@@ -344,7 +354,8 @@ ALTER TABLE `permissions`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `phone` (`phone`);
+  ADD UNIQUE KEY `phone` (`phone`),
+  ADD KEY `users_fk0` (`facility_id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -354,49 +365,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `favourites`
 --
 ALTER TABLE `favourites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `favourite_item`
 --
 ALTER TABLE `favourite_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `permissions`
@@ -408,11 +419,17 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_fk0` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`);
 
 --
 -- Các ràng buộc cho bảng `favourites`
@@ -453,6 +470,12 @@ ALTER TABLE `orders_item`
 --
 ALTER TABLE `permissions`
   ADD CONSTRAINT `permissions_fk0` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Các ràng buộc cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_fk0` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
