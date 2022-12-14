@@ -37,8 +37,11 @@
                 </td>
                 <td><?= $order['status'] == 0 ? "Đang duyệt" : "Đã duyệt" ?>
                 </td>
-                <td><a href="http://localhost/poly_tro/site/order/deleteOrder?id=<?= $order['order_item_id'] ?>"
+                <td>
+                    <?php if ($order['status'] == 0) : ?>
+                    <a href="http://localhost/poly_tro/site/order/deleteOrder?id=<?= $order['order_item_id'] ?>"
                         class="btn-remover">Xóa</a>
+                    <?php endif ?>
                 </td>
             </tr>
             <?php endforeach ?>

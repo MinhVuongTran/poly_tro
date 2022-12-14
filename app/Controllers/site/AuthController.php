@@ -63,8 +63,9 @@ class AuthController extends BaseController
             "updated_at" => date("Y-m-d H:i:s"),
         ];
         $this->authModel->createUser($data);
-        echo "Đăng ký thành công";
-        header("Refresh: 2; URL=http://localhost/poly_tro/site/account?signIn");
+        echo "<script>alert('Đăng ký thành công');
+        </script>";
+        header("Refresh: 0.5; URL=http://localhost/poly_tro/site/account?signIn");
     }
 
     public function logout()
