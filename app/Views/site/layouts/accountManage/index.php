@@ -48,8 +48,11 @@
                 <td><?= $status ?></td>
                 <td><?= $new['status'] == 0 ? "Đang duyệt" : "Đã duyệt" ?>
                 </td>
-                <td><a href="http://localhost/poly_tro/site/account/deleteNew?id=<?= $new['id'] ?>"
+                <td>
+                    <?php if ($new['status'] == 0) : ?>
+                    <a href="http://localhost/poly_tro/site/account/deleteNew?id=<?= $new['id'] ?>"
                         class="btn-remover">Xóa</a>
+                    <?php endif ?>
                 </td>
             </tr>
             <?php endforeach ?>

@@ -44,9 +44,16 @@ class NewController extends BaseController
     public function saveUpdate()
     {
         $id = $_GET["id"];
-        $data = [
-            "status" => 1,
-        ];
+        $new = $this->newModel->getOne($id);
+        if ($new['status'] == 0) {
+            $data = [
+                "status" => 1,
+            ];
+        } else {
+            $data = [
+                "status" => 0,
+            ];
+        }
         $this->newModel->updateNew($data, $id);
         header('location: http://localhost/poly_tro/admin/new');
     }
